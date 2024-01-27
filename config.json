@@ -1,0 +1,145 @@
+{
+    "AssetPath": "./assets/",
+    "GameViewport": {
+        "WIDTH": 500,
+        "HEIGHT": 250
+    },
+    "GroundHeight": 142,
+    "Character": {
+        "Samurai": {
+            "width": 50,
+            "height": 86,
+            "defaultAnimation": "Idle",
+            "animation": {
+                "Idle": {
+                    "name": "Idle",
+                    "path": "Samurai/Idle.png",
+                    "frameCount": 6,
+                    "width": 50,
+                    "height": 86,
+                    "offsetX": 0,
+                    "offsetY": 0,
+                    "animationSpeed": 0.01,
+                    "animationScale": 1
+                },
+                "Run": {
+                    "name": "Run",
+                    "path": "Samurai/Run.png",
+                    "frameCount": 8,
+                    "width": 100,
+                    "height": 86,
+                    "offsetX": 10,
+                    "offsetY": 0,
+                    "animationSpeed": 0.02,
+                    "animationScale": 1
+                },
+                "Jump": {
+                    "name": "Jump",
+                    "path": "Samurai/Jump.png",
+                    "frameCount": 12,
+                    "width": 50,
+                    "height": 86,
+                    "offsetX": 0,
+                    "offsetY": 0,
+                    "animationSpeed": 0.02,
+                    "animationScale": 1
+                },
+                "Attack1": {
+                    "name": "Attack1",
+                    "path": "Samurai/Attack_1.png",
+                    "frameCount": 6,
+                    "width": 128,
+                    "height": 86,
+                    "offsetX": 20,
+                    "offsetY": 0,
+                    "animationSpeed": 0.02,
+                    "animationScale": 1
+                }
+            }
+        },
+        "TrainingDummy": {
+            "width": 64,
+            "height": 64,
+            "defaultAnimation": "OnAttacked",
+            "animation": {
+                "OnAttacked": {
+                    "name": "OnAttacked",
+                    "path": "TrainingDummy/tile000.png",
+                    "frameCount": 4,
+                    "width": 32,
+                    "height": 32,
+                    "offsetX": 0,
+                    "offsetY": 12,
+                    "animationSpeed": 0.002,
+                    "animationScale": 2
+                }
+            }
+        }
+    },
+    "Object": {
+        "Shop": {
+            "path": "shop.png",
+            "frameCount": 6,
+            "position": {
+                "x": 370,
+                "y": 143
+            },
+            "animationSpeed": 0.01
+        }
+    },
+    "ParticleConfig": {
+        "BlueFire": {
+            "alpha": {
+                "start": 1,
+                "end": 0
+            },
+            "scale": {
+                "start": 0.5,
+                "end": 0.005,
+                "minimumScaleMultiplier": 1
+            },
+            "color": {
+                "start": "#e4f9ff",
+                "end": "#00b7ff"
+            },
+            "speed": {
+                "start": 200,
+                "end": 10,
+                "minimumSpeedMultiplier": 1
+            },
+            "acceleration": {
+                "x": 0,
+                "y": 0
+            },
+            "maxSpeed": 0,
+            "startRotation": {
+                "min": 0,
+                "max": 360
+            },
+            "noRotation": false,
+            "rotationSpeed": {
+                "min": 0,
+                "max": 0
+            },
+            "lifetime": {
+                "min": 0.1,
+                "max": 0.4
+            },
+            "blendMode": "normal",
+            "frequency": 0.001,
+            "emitterLifetime": -1,
+            "maxParticles": 500,
+            "pos": {
+                "x": 0,
+                "y": 0
+            },
+            "addAtBack": false,
+            "spawnType": "circle",
+            "spawnCircle": {
+                "x": 0,
+                "y": 0,
+                "r": 0
+            }
+        }
+    }
+}

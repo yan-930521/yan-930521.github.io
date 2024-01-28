@@ -1,7 +1,7 @@
 import * as PIXI from "pixi.js";
 import * as Matter from "matter-js";
 
-import { Config } from "../Confjg";
+import { Config } from "./Confjg";
 import { BasicObject } from "./BasicObject";
 import { World } from "./World";
 import { gameMain } from "..";

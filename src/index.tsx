@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-import { Config } from "./Confjg";
+import { Config } from "./game/Confjg";
 import { GameView } from "./components/GameView";
 import { GameMain } from "./game/GameMain";
 

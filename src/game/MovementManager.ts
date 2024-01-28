@@ -1,4 +1,4 @@
-import { Config } from "../Confjg";
+import { Config } from "./Confjg";
 import { Character } from "./Character";
 import MovementHandlers from "./movements/";
 

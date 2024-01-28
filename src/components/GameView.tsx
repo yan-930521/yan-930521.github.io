@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as PIXI from 'pixi.js';
-import { Config } from "../Confjg";
+import { Config } from "../game/Confjg";
 import { gameMain } from "..";
 
 interface GameViewProps extends React.HTMLAttributes<HTMLCanvasElement> {

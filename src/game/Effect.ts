@@ -130,10 +130,13 @@ export class Effect extends BasicBodyObject {
         this.followOffset = followOffset;
         return this;
     }
-    // clearFollowOffset(followOffset: Offset): Effect {
-    //     this.followOffset = followOffset;
-    //     return this;
-    // }
+    clearFollowOffset(): Effect {
+        this.followOffset = {
+            x: 0,
+            y: 0
+        };
+        return this;
+    }
     setFollow(follow: BasicBodyObject): Effect {
         this.follow = follow;
         this.follow.followed = this;

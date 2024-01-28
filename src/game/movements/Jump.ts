@@ -5,7 +5,7 @@ export default {
     key: [Movement.Jump],
     name: "Jump",
     description: "跳躍",
-    cd: 500,
+    cd: 100,
     priority: 1,
     execute: (character: Character, matchedMonementHandler: MovementHandler) => {
         // character.setFace(Face.LEFT);

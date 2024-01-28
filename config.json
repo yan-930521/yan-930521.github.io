@@ -5,6 +5,10 @@
         "HEIGHT": 250,
         "GroundHeight": 142
     },
+    "GameSetting": {
+        "moveSpeed": 7,
+        "moveSpeedOnAir": 3
+    },
     "Character": {
         "Samurai": {
             "width": 50,

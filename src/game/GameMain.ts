@@ -1,7 +1,7 @@
 import * as PIXI from "pixi.js";
 
 import { World } from "./World";
-import { Config } from '../Confjg';
+import { Config } from './Confjg';
 import { Movement } from "./MovementManager";
 
 PIXI.settings.RENDER_OPTIONS.eventMode = "none";

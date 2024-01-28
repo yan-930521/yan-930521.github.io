@@ -1,6 +1,6 @@
 import * as PIXI from "pixi.js";
 
-import { Config } from "../Confjg";
+import { Config } from "./Confjg";
 import { Resource } from "./Resource";
 import { BasicObject } from "./BasicObject";
 import { gameMain } from "..";

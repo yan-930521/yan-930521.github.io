@@ -1,3 +1,4 @@
+import { gameMain } from "../..";
 import { Face } from "../BasicObject";
 import { Character } from "../Character";
 import { Movement, MovementHandler } from "../MovementManager";
@@ -13,8 +14,8 @@ export default {
 
         if (!character.isJumping()) {
             character.isRunning = true;
-            character.moveByPos(7, 0);
+            character.moveByPos(gameMain.config.GameSetting.moveSpeed, 0);
             character.switchAnimation("Run");
-        } else character.moveByPos(3, 0);
+        } else character.moveByPos(gameMain.config.GameSetting.moveSpeedOnAir, 0);
     }
 } as MovementHandler;

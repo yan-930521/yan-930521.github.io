@@ -1,7 +1,5 @@
 declare module "matter-attractors";
 declare namespace CONFIG {
-
-
     interface CharacterConfig {
         width: number,
         height: number,
@@ -39,14 +37,17 @@ declare namespace CONFIG {
     interface ObjectConfigs {
         [key: string]: ObjectConfig
     }
+    interface GameSetting {
+        moveSpeed: number,
+        moveSpeedOnAir: number
+    }
     interface IConfig {
         GameViewport: {
             WIDTH: number,
             HEIGHT: number,
             GroundHeight: number,
         },
-        JumpCD: number,
-        
+        GameSetting: GameSetting
         AssetPath: string,
         Character: CharacterConfigs,
         Object: ObjectConfigs,

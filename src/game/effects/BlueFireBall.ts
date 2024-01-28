@@ -4,7 +4,7 @@ import * as Particle from "@pixi/particle-emitter";
 
 import { World } from "../World";
 import { Effect } from "../Effect";
-import { Config } from "../../Confjg";
+import { Config } from "../Confjg";
 import { Character } from "../Character";
 import { continMover } from "../MovementManager";
 import { Face } from "../BasicObject";

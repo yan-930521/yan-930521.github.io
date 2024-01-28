@@ -2,7 +2,6 @@ import * as PIXI from "pixi.js";
 import * as Matter from "matter-js";
 
 import { Ground } from "./Ground";
-import { Config } from "../Confjg";
 import { Character } from "./Character";
 import { BackGround } from "./BackGround";
 import { gameMain } from "..";

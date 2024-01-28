@@ -22,7 +22,7 @@ export default {
 
         const effect = new Effect()
             .setEmitter(Particle.upgradeConfig(
-                gameMain.config.ParticleConfig.BlueFire as Particle.EmitterConfigV2
+                gameMain.config.Particle.BlueFire as Particle.EmitterConfigV2
                 , [
                     PIXI.Texture.from("./assets/particle.png")
                 ]

@@ -4,8 +4,7 @@ export class Config implements CONFIG.IConfig {
     public AssetPath: CONFIG.IConfig["AssetPath"];
     public Character: CONFIG.IConfig["Character"] = {};
     public Object: CONFIG.IConfig["Object"] = {};
-    public GroundHeight: CONFIG.IConfig["GroundHeight"];
-    public ParticleConfig: CONFIG.IConfig["ParticleConfig"] = {};
+    public Particle: CONFIG.IConfig["Particle"] = {};
 
     constructor() {
     }
@@ -13,7 +12,6 @@ export class Config implements CONFIG.IConfig {
     async fetch(): Promise<Config> {
         const response = await fetch('./config.json');
         const config = await response.json() as CONFIG.IConfig;
-
 
         Object.assign(this, config);
 

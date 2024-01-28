@@ -42,14 +42,15 @@ declare namespace CONFIG {
     interface IConfig {
         GameViewport: {
             WIDTH: number,
-            HEIGHT: number
+            HEIGHT: number,
+            GroundHeight: number,
         },
         JumpCD: number,
-        GroundHeight: number,
+        
         AssetPath: string,
         Character: CharacterConfigs,
         Object: ObjectConfigs,
-        ParticleConfig: {
+        Particle: {
             [name: string]: any
         }
     }

@@ -18,23 +18,27 @@ export class BackGround extends BasicObject {
         
         this.addChild(backgroundColor);
 
-        Resource.loadResource(Resource.getUrl(gameMain.config.AssetPath, "background.png")).then((sprite: PIXI.Sprite) => {
-            const scale = Math.min(gameMain.config.GameViewport.WIDTH / sprite.width, gameMain.config.GameViewport.HEIGHT / sprite.height);
+        for(let i in gameMain.config.Object) {
+            const objectConfig = gameMain.config.Object[i];
 
-            sprite.x = gameMain.config.GameViewport.WIDTH / 2;
-            sprite.y = gameMain.config.GameViewport.HEIGHT / 2;
-
-            sprite.scale.set(scale);
-
-            this.addChild(sprite);
-        });
-
-        const object = gameMain.config.Object["Shop"];
-        if (object) {
-            this.animationManager.loadObject("Shop", object).then((animation: PIXI.AnimatedSprite) => {
-                animation.play();
-                this.addChild(animation);
-            });
+            if(objectConfig.frameCount == 1) {
+                Resource.loadResource(Resource.getUrl(gameMain.config.AssetPath, "background.png")).then((sprite: PIXI.Sprite) => {
+                    const scale = Math.min(gameMain.config.GameViewport.WIDTH / sprite.width, gameMain.config.GameViewport.HEIGHT / sprite.height);
+        
+                    sprite.x = gameMain.config.GameViewport.WIDTH / 2;
+                    sprite.y = gameMain.config.GameViewport.HEIGHT / 2;
+        
+                    sprite.scale.set(scale);
+        
+                    this.addChild(sprite);
+                });
+        
+            } else {
+                this.animationManager.loadObject(i, objectConfig).then((animation: PIXI.AnimatedSprite) => {
+                    animation.play();
+                    this.addChild(animation);
+                });
+            }
         }
 
         // 不用管

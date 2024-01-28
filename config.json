@@ -2,9 +2,9 @@
     "AssetPath": "./assets/",
     "GameViewport": {
         "WIDTH": 500,
-        "HEIGHT": 250
+        "HEIGHT": 250,
+        "GroundHeight": 142
     },
-    "GroundHeight": 142,
     "Character": {
         "Samurai": {
             "width": 50,
@@ -77,6 +77,15 @@
         }
     },
     "Object": {
+        "BackGround": {
+            "path": "background.png",
+            "frameCount": 1,
+            "position": {
+                "x": 0,
+                "y": 0
+            },
+            "animationSpeed": 0
+        },
         "Shop": {
             "path": "shop.png",
             "frameCount": 6,
@@ -87,7 +96,7 @@
             "animationSpeed": 0.01
         }
     },
-    "ParticleConfig": {
+    "Particle": {
         "BlueFire": {
             "alpha": {
                 "start": 1,

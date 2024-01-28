@@ -34,7 +34,7 @@ export class Character extends BasicBodyObject {
 
         this.positionOffset = {
             x: gameMain.config.GameViewport.WIDTH / 2,
-            y: gameMain.config.GroundHeight // gameMain.config.GameViewport.HEIGHT - this.characterConfig.height
+            y: gameMain.config.GameViewport.GroundHeight // gameMain.config.GameViewport.HEIGHT - this.characterConfig.height
         }
 
         this.setPos(0, 0);
@@ -111,7 +111,6 @@ export class Character extends BasicBodyObject {
         // 跑步 -> 如果下一個按鍵不是Running
 
         let stopRunning = (lastIsRunning && !this.isRunning);
-        console.log(movements, this.canIdle())
         if(
             (stopRunning && matchedMonementHandlers.length == 0 ) ||
             (this.canIdle() && matchedMonementHandlers.length == 0 )
@@ -184,7 +183,7 @@ export class Character extends BasicBodyObject {
     onBeforeUpdate(): void {
         if(this.animationManager.animationConfigs["Jump"]) {
             if (this.animationManager.isReady() && this.animationManager.getAnimationFrame("Jump") == 6) {
-                if (this.body.velocity.y > 0 && (gameMain.config.GroundHeight - this.height / 2) - this.body.position.y < 70) {
+                if (this.body.velocity.y > 0 && (gameMain.config.GameViewport.GroundHeight - this.height / 2) - this.body.position.y < 70) {
                     this.animationManager.animations["Jump"].play();
                 }
             }

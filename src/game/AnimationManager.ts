@@ -1,4 +1,4 @@
-import { AnimatedSprite } from "pixi.js";
+import { AnimatedSprite, Sprite } from "pixi.js";
 
 import { BasicObject } from "./BasicObject";
 import { Animations, Resource } from "./Resource";
@@ -7,8 +7,8 @@ import { gameMain } from "..";
 import { Character } from "./Character";
 
 
-export type AnimationCallBack = (animation: AnimatedSprite) => void;
-export type AnimationsCallBack = (animations: AnimatedSprite[]) => void;
+export type AnimationCallBack = (animation: AnimatedSprite | Sprite) => void;
+export type AnimationsCallBack = (animations: (AnimatedSprite | Sprite)[]) => void;
 
 export class AnimationManager {
     public animations: Animations = {};
@@ -48,7 +48,7 @@ export class AnimationManager {
             animationConfig.width,
             animationConfig.height
         );
-        
+
         animation.x = animationConfig.offsetX;
         animation.y = animationConfig.offsetY;
         animation.animationSpeed = animationConfig.animationSpeed;
@@ -57,18 +57,18 @@ export class AnimationManager {
         this.animations[animationConfig.name] = animation;
         this.animationConfigs[animationConfig.name] = animationConfig;
 
-        if(animationConfig.name == this.parent.characterConfig.defaultAnimation) this.setHaveToStop(animationConfig.name, false);
+        if (animationConfig.name == this.parent.characterConfig.defaultAnimation) this.setHaveToStop(animationConfig.name, false);
         else this.setHaveToStop(animationConfig.name, true);
 
-        if(loadAnimationCallBack) loadAnimationCallBack(animation);
+        if (loadAnimationCallBack) loadAnimationCallBack(animation);
         return animation;
     }
-    async loadObject(name: string, objectConfig: CONFIG.ObjectConfig, loadObjectCallBack?: AnimationCallBack): Promise<AnimatedSprite> {
+    async loadObject(name: string, objectConfig: CONFIG.ObjectConfig, loadObjectCallBack?: AnimationCallBack): Promise<AnimatedSprite | Sprite> {
         const animation = await Resource.loadAnimatedResource(
             Resource.getUrl(gameMain.config.AssetPath, objectConfig.path),
             objectConfig.frameCount
         );
-        
+
         animation.x = objectConfig.position.x;
         animation.y = objectConfig.position.y;
         animation.animationSpeed = objectConfig.animationSpeed;
@@ -76,7 +76,7 @@ export class AnimationManager {
         this.animations[name] = animation;
         this.staticAnimations[name] = true;
 
-        if(loadObjectCallBack) loadObjectCallBack(animation);
+        if (loadObjectCallBack) loadObjectCallBack(animation);
         return animation;
     }
 
@@ -85,15 +85,15 @@ export class AnimationManager {
     }
 
     switchAnimation(animation?: string, switchAnimationCallBack?: AnimationCallBack): void {
-        if(!this.isReady()) return;
+        if (!this.isReady()) return;
 
-        for(let name in this.animations) {
+        for (let name in this.animations) {
             this.animations[name].stop();
             this.parent.removeChild(this.animations[name]);
         }
 
-        if(animation) {
-            if(this.nowAnimation == animation && !this.getMustStop(animation)) {
+        if (animation) {
+            if (this.nowAnimation == animation && !this.getMustStop(animation)) {
                 // 如果跟上一個動畫一樣
                 // 就不需要再次play
                 this.setHaveToStop(animation, false);
@@ -108,7 +108,7 @@ export class AnimationManager {
 
         this.animations[this.nowAnimation].play();
 
-        if(switchAnimationCallBack) {
+        if (switchAnimationCallBack) {
             switchAnimationCallBack(this.animations[this.nowAnimation]);
         }
     }
@@ -125,7 +125,7 @@ export class AnimationManager {
         this.haveToStopAnimations[name] = bool ? true : false;
     }
     getHaveToStop(name: string) {
-        if(this.haveToStopAnimations[name]) {
+        if (this.haveToStopAnimations[name]) {
             return true;
         } else {
             return false;
@@ -137,7 +137,7 @@ export class AnimationManager {
     }
     getMustStop(name: string) {
         // 預設為不一定要停下
-        if(typeof this.mustStopAnimations[name] == "undefined") {
+        if (typeof this.mustStopAnimations[name] == "undefined") {
             this.setMustStop(name, false);
             return false;
         }
@@ -145,11 +145,11 @@ export class AnimationManager {
     }
 
     update(deltaMS: number) {
-        if(!this.isReady()) return;
+        if (!this.isReady()) return;
 
         if (this.nowAnimation && this.animations[this.nowAnimation]) this.animations[this.nowAnimation].update(deltaMS);
-        for(let name in this.staticAnimations) {
-            if(this.staticAnimations[name] && this.animations[name]) {
+        for (let name in this.staticAnimations) {
+            if (this.staticAnimations[name] && this.animations[name]) {
                 this.animations[name].update(deltaMS);
             }
         }

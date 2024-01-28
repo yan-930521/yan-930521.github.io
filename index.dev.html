@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>TW.SAKURA | Proj. Fighting</title>
+    <style>
+        body,
+        html {
+            background-color: black;
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            display: flex;
+        }
+
+        canvas {
+            width: 100%;
+            object-fit: contain;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    <canvas id="canvas"></canvas>
+    <canvas id="matter" style="display: none;"></canvas>
+    <!-- <canvas id="matter"></canvas> -->
+    <!-- Dependencies -->
+    <script src="./node_modules/react/umd/react.development.js"></script>
+    <script src="./node_modules/react-dom/umd/react-dom.development.js"></script>
+    <!-- Main -->
+    <script src="./dist/bundle.js"></script>
+</body>
+
+</html>

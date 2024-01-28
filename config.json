@@ -6,8 +6,8 @@
         "GroundHeight": 142
     },
     "GameSetting": {
-        "moveSpeed": -2,
-        "moveSpeedOnAir": 0
+        "moveSpeed": 5,
+        "moveSpeedOnAir": 3
     },
     "Character": {
         "Samurai": {
@@ -34,7 +34,7 @@
                     "height": 86,
                     "offsetX": 10,
                     "offsetY": 0,
-                    "animationSpeed": 0.02,
+                    "animationSpeed": 0.013,
                     "animationScale": 1
                 },
                 "Jump": {

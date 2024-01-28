@@ -14,7 +14,6 @@ export default {
 
         if (!character.isJumping()) {
             character.isRunning = true;
-            console.log(gameMain.config.GameSetting.moveSpeed)
             character.moveByPos(gameMain.config.GameSetting.moveSpeed, 0);
             character.switchAnimation("Run");
         } else character.moveByPos(gameMain.config.GameSetting.moveSpeedOnAir, 0);

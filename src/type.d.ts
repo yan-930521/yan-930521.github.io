@@ -87,7 +87,6 @@ declare interface IGameMain {
 
 /**
  * 整個物理世界，可以管理所有物件
- * - 已更新
  */
 declare interface IWorld {
     background: any //BackGround
@@ -156,8 +155,7 @@ declare interface IWorld {
 }
 
 /**
- * 主要的遊戲邏輯
- * - 已更新
+ * 為設定檔規範格式
  */
 declare interface IConfig {
     /**
@@ -198,6 +196,9 @@ declare interface IConfig {
     fetch(): Promise<IConfig>
 }
 
+/**
+ * 每個顯示出來的物件都要具備的屬性
+ */
 declare interface IBasicObject {
     /**
      * 紅色外框，用來除錯
@@ -281,6 +282,9 @@ declare interface IBasicObject {
     waitMS(ms: number, cb: () => void): number
 }
 
+/**
+ * 添加鋼體的物件要具備的屬性
+ */
 declare interface IBodyObject extends IBasicObject {
     body: Matter.Body
 

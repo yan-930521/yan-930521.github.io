@@ -14,8 +14,7 @@
 > 續力一秒後，在100毫秒內，總共10次，每次都給火球一個0.5大小的力
 - 藍色粒子特效
 ### 軟體相關
-網頁框架: [React](https://react.dev/)
-物理引擎: [Matter.js](https://brm.io/matter-js/)
-繪圖引擎: [Pixi.js](https://pixijs.com/)
-
-Document: [Link](./docs/modules.md)
+- 網頁框架: [React](https://react.dev/)
+- 物理引擎: [Matter.js](https://brm.io/matter-js/)
+- 繪圖引擎: [Pixi.js](https://pixijs.com/)
+- Document: [Link](./docs/modules.md)

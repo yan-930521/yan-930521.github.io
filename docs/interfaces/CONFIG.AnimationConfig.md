@@ -26,7 +26,7 @@
 
 #### Defined in
 
-[type.d.ts:23](https://github.com/yan-930521/yan-930521.github.io/blob/74f3205/src/type.d.ts#L23)
+[type.d.ts:23](https://github.com/yan-930521/yan-930521.github.io/blob/7eab074/src/type.d.ts#L23)
 
 ___
 
@@ -36,7 +36,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:22](https://github.com/yan-930521/yan-930521.github.io/blob/74f3205/src/type.d.ts#L22)
+[type.d.ts:22](https://github.com/yan-930521/yan-930521.github.io/blob/7eab074/src/type.d.ts#L22)
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:17](https://github.com/yan-930521/yan-930521.github.io/blob/74f3205/src/type.d.ts#L17)
+[type.d.ts:17](https://github.com/yan-930521/yan-930521.github.io/blob/7eab074/src/type.d.ts#L17)
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:19](https://github.com/yan-930521/yan-930521.github.io/blob/74f3205/src/type.d.ts#L19)
+[type.d.ts:19](https://github.com/yan-930521/yan-930521.github.io/blob/7eab074/src/type.d.ts#L19)
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:15](https://github.com/yan-930521/yan-930521.github.io/blob/74f3205/src/type.d.ts#L15)
+[type.d.ts:15](https://github.com/yan-930521/yan-930521.github.io/blob/7eab074/src/type.d.ts#L15)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:20](https://github.com/yan-930521/yan-930521.github.io/blob/74f3205/src/type.d.ts#L20)
+[type.d.ts:20](https://github.com/yan-930521/yan-930521.github.io/blob/7eab074/src/type.d.ts#L20)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:21](https://github.com/yan-930521/yan-930521.github.io/blob/74f3205/src/type.d.ts#L21)
+[type.d.ts:21](https://github.com/yan-930521/yan-930521.github.io/blob/7eab074/src/type.d.ts#L21)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:16](https://github.com/yan-930521/yan-930521.github.io/blob/74f3205/src/type.d.ts#L16)
+[type.d.ts:16](https://github.com/yan-930521/yan-930521.github.io/blob/7eab074/src/type.d.ts#L16)
 
 ___
 
@@ -106,4 +106,4 @@ ___
 
 #### Defined in
 
-[type.d.ts:18](https://github.com/yan-930521/yan-930521.github.io/blob/74f3205/src/type.d.ts#L18)
+[type.d.ts:18](https://github.com/yan-930521/yan-930521.github.io/blob/7eab074/src/type.d.ts#L18)

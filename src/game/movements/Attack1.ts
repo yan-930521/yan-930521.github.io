@@ -1,5 +1,5 @@
 import { Character } from "../Character";
-import { Movement, MovementHandler } from "../MovementManager";
+import { Movement, MovementHandler } from "../managers/MovementManager";
 
 export default {
     key: [Movement.Attack1],

@@ -1,4 +1,3 @@
-declare module "matter-attractors";
 declare namespace CONFIG {
     interface CharacterConfig {
         width: number,
@@ -11,6 +10,7 @@ declare namespace CONFIG {
     interface CharacterConfigs {
         [key: string]: CharacterConfig
     }
+
     interface AnimationConfig {
         name: string,
         path: string,
@@ -25,34 +25,290 @@ declare namespace CONFIG {
     interface AnimationConfigs {
         [key: string]: AnimationConfig
     }
+
     interface ObjectConfig {
-        path: string,
-        frameCount: number,
+        path: string
+        frameCount: number
         animationSpeed: number
         position: {
-            x: number,
+            x: number
             y: number
         }
     }
     interface ObjectConfigs {
         [key: string]: ObjectConfig
     }
+    interface GameViewport {
+        WIDTH: number
+        HEIGHT: number
+        GroundHeight: number
+    }
+
     interface GameSetting {
-        moveSpeed: number,
+        moveSpeed: number
         moveSpeedOnAir: number
     }
-    interface IConfig {
-        GameViewport: {
-            WIDTH: number,
-            HEIGHT: number,
-            GroundHeight: number,
-        },
-        GameSetting: GameSetting
-        AssetPath: string,
-        Character: CharacterConfigs,
-        Object: ObjectConfigs,
-        Particle: {
-            [name: string]: any
-        }
+
+    interface KeyInput {
+        [key: string]: boolean
+    }
+
+    interface Vector {
+        x: number
+        y: number
     }
 }
+
+/**
+ * 主要的遊戲邏輯
+ */
+declare interface IGameMain {
+    /**
+     * 是否為測試模式(顯示外框、log輸出)
+     * @default false
+     */
+    debug: boolean
+
+    pixi: import("pixi.js").Application
+    config: IConfig
+    world: IWorld
+
+    /**
+     * 上次更新的時間
+     */
+    laseUpdateTime: number
+
+    /**
+     * 事件監聽所接受到的鍵盤輸入
+     */
+    keyInput: CONFIG.KeyInput
+
+}
+
+/**
+ * 整個物理世界，可以管理所有物件
+ * - 已更新
+ */
+declare interface IWorld {
+    background: any //BackGround
+    ground: any //Ground
+    character: any //Character
+    trainingDummy: any //Character
+
+    /**
+     * 需要忽略重力的鋼體ID
+     */
+    ignoreGravityList: number[]
+
+    /**
+     * 上次更新的時間
+     */
+    laseUpdateTime: number
+
+    /**
+     * Matter的引擎
+     */
+    engine: Matter.Engine
+
+    /**
+     * Matter的渲染器，用來顯示鋼體
+     */
+    renderer: Matter.Render
+
+    createBackGround(): void
+    createGround(): void
+    createCharacter(): void
+    createTrainingDummy(): void
+
+    /**
+     * 處理碰撞邏輯
+     */
+    createCollisionHandler(): void
+
+    /**
+     * 更新所有內部組件
+     * @param deltaMS
+     */
+    update(deltaMS?: number): void
+
+    /**
+     * 增加鋼體到物理引擎之中
+     * @param body 
+     */
+    addBody(body: Matter.Body): void
+
+    /**
+     * 將鋼體從物理引擎中去除
+     * @param body 
+     */
+    removeBody(body: Matter.Body): void
+
+    /**
+     * 將鋼體設置成忽略重力
+     * @param body 
+     */
+    setIgnoreGravity(body: Matter.Body): void
+
+    /**
+     * 世界初始化邏輯
+     */
+    init(): IWorld
+}
+
+/**
+ * 主要的遊戲邏輯
+ * - 已更新
+ */
+declare interface IConfig {
+    /**
+     * 跟顯示有關的設定
+     */
+    GameViewport: CONFIG.GameViewport
+
+    /**
+     * 遊戲內部設定
+     */
+    GameSetting: CONFIG.GameSetting
+
+    /**
+     * 資源的靜態路徑
+     */
+    AssetPath: string
+
+    /**
+     * 玩家控制角色的設定，包含動畫設定
+     */
+    Character: CONFIG.CharacterConfigs
+
+    /**
+     * 靜態物體的設定
+     */
+    Object: CONFIG.ObjectConfigs
+
+    /**
+     * 粒子特效設定
+     */
+    Particle: {
+        [name: string]: any
+    }
+
+    /**
+     * 取得config.json的內容
+     */
+    fetch(): Promise<IConfig>
+}
+
+declare interface IBasicObject {
+    /**
+     * 紅色外框，用來除錯
+     */
+    debugBox: import("pixi.js").Graphics
+
+    /**
+     * 角色跟隨的物體()
+     */
+    followed: IBasicObject | null
+
+    /**
+     * 角色面對的方向
+     * @default Face.RIGHT
+     */
+    face: import("./game/Face").Face;
+
+    /**
+     * 顯示容器和鋼體的位置偏差
+     * @default {x:0,y:0}
+     */
+    positionOffset: CONFIG.Vector
+
+    animationManager: any //AnimationManager
+
+    /**
+     * 角色的設定
+     */
+    characterConfig: CONFIG.CharacterConfig;
+
+    /**
+     * 改變面向
+     */
+    setFace(face: import("./game/Face").Face): void
+
+    /**
+     * 取的當前的面向
+     */
+    getFace(): import("./game/Face").Face | null
+
+    /**
+     * 在更新前呼叫
+     * 需要實作
+     */
+    onBeforeUpdate(deltaMS: number): void
+
+    /**
+     * 在更新時呼叫
+     * 需要實作
+     */
+    onUpdate(deltaMS: number): void
+
+    /**
+     * 更新物體
+     * @param deltaMS
+     */
+    update(deltaMS: number): void
+
+    /**
+     * 取得實際位置
+     */
+    getPosition(): CONFIG.Vector
+
+    /**
+     * 設定實際位置
+     * @param vector
+     */
+    setPosition(vector: CONFIG.Vector): void
+
+    /**
+     * 切換動畫
+     * @param name
+     */
+    switchAnimation(name?: string): void
+
+    /**
+     * 等待若干毫秒後執行
+     * @param ms 
+     * @param cb 
+     */
+    waitMS(ms: number, cb: () => void): number
+}
+
+declare interface IBodyObject extends IBasicObject {
+    body: Matter.Body
+
+    stop(): void
+    
+    /**
+     * 設置鋼體位置
+     * @param vector 
+     */
+    setBodyPosition(vector: CONFIG.Vector): void
+
+    /**
+     * 透過力移動
+     * @param vector 
+     */
+    moveByForce(vector: CONFIG.Vector): void
+
+    /**
+     * 透過向量座標移動
+     * @param vector 
+     */
+    moveByPosition(vector: CONFIG.Vector): void
+
+    /**
+     * 透過指定速度移動
+     * @param vector
+     */
+    moveByVelocity(vector: CONFIG.Vector): void
+}
+
+// 待更新

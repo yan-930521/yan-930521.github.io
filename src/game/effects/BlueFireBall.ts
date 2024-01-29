@@ -2,12 +2,12 @@ import * as PIXI from "pixi.js";
 import * as Matter from "matter-js";
 import * as Particle from "@pixi/particle-emitter";
 
-import { World } from "../World";
+
+import { Face } from "../Face";
 import { Effect } from "../Effect";
-import { Config } from "../Confjg";
 import { Character } from "../Character";
-import { continMover } from "../MovementManager";
-import { Face } from "../BasicObject";
+import { continMover } from "../managers/MovementManager";
+
 import { gameMain } from "../..";
 
 export default {
@@ -42,11 +42,11 @@ export default {
                 x: 0,
                 y: 40
             });
-        
+
         gameMain.world.setIgnoreGravity(effect.body);
 
         effect.onStart = (): void => {
-            effect.wait(1000, () => {
+            effect.waitMS(1000, () => {
                 preparing = false;
                 effect
                     .clearFollow()
@@ -55,9 +55,10 @@ export default {
                         y: 0
                     });
                 continMover(10, 10, () => {
-                    effect.moveByForce((
-                        character.getFace() == Face.RIGHT ? step : step * -1
-                    ), 0);
+                    effect.moveByForce({
+                        x: (character.getFace() == Face.RIGHT ? step : step * -1),
+                        y: 0
+                    });
                     effect.update(performance.now() - lastUpdateTime);
                     lastUpdateTime = performance.now();
                 }, () => {
@@ -67,11 +68,14 @@ export default {
         }
 
         effect.onUpdate = () => {
-            if(effect.body) {
-                if(preparing) {
-                    effect.setBodyPosition(character.body.position.x + 50 * (character.getFace() == Face.RIGHT ? 1 : -1), character.body.position.y);
+            if (effect.body) {
+                if (preparing) {
+                    effect.setBodyPosition({
+                        x: (character.body.position.x + 50 * (character.getFace() == Face.RIGHT ? 1 : -1)),
+                        y: character.body.position.y
+                    });
                 }
-                Matter.Body.setVelocity(effect.body, {
+                effect.moveByVelocity({
                     x: effect.body.velocity.x,
                     y: 0
                 })

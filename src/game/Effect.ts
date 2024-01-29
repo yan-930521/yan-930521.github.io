@@ -2,8 +2,7 @@ import * as PIXI from "pixi.js";
 import * as Matter from "matter-js";
 import * as Particle from "@pixi/particle-emitter";
 
-import { World } from "./World";
-import { BasicBodyObject } from "./BasicBodyObject";
+import { BodyObject } from "./BodyObject";
 
 import { gameMain } from "..";
 
@@ -11,11 +10,11 @@ export interface Offset {
     x: number,
     y: number
 }
-export class Effect extends BasicBodyObject {
+export class Effect extends BodyObject {
     public emitter: Particle.Emitter;
     public body: Matter.Body;
 
-    public follow: BasicBodyObject;
+    public follow: BodyObject;
     public graphics: PIXI.Graphics;
     public sprite: PIXI.Sprite;
     public offset: Offset;
@@ -24,7 +23,7 @@ export class Effect extends BasicBodyObject {
     public particleContainer: PIXI.Container;
 
     constructor() {
-        super(null, false);
+        super(null);
 
         gameMain.world.addChild(this);
         this.width = gameMain.config.GameViewport.WIDTH;
@@ -43,12 +42,9 @@ export class Effect extends BasicBodyObject {
             x = this.follow.body.position.x + this.followOffset.x;
             y = this.follow.body.position.y + this.followOffset.y;
 
-            this.setBodyPosition(
-                x,
-                y
-            );
-                
-            if(this.emitter) this.emitter.updateOwnerPos(
+            this.setBodyPosition({x, y});
+
+            if (this.emitter) this.emitter.updateOwnerPos(
                 x + this.offset.x,
                 y + this.offset.y
             );
@@ -62,7 +58,7 @@ export class Effect extends BasicBodyObject {
                 this.sprite.y = this.follow.y + this.followOffset.y;
             }
         } else if (this.body) {
-            if(this.emitter) this.emitter.updateOwnerPos(
+            if (this.emitter) this.emitter.updateOwnerPos(
                 this.body.position.x + this.offset.x,
                 this.body.position.y + this.offset.y
             );
@@ -76,7 +72,7 @@ export class Effect extends BasicBodyObject {
             }
         }
 
-        if(!this.emitter) return;
+        if (!this.emitter) return;
         // 更新動畫
         this.emitter.update(deltaMS * 0.001);
     }
@@ -100,7 +96,7 @@ export class Effect extends BasicBodyObject {
         return this;
     }
     clearBody(): Effect {
-        if(this.body) {
+        if (this.body) {
             gameMain.world.removeBody(this.body);
             this.body = null;
         }
@@ -137,13 +133,13 @@ export class Effect extends BasicBodyObject {
         };
         return this;
     }
-    setFollow(follow: BasicBodyObject): Effect {
+    setFollow(follow: BodyObject): Effect {
         this.follow = follow;
         this.follow.followed = this;
         return this;
     }
     clearFollow(): Effect {
-        if(this.follow) {
+        if (this.follow) {
             this.follow.followed = null;
             this.follow = null;
         }
@@ -162,7 +158,7 @@ export class Effect extends BasicBodyObject {
         return this;
     }
     setEmit(bool: boolean): Effect {
-        if(this.emitter) this.emitter.emit = bool;
+        if (this.emitter) this.emitter.emit = bool;
         return this;
     }
     getEmit(): boolean {
@@ -171,8 +167,8 @@ export class Effect extends BasicBodyObject {
     start(): void {
         this.onStart();
         if (this.body) Matter.Sleeping.set(this.body, false);
-  
-        if(!this.getEmit()) this.setEmit(true);
+
+        if (!this.getEmit()) this.setEmit(true);
 
         let lastUpdateTime = performance.now();
 
@@ -180,7 +176,7 @@ export class Effect extends BasicBodyObject {
             this.update(performance.now() - lastUpdateTime);
             lastUpdateTime = performance.now();
 
-            if(!this.destroyed) requestAnimationFrame(loop);
+            if (!this.destroyed) requestAnimationFrame(loop);
         }
 
         loop();

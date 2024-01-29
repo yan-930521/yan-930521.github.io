@@ -1,11 +1,11 @@
 import * as React from "react";
 import * as PIXI from 'pixi.js';
-import { Config } from "../game/Confjg";
+
 import { gameMain } from "..";
 
 interface GameViewProps extends React.HTMLAttributes<HTMLCanvasElement> {
     // 這裡可以添加其他需要的屬性
-    config: Config;
+    config: IConfig;
 }
 
 /**

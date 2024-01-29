@@ -1,8 +1,8 @@
 import { GlowFilter } from '@pixi/filter-glow';
 
-import { Face } from "../BasicObject";
+import { Face } from "../Face";
 import { Character } from "../Character";
-import { Movement, MovementHandler, continMover } from "../MovementManager";
+import { Movement, MovementHandler, continMover } from "../managers/MovementManager";
 
 export default {
     key: [Movement.Sprint],
@@ -29,7 +29,10 @@ export default {
             }
 
             character.filters = [glowFilter];
-            character.moveByPos(step, 0);
+            character.moveByPosition({
+                x: step,
+                y: 0
+            });
             i++;
         }, () => {
             character.alpha = 0.8;

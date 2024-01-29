@@ -1,16 +1,15 @@
 import * as PIXI from "pixi.js";
 import * as Matter from "matter-js";
 
+import { Movement, MovementManager, MovementHandlers, MovementHandler } from "./managers/MovementManager";
+import { BodyObject } from "./BodyObject";
 
-import { KeyInput } from "./GameMain";
-import { Movement, MovementManager, MovementHandlers, MovementHandler } from "./MovementManager";
-import { BasicBodyObject } from "./BasicBodyObject";
 import { gameMain } from "..";
 
-export class Character extends BasicBodyObject {
+export class Character extends BodyObject {
     public onGround: boolean = true;
 
-    public keyInput: KeyInput;
+    public keyInput: CONFIG.KeyInput;
 
     public jumpCount: number = 0;
     public isRunning: boolean = false;
@@ -18,7 +17,7 @@ export class Character extends BasicBodyObject {
     public movementManager: MovementManager;
 
     constructor(characterConfig: CONFIG.CharacterConfig, debug?: boolean) {
-        super(characterConfig, debug ? true : false);
+        super(characterConfig);
 
         this.width = this.characterConfig.width;
         this.height = this.characterConfig.height;
@@ -37,7 +36,8 @@ export class Character extends BasicBodyObject {
             y: gameMain.config.GameViewport.GroundHeight // gameMain.config.GameViewport.HEIGHT - this.characterConfig.height
         }
 
-        this.setPos(0, 0);
+        this.setPosition({x: 0, y: 0});
+
         this.animationManager.setMustStop("Jump", true);
 
         this.movementManager = new MovementManager()
@@ -62,7 +62,7 @@ export class Character extends BasicBodyObject {
 
         this.loadAnimations().then(() => {
             this.setIdle();
-            if (this.debug) this.addChild(this.debugBox);
+            if (gameMain.debug) this.addChild(this.debugBox);
         });
 
         return this;
@@ -164,16 +164,22 @@ export class Character extends BasicBodyObject {
         // 2段跳導致CD變長
         if (this.jumpCount == 2) {
             window.clearTimeout(this.movementManager.CDState.Jump.timer);
-            this.moveByForce(0, -1);
+            this.moveByForce({
+                x: 0,
+                y: -1
+            });
         } else {
-            this.moveByForce(0, -1.3);
+            this.moveByForce({
+                x:0,
+                y: -1.3
+            });
             // 避免連跳，會彈很高
-            this.wait(250, (() => {
+            this.waitMS(250, (() => {
                 this.movementManager.CDState.Jump.allow = true;
             }));
         }
 
-        this.movementManager.CDState.Jump.timer = this.wait(MovementHandlers.find(m => m.name == "Jump").cd * this.jumpCount, (() => {
+        this.movementManager.CDState.Jump.timer = this.waitMS(MovementHandlers.find(m => m.name == "Jump").cd * this.jumpCount, (() => {
             this.movementManager.CDState.Jump.timer = null;
             this.movementManager.CDState.Jump.allow = true;
         }));
@@ -189,7 +195,6 @@ export class Character extends BasicBodyObject {
             }
         }
         
-
         this.x = this.body.position.x;
         this.y = this.body.position.y + this.height / 2;
     }

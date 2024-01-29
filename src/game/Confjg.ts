@@ -1,22 +1,17 @@
-export class Config implements CONFIG.IConfig {
-    public GameViewport: CONFIG.IConfig["GameViewport"];
-    public AssetPath: CONFIG.IConfig["AssetPath"];
-    public Character: CONFIG.IConfig["Character"] = {};
-    public Object: CONFIG.IConfig["Object"] = {};
-    public Particle: CONFIG.IConfig["Particle"] = {};
-    public GameSetting: CONFIG.IConfig["GameSetting"];
+export class Config implements IConfig {
+    GameViewport: { WIDTH: number; HEIGHT: number; GroundHeight: number; };
+    AssetPath: string;
+    Character: CONFIG.CharacterConfigs;
+    Object: CONFIG.ObjectConfigs;
+    Particle: { [name: string]: any; };
+    GameSetting: CONFIG.GameSetting;
 
-    constructor() {
-    }
-
-    async fetch(): Promise<Config> {
-        const response = await fetch('./config.json');
-        const config = await response.json() as CONFIG.IConfig;
+    async fetch(): Promise<IConfig> {
+        const response: Response = await fetch('./config.json');
+        const config: Config = await response.json() as IConfig;
 
         Object.assign(this, config);
-
-        console.log('Config:', this);
-
+        
         return this;
     }
 }

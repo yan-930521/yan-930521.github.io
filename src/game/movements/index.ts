@@ -1,4 +1,4 @@
-import { MovementHandler } from "../MovementManager";
+import { MovementHandler } from "../managers/MovementManager";
 
 const MovementHandlers: MovementHandler[] = [];
 

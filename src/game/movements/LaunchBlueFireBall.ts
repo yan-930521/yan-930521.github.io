@@ -1,6 +1,5 @@
-import { gameMain } from "../..";
 import { Character } from "../Character";
-import { Movement, MovementHandler } from "../MovementManager";
+import { Movement, MovementHandler } from "../managers/MovementManager";
 import BlueFireBall from "./../effects/BlueFireBall";
 
 export default {

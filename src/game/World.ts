@@ -1,12 +1,13 @@
-import * as PIXI from "pixi.js";
-import * as Matter from "matter-js";
+import { Container } from "pixi.js";
+import { Body, Engine, Events, IEventCollision, Render, Mouse, Runner, Composite, MouseConstraint, World as MatterWorld } from "matter-js";
 
 import { Ground } from "./Ground";
 import { Character } from "./Character";
 import { BackGround } from "./BackGround";
+
 import { gameMain } from "..";
 
-export class World extends PIXI.Container {
+export class World extends Container implements IWorld  {
     public background: BackGround;
 
     public ground: Ground;
@@ -17,17 +18,17 @@ export class World extends PIXI.Container {
 
     public laseUpdateTime: number = performance.now();
 
-    public engine: Matter.Engine = Matter.Engine.create({
+    public engine: Engine = Engine.create({
         gravity: {
             y: 1.2 // 0.5
         }
     });
-    public renderer: Matter.Render;
+    public renderer: Render;
 
     constructor() {
         super();
 
-        this.renderer = Matter.Render.create({
+        this.renderer = Render.create({
             canvas: document.getElementById("matter") as HTMLCanvasElement,
             engine: this.engine,
             options: {
@@ -36,15 +37,15 @@ export class World extends PIXI.Container {
             }
         });
 
-        this.renderer.mouse = Matter.Mouse.create(document.getElementById('matter'));
+        this.renderer.mouse = Mouse.create(document.getElementById("matter"));
 
-        Matter.Composite.add(this.engine.world, Matter.MouseConstraint.create(this.engine, {
+        Composite.add(this.engine.world, MouseConstraint.create(this.engine, {
             mouse: this.renderer.mouse
         }));
 
 
-        Matter.Render.run(this.renderer);
-        Matter.Runner.run(this.engine);
+        Render.run(this.renderer);
+        Runner.run(this.engine);
     }
 
     createBackGround() {
@@ -83,7 +84,7 @@ export class World extends PIXI.Container {
 
 
     createCollisionHandler() {
-        Matter.Events.on(this.engine, "collisionStart", (event: Matter.IEventCollision<Matter.Engine>) => {
+        Events.on(this.engine, "collisionStart", (event: IEventCollision<Engine>) => {
             const pairs = event.pairs;
             for (let i in pairs) {
                 // if ([
@@ -106,7 +107,7 @@ export class World extends PIXI.Container {
             }
 
         });
-        Matter.Events.on(this.engine, "collisionEnd", (event: Matter.IEventCollision<Matter.Engine>) => {
+        Events.on(this.engine, "collisionEnd", (event: IEventCollision<Engine>) => {
             const pairs = event.pairs;
             for (let i in pairs) {
                 // if ([
@@ -128,27 +129,24 @@ export class World extends PIXI.Container {
     }
 
     update(deltaMS?: number) {
-        if (!deltaMS) deltaMS = gameMain.app.ticker.deltaMS;
+        if (!deltaMS) deltaMS = gameMain.pixi.ticker.deltaMS;
         this.background.update(deltaMS);
         this.character.update(deltaMS);
         this.trainingDummy.update(deltaMS);
 
-        Matter.Body.setAngle(this.character.body, 0);
-        Matter.Body.setAngularSpeed(this.character.body, 0);
-        Matter.Body.setAngularVelocity(this.character.body, 0);
-        // Matter.Engine.update(this.engine, (performance.now() - this.laseUpdateTime) * (1000 / 60));
-
-        // this.laseUpdateTime = performance.now();
+        Body.setAngle(this.character.body, 0);
+        Body.setAngularSpeed(this.character.body, 0);
+        Body.setAngularVelocity(this.character.body, 0);
     }
 
-    addBody(body: Matter.Body): void {
-        Matter.World.add(this.engine.world, [body]);
+    addBody(body: Body): void {
+        MatterWorld.add(this.engine.world, [body]);
     }
-    removeBody(body: Matter.Body): void {
-        Matter.World.remove(this.engine.world, [body]);
+    removeBody(body: Body): void {
+        MatterWorld.remove(this.engine.world, [body]);
     }
 
-    setIgnoreGravity(body: Matter.Body): void {
+    setIgnoreGravity(body: Body): void {
         this.ignoreGravityList.push(body.id);
     }
 

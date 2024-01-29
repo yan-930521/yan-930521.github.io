@@ -2,31 +2,31 @@ import * as PIXI from "pixi.js";
 
 import { World } from "./World";
 import { Config } from './Confjg';
-import { Movement } from "./MovementManager";
+import { Movement } from "./managers/MovementManager";
 
 PIXI.settings.RENDER_OPTIONS.eventMode = "none";
 PIXI.BaseTexture.defaultOptions.scaleMode = PIXI.SCALE_MODES.NEAREST;
 
-export interface KeyInput { [key: string]: boolean }
+export class GameMain implements IGameMain {
+    constructor() {
+    }
 
-export class GameMain {
-    public app: PIXI.Application;
-    public config: Config;
-    public world: World;
-    public laseUpdateTime: number = performance.now();
+    debug: boolean = false;
 
-    public keyInput: KeyInput = {
+    pixi: PIXI.Application<PIXI.ICanvas>;
+    config: Config;
+    world: World;
+
+    laseUpdateTime: number = performance.now();
+    keyInput: CONFIG.KeyInput = {
         w: false,
         a: false,
         s: false,
         d: false
-    }
+    };
 
-    constructor() {
-    }
-
-    async init(app: PIXI.Application, config: Config) {
-        this.app = app;
+    async init(pixi: PIXI.Application, config: Config) {
+        this.pixi = pixi;
         this.config = config;
 
         this.handleKeyInput();
@@ -36,17 +36,17 @@ export class GameMain {
         
         console.log("World:", this.world);
 
-        this.app.stage.addChild(this.world);
+        this.pixi.stage.addChild(this.world);
 
-        this.app.ticker.add(() => {
+        this.pixi.ticker.add(() => {
             const movements = this.getMoveData();
 
             this.world.character.move(movements, this.getDeltaTime());
 
             // 更新動畫
-            this.world.update(this.app.ticker.deltaMS);
+            this.world.update(this.pixi.ticker.deltaMS);
         });
-        this.app.ticker.start();
+        this.pixi.ticker.start();
     }
 
 
@@ -70,7 +70,6 @@ export class GameMain {
         }
 
         document.addEventListener('visibilitychange', () => {
-            console.log("visibilitychange")
             for (let i in this.keyInput) {
                 this.keyInput[i] = false;
             }

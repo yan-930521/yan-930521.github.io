@@ -1,0 +1,144 @@
+- File: ./src/type.d.ts
+   - Class: IResource
+
+       - Method: getUrl
+       - Method: createGradTexture
+       - Method: loadResource
+       - Method: loadAnimatedResource
+       - Method: loadMutiAnimatedResource
+   - Interface: IGameMain
+   - Interface: IWorld
+   - Interface: IConfig
+   - Interface: IBasicObject
+   - Interface: IBodyObject
+   - Interface: ICharacter
+   - Interface: IEffect
+   - Module: CONFIG
+- File: ./src/game/BackGround.ts
+   - Class: BackGround
+
+       - Method: init
+- File: ./src/game/BasicObject.ts
+   - Class: BasicObject
+
+       - Method: setFace
+       - Method: getFace
+       - Method: onBeforeUpdate
+       - Method: onUpdate
+       - Method: update
+       - Method: getPosition
+       - Method: setPosition
+       - Method: switchAnimation
+       - Method: waitMS
+- File: ./src/game/BodyObject.ts
+   - Class: BodyObject
+
+       - Method: stop
+       - Method: setBodyPosition
+       - Method: moveByForce
+       - Method: moveByPosition
+       - Method: moveByVelocity
+- File: ./src/game/Character.ts
+   - Class: Character
+
+       - Method: init
+       - Method: loadAnimations
+       - Method: move
+       - Method: canIdle
+       - Method: setIdle
+       - Method: isJumping
+       - Method: canJump
+       - Method: onBeforeUpdate
+- File: ./src/game/Confjg.ts
+   - Class: Config
+
+       - Method: fetch
+- File: ./src/game/Effect.ts
+   - Class: Effect
+
+       - Method: onBeforeUpdate
+       - Method: setEmitter
+       - Method: setBody
+       - Method: clearBody
+       - Method: setGraphics
+       - Method: clearGraphics
+       - Method: setSprite
+       - Method: clearSprite
+       - Method: setFollowOffset
+       - Method: clearFollowOffset
+       - Method: setFollow
+       - Method: clearFollow
+       - Method: setOffset
+       - Method: clearOffset
+       - Method: setEmit
+       - Method: getEmit
+       - Method: start
+       - Method: onStart
+       - Method: onFinish
+- File: ./src/game/Face.ts
+- File: ./src/game/GameMain.ts
+   - Class: GameMain
+
+       - Method: init
+       - Method: getDeltaTime
+       - Method: handleKeyInput
+       - Method: getMoveData
+- File: ./src/game/Ground.ts
+   - Class: Ground
+
+       - Method: init
+- File: ./src/game/Resource.ts
+   - Class: Resource
+
+       - Method: getUrl
+       - Method: createGradTexture
+       - Method: loadResource
+       - Method: loadAnimatedResource
+       - Method: loadMutiAnimatedResource
+   - Interface: Animations
+- File: ./src/game/World.ts
+   - Class: World
+
+       - Method: createBackGround
+       - Method: createGround
+       - Method: createCharacter
+       - Method: createTrainingDummy
+       - Method: createCollisionHandler
+       - Method: update
+       - Method: addBody
+       - Method: removeBody
+       - Method: setIgnoreGravity
+       - Method: init
+- File: ./src/game/effects/BlueFireBall.ts
+- File: ./src/game/managers/AnimationManager.ts
+   - Class: AnimationManager
+
+       - Method: isReady
+       - Method: loadAnimation
+       - Method: loadObject
+       - Method: onLoaded
+       - Method: switchAnimation
+       - Method: setAnimationFrame
+       - Method: getAnimationFrame
+       - Method: setHaveToStop
+       - Method: getHaveToStop
+       - Method: setMustStop
+       - Method: getMustStop
+       - Method: update
+- File: ./src/game/managers/MovementManager.ts
+   - Class: MovementManager
+
+       - Method: handleMovement
+       - Method: setCD
+       - Method: isEqualMovement
+       - Method: isContainMovement
+       - Method: isExcludeCD
+       - Method: setExclude
+   - Interface: MovementHandler
+- File: ./src/game/movements/Attack1.ts
+- File: ./src/game/movements/index.ts
+- File: ./src/game/movements/Jump.ts
+- File: ./src/game/movements/LaunchBlueFireBall.ts
+- File: ./src/game/movements/MoveLeft.ts
+- File: ./src/game/movements/MoveRight.ts
+- File: ./src/game/movements/Sprint.ts

@@ -1,5 +1,9 @@
 ## Proj. Fighting 
 
+Demo: https://yan-930521.github.io
+
+Folloe me on instagram: https://www.instagram.com/dev.tw.sakura/ 
+
 ### 主旨
 簡約風格的2d橫向格鬥遊戲
 ### 按鍵控制
@@ -18,3 +22,4 @@
 - 物理引擎: [Matter.js](https://brm.io/matter-js/)
 - 繪圖引擎: [Pixi.js](https://pixijs.com/)
 - Document: [Link](./docs/modules.md)
+- 檔案結構: [Link](./watch.md)

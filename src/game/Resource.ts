@@ -1,10 +1,10 @@
-import * as PIXI from "pixi.js";
+import { AnimatedSprite, BaseTexture, Rectangle, Sprite, Texture } from "pixi.js";
 
 export interface Animations {
-    [key: string]: PIXI.AnimatedSprite
+    [key: string]: AnimatedSprite
 }
-export class Resource {
-    static getUrl(...args: string[]) {
+export class Resource extends IResource {
+    static getUrl(...args: string[]): string {
         return args.map((part, i) => {
             if (i === 0) {
                 return part.trim().replace(/[\/]*$/g, '');
@@ -14,7 +14,7 @@ export class Resource {
         }).filter(x => x.length).join('/');
     }
 
-    static createGradTexture(width: number, height: number): PIXI.Texture {
+    static createGradTexture(width: number, height: number): Texture {
         const canvas = document.createElement('canvas');
     
         canvas.width = width;
@@ -31,31 +31,31 @@ export class Resource {
         ctx.fillStyle = grd;
         ctx.fillRect(0, 0, width, height);
     
-        return PIXI.Texture.from(canvas);
+        return Texture.from(canvas);
     }
 
-    static async loadResource(path: string): Promise<PIXI.Sprite> {
-        const texture = PIXI.Texture.from(path);
+    static async loadResource(path: string): Promise<Sprite> {
+        const texture = Texture.from(path);
         await texture.baseTexture.resource.load();
 
-        const sprite = new PIXI.Sprite(texture);
+        const sprite = new Sprite(texture);
         sprite.anchor.set(0.5);
 
         return sprite;
     }
 
-    static async loadAnimatedResource(path: string, frameCount: number, width?: number, height?: number): Promise<PIXI.AnimatedSprite> {
+    static async loadAnimatedResource(path: string, frameCount: number, width?: number, height?: number): Promise<AnimatedSprite> {
         return new Promise(async (res, rej)=> {
             const ans = await this.loadMutiAnimatedResource(path, frameCount, 1, width, height);
             res(ans[0]);
         })
     }
 
-    static async loadMutiAnimatedResource(path: string, frameCountX: number, frameCountY: number, width?: number, height?: number): Promise<PIXI.AnimatedSprite[]> {
-        const texture = PIXI.BaseTexture.from(path);
+    static async loadMutiAnimatedResource(path: string, frameCountX: number, frameCountY: number, width?: number, height?: number): Promise<AnimatedSprite[]> {
+        const texture = BaseTexture.from(path);
         await texture.resource.load();
-        const frames: PIXI.Texture[] = [];
-        const animatedSprites: PIXI.AnimatedSprite[] = [];
+        const frames: Texture[] = [];
+        const animatedSprites: AnimatedSprite[] = [];
 
         const frameWidth = texture.width / frameCountX;
         const frameHeight = texture.height / frameCountY;
@@ -76,10 +76,10 @@ export class Resource {
                     startY = frameHeight - height;
                 }
     
-                const frame = new PIXI.Rectangle(startX, startY, width, height);
-                frames.push(new PIXI.Texture(texture, frame));
+                const frame = new Rectangle(startX, startY, width, height);
+                frames.push(new Texture(texture, frame));
             }
-            const animatedSprite = new PIXI.AnimatedSprite(frames);
+            const animatedSprite = new AnimatedSprite(frames);
             animatedSprite.anchor.set(0.5);
             animatedSprites.push(animatedSprite);
         }

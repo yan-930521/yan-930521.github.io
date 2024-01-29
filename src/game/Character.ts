@@ -7,12 +7,12 @@ import { BodyObject } from "./BodyObject";
 import { gameMain } from "..";
 
 export class Character extends BodyObject implements ICharacter {
-    public onGround: boolean = true;
-    public keyInput: CONFIG.KeyInput;
-    public jumpCount: number = 0;
-    public isRunning: boolean = false;
+    onGround: boolean = true;
+    keyInput: CONFIG.KeyInput;
+    jumpCount: number = 0;
+    isRunning: boolean = false;
 
-    public movementManager: MovementManager;
+    movementManager: MovementManager;
 
     constructor(characterConfig: CONFIG.CharacterConfig) {
         super(characterConfig);
@@ -36,7 +36,7 @@ export class Character extends BodyObject implements ICharacter {
             y: gameMain.config.GameViewport.GroundHeight // gameMain.config.GameViewport.HEIGHT - this.characterConfig.height
         }
 
-        this.setPosition({x: 0, y: 0});
+        this.setPosition({ x: 0, y: 0 });
 
         this.animationManager.setMustStop("Jump", true);
 
@@ -47,10 +47,10 @@ export class Character extends BodyObject implements ICharacter {
     }
 
     init(initX?: number, initY?: number): Character {
-        if(!initX) {
+        if (!initX) {
             initX = this.positionOffset.x;
-        } 
-        if(!initY) {
+        }
+        if (!initY) {
             initY = this.positionOffset.y - this.characterConfig.height / 2;
         }
         this.body = Bodies.rectangle(initX, initY, this.characterConfig.width * 0.8, this.characterConfig.height * 0.8, {
@@ -78,7 +78,7 @@ export class Character extends BodyObject implements ICharacter {
                             if (this.animationManager.getHaveToStop(name)) {
                                 animation.stop();
                                 this.removeChild(animation);
-                                if(name == "Jump") {
+                                if (name == "Jump") {
                                     this.movementManager.CDState[name].during = false;
                                 }
                                 this.setIdle(true);
@@ -102,7 +102,7 @@ export class Character extends BodyObject implements ICharacter {
         let lastIsRunning = this.isRunning;
         this.isRunning = false;
 
-        for(let i in matchedMonementHandlers) {
+        for (let i in matchedMonementHandlers) {
             matchedMonementHandlers[i].execute(this, matchedMonementHandlers[i]);
         }
 
@@ -110,9 +110,9 @@ export class Character extends BodyObject implements ICharacter {
         // 跑步 -> 如果下一個按鍵不是Running
 
         let stopRunning = (lastIsRunning && !this.isRunning);
-        if(
-            (stopRunning && matchedMonementHandlers.length == 0 ) ||
-            (this.canIdle() && matchedMonementHandlers.length == 0 )
+        if (
+            (stopRunning && matchedMonementHandlers.length == 0) ||
+            (this.canIdle() && matchedMonementHandlers.length == 0)
         ) {
             // 如果沒有跳躍或者其他動畫，切入動畫
             // this意外指向setTimeout，因此改寫法
@@ -127,9 +127,9 @@ export class Character extends BodyObject implements ICharacter {
     }
     setIdle(bool: boolean): void {
         this.animationManager.isIdle = bool;
-        if(bool) this.switchAnimation();
+        if (bool) this.switchAnimation();
     }
-   
+
 
     isJumping(): boolean {
         return this.movementManager.CDState?.Jump?.during;
@@ -147,14 +147,14 @@ export class Character extends BodyObject implements ICharacter {
     }
 
     onBeforeUpdate(): void {
-        if(this.animationManager.animationConfigs["Jump"]) {
+        if (this.animationManager.animationConfigs["Jump"]) {
             if (this.animationManager.isReady() && this.animationManager.getAnimationFrame("Jump") == 6) {
                 if (this.body.velocity.y > 0 && (gameMain.config.GameViewport.GroundHeight - this.height / 2) - this.body.position.y < 70) {
                     this.animationManager.animations["Jump"].play();
                 }
             }
         }
-        
+
         this.x = this.body.position.x;
         this.y = this.body.position.y + this.height * 0.8 / 2;
     }

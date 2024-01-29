@@ -206,7 +206,7 @@ declare interface IBasicObject {
     debugBox: import("pixi.js").Graphics
 
     /**
-     * 角色跟隨的物體()
+     * 角色跟隨的物體
      */
     followed: IBasicObject | null
 
@@ -315,6 +315,9 @@ declare interface IBodyObject extends IBasicObject {
     moveByVelocity(vector: CONFIG.Vector): void
 }
 
+/**
+ * 玩家操控的角色
+ */
 declare interface ICharacter extends IBodyObject {
     /**
      * 是否踩在地上
@@ -379,4 +382,184 @@ declare interface ICharacter extends IBodyObject {
      * 是否可以跳躍
      */
     canJump(): boolean
+}
+
+/**
+ * 特效
+ */
+declare interface IEffect extends IBodyObject {
+    /**
+     * 粒子特效的發射器
+     */
+    emitter: import("@pixi/particle-emitter").Emitter;
+
+    /**
+     *  角色跟隨的物體
+     */
+    follow: IBodyObject;
+
+    /**
+     * 可以設定的圖像
+     */
+    graphics: import("pixi.js").Graphics;
+    /**
+     * 可以設定的圖像
+     */
+    sprite: import("pixi.js").Sprite;
+
+    /**
+     * 可以設定的圖像
+     */
+    offset: CONFIG.Vector;
+
+    /**
+     * 和要跟隨的對象保持的距離
+     */
+    followOffset: CONFIG.Vector;
+
+    /**
+     * 裝粒子特效的容器
+     */
+    particleContainer: import("pixi.js").Container;
+
+    /**
+     * 設定發射器
+     * @param config
+     */
+    setEmitter(config: import("@pixi/particle-emitter").EmitterConfigV3): IEffect
+
+    /**
+     * 設置鋼體
+     * @param body
+     */
+    setBody(body: Matter.Body): IEffect
+
+    /**
+     * 刪除剛體
+     */
+    clearBody(): IEffect
+
+    /**
+     * 設置圖像
+     * @param graphics
+     */
+    setGraphics(graphics: import("pixi.js").Graphics): IEffect
+
+    /**
+     * 清除圖像
+     */
+    clearGraphics(): IEffect
+
+    /**
+     * 設置圖像
+     * @param sprite 
+     */
+    setSprite(sprite: import("pixi.js").Sprite): IEffect
+
+    /**
+     * 清除圖像
+     */
+    clearSprite(): IEffect
+
+    /**
+     * 設置和要跟隨的對象保持的距離
+     * @param followOffset 
+     */
+    setFollowOffset(followOffset: CONFIG.Vector): IEffect
+
+    /**
+     * 清除和要跟隨的對象保持的距離
+     * @param followOffset 
+     */
+    clearFollowOffset(): IEffect
+
+    /**
+     * 設置要跟隨的對象
+     * @param follow 
+     */
+    setFollow(follow: IBodyObject): IEffect
+
+    /**
+     * 清除要刪除的對象
+     */
+    clearFollow(): IEffect
+
+    /**
+     * 特效位置的校正
+     */
+    setOffset(offset: CONFIG.Vector): IEffect
+
+    /**
+     * 清除特效位置的校正
+     */
+    clearOffset(): IEffect
+
+    /**
+     * 設置是否開始發射器
+     * @param bool
+     */
+    setEmit(bool: boolean): IEffect
+
+    /**
+     * 獲取發射器是否開始
+     */
+    getEmit(): boolean
+
+    /**
+     * 開始整個特效
+     */
+    start(): void
+
+    /**
+     * 當特效開始的時候呼叫
+     */
+    onStart(): void
+    
+    /**
+     * 當特效結束的時候呼叫
+     */
+    onFinish(): void
+}
+
+
+/**
+ * 
+ */
+declare abstract class IResource {
+    /**
+     * 將輸出的arg輸出成完整的連結
+     * @param args 
+     */
+    static getUrl(...args: string[]): string
+
+    /**
+     * 創造漸變texture
+     * @param width 
+     * @param height 
+     */
+    static createGradTexture(width: number, height: number): import("pixi.js").Texture
+
+    /**
+     * 載入圖片資源
+     * @param path 
+     */
+    static loadResource(path: string): Promise<import("pixi.js").Sprite>
+
+    /**
+     * 從單一來源載入動畫資源
+     * @param path 
+     * @param frameCount 
+     * @param width 
+     * @param height 
+     */
+    static loadAnimatedResource(path: string, frameCount: number, width?: number, height?: number): Promise<import("pixi.js").AnimatedSprite>
+
+    /**
+     * 從單一來源載入多個動畫資源
+     * @param path 
+     * @param frameCount 
+     * @param width 
+     * @param height 
+     */
+    static loadMutiAnimatedResource(path: string, frameCountX: number, frameCountY: number, width?: number, height?: number): Promise<import("pixi.js").AnimatedSprite[]>
 }

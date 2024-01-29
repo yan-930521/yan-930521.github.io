@@ -1,27 +1,20 @@
-import * as PIXI from "pixi.js";
-import * as Matter from "matter-js";
-import * as Particle from "@pixi/particle-emitter";
+import { Graphics, Sprite, Container, DisplayObject } from "pixi.js";
+import { Sleeping } from "matter-js";
+import { Emitter, EmitterConfigV3 } from "@pixi/particle-emitter";
 
+import { Face } from "./Face";
 import { BodyObject } from "./BodyObject";
 
 import { gameMain } from "..";
-import { Face } from "./Face";
 
-export interface Offset {
-    x: number,
-    y: number
-}
-export class Effect extends BodyObject {
-    public emitter: Particle.Emitter;
-    public body: Matter.Body;
-
-    public follow: BodyObject;
-    public graphics: PIXI.Graphics;
-    public sprite: PIXI.Sprite;
-    public offset: Offset;
-    public followOffset: Offset;
-
-    public particleContainer: PIXI.Container;
+export class Effect extends BodyObject implements IEffect {
+    emitter: Emitter;
+    follow: BodyObject;
+    graphics: Graphics;
+    sprite: Sprite;
+    offset: CONFIG.Vector;
+    followOffset: CONFIG.Vector;
+    particleContainer: Container;
 
     constructor() {
         super();
@@ -32,9 +25,6 @@ export class Effect extends BodyObject {
 
         this.x = 0;
         this.y = 0;
-
-        // @ts-ignore
-        this.eventMode = "none";
     }
 
     onBeforeUpdate(deltaMS: number): void {
@@ -78,12 +68,9 @@ export class Effect extends BodyObject {
         this.emitter.update(deltaMS * 0.001);
     }
 
-    onUpdate(deltaMS: number): void {
-    }
-
-    setEmitter(config: Particle.EmitterConfigV3): Effect {
-        this.particleContainer = new PIXI.Container();
-        this.emitter = new Particle.Emitter(
+    setEmitter(config: EmitterConfigV3): Effect {
+        this.particleContainer = new Container();
+        this.emitter = new Emitter(
             this.particleContainer,
             config
         );
@@ -92,7 +79,7 @@ export class Effect extends BodyObject {
     }
     setBody(body: Matter.Body): Effect {
         this.body = body;
-        Matter.Sleeping.set(body, true);
+        Sleeping.set(body, true);
         gameMain.world.addBody(body);
         return this;
     }
@@ -103,7 +90,7 @@ export class Effect extends BodyObject {
         }
         return this;
     }
-    setGraphics(graphics: PIXI.Graphics): Effect {
+    setGraphics(graphics: Graphics): Effect {
         this.graphics = graphics;
         this.addChild(this.graphics);
         return this;
@@ -113,7 +100,7 @@ export class Effect extends BodyObject {
         this.graphics = null;
         return this;
     }
-    setSprite(sprite: PIXI.Sprite): Effect {
+    setSprite(sprite: Sprite): Effect {
         this.sprite = sprite;
         this.addChild(this.sprite);
         return this;
@@ -123,7 +110,7 @@ export class Effect extends BodyObject {
         this.sprite = null;
         return this;
     }
-    setFollowOffset(followOffset: Offset): Effect {
+    setFollowOffset(followOffset: CONFIG.Vector): Effect {
         this.followOffset = followOffset;
         return this;
     }
@@ -150,7 +137,7 @@ export class Effect extends BodyObject {
     /**
      * 特效位置的校正
      */
-    setOffset(offset: Offset): Effect {
+    setOffset(offset: CONFIG.Vector): Effect {
         this.offset = offset;
         return this;
     }
@@ -165,9 +152,10 @@ export class Effect extends BodyObject {
     getEmit(): boolean {
         return this?.emitter?.emit;
     }
+    
     start(): void {
         this.onStart();
-        if (this.body) Matter.Sleeping.set(this.body, false);
+        if (this.body) Sleeping.set(this.body, false);
 
         if (!this.getEmit()) this.setEmit(true);
 
@@ -185,6 +173,7 @@ export class Effect extends BodyObject {
 
     onStart(): void {
     }
+
     onFinish(): void {
         this.clearBody();
         this.clearGraphics();

@@ -3,7 +3,7 @@ import { Body } from "matter-js";
 import { BasicObject } from "./BasicObject";
 
 export class BodyObject extends BasicObject implements IBodyObject {
-    public body: Body;
+    body: Body;
 
     stop() {
         Body.setVelocity(this.body, {

@@ -20,7 +20,7 @@
 
 #### Defined in
 
-[type.d.ts:44](https://github.com/yan-930521/yan-930521.github.io/blob/7eab074/src/type.d.ts#L44)
+[type.d.ts:44](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L44)
 
 ___
 
@@ -30,7 +30,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:43](https://github.com/yan-930521/yan-930521.github.io/blob/7eab074/src/type.d.ts#L43)
+[type.d.ts:43](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L43)
 
 ___
 
@@ -40,4 +40,4 @@ ___
 
 #### Defined in
 
-[type.d.ts:42](https://github.com/yan-930521/yan-930521.github.io/blob/7eab074/src/type.d.ts#L42)
+[type.d.ts:42](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L42)

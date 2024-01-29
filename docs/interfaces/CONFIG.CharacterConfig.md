@@ -25,7 +25,7 @@
 
 #### Defined in
 
-[type.d.ts:6](https://github.com/yan-930521/yan-930521.github.io/blob/7eab074/src/type.d.ts#L6)
+[type.d.ts:6](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L6)
 
 ___
 
@@ -35,7 +35,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:5](https://github.com/yan-930521/yan-930521.github.io/blob/7eab074/src/type.d.ts#L5)
+[type.d.ts:5](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L5)
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:4](https://github.com/yan-930521/yan-930521.github.io/blob/7eab074/src/type.d.ts#L4)
+[type.d.ts:4](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L4)
 
 ___
 
@@ -55,4 +55,4 @@ ___
 
 #### Defined in
 
-[type.d.ts:3](https://github.com/yan-930521/yan-930521.github.io/blob/7eab074/src/type.d.ts#L3)
+[type.d.ts:3](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L3)

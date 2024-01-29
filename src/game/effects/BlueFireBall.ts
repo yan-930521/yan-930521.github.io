@@ -1,7 +1,6 @@
-import * as PIXI from "pixi.js";
-import * as Matter from "matter-js";
-import * as Particle from "@pixi/particle-emitter";
-
+import { Texture } from "pixi.js";
+import { Bodies } from "matter-js";
+import { upgradeConfig, EmitterConfigV2 } from "@pixi/particle-emitter";
 
 import { Face } from "../Face";
 import { Effect } from "../Effect";
@@ -21,14 +20,14 @@ export default {
         let lastUpdateTime = performance.now();
 
         const effect = new Effect()
-            .setEmitter(Particle.upgradeConfig(
-                gameMain.config.Particle.BlueFire as Particle.EmitterConfigV2
+            .setEmitter(upgradeConfig(
+                gameMain.config.Particle.BlueFire as EmitterConfigV2
                 , [
-                    PIXI.Texture.from("./assets/particle.png")
+                    Texture.from("./assets/particle.png")
                 ]
             ))
             // 綁定鋼體
-            .setBody(Matter.Bodies.circle(startX, startY, 10, {
+            .setBody(Bodies.circle(startX, startY, 10, {
                 friction: 0.5,
                 density: 0.1,
                 restitution: 0.8

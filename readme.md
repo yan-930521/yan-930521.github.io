@@ -23,3 +23,6 @@ Folloe me on instagram: https://www.instagram.com/dev.tw.sakura/
 - 繪圖引擎: [Pixi.js](https://pixijs.com/)
 - Document: [Link](./docs/modules.md)
 - 檔案結構: [Link](./watch.md)
+### Assets
+- [./assets/Fonts/Chinese_characters.ttf](https://www.bmicopy.com/%E4%B8%AD%E6%96%87%E5%AD%97%E9%AB%94/%E4%B8%AD%E6%96%87%E5%AD%97%E9%AB%94%E8%BD%89%E6%8F%9B/Chinese_characters_generator.php)
+- [./assets/Fonts/ChenYuluoyan-Thin-Monospaced.tff](https://github.com/Chenyu-otf/chenyuluoyan_thin)

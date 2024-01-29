@@ -35,7 +35,7 @@ export default {
             }))
             .setFollow(character)
             .setFollowOffset({
-                x: 50 * (character.getFace() == Face.RIGHT ? 1 : -1),
+                x: 50,
                 y: 0
             })
             .setOffset({
@@ -52,6 +52,11 @@ export default {
                     .clearFollow()
                     .setFollowOffset({
                         x: 0,
+                        y: 0
+                    })
+                    // 讓火球先向前移動一小段距離
+                    .moveByPosition({
+                        x: 10 * (character.getFace() == Face.RIGHT ? step : step * -1),
                         y: 0
                     });
                 continMover(10, 10, () => {

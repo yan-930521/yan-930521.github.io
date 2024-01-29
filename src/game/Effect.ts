@@ -5,6 +5,7 @@ import * as Particle from "@pixi/particle-emitter";
 import { BodyObject } from "./BodyObject";
 
 import { gameMain } from "..";
+import { Face } from "./Face";
 
 export interface Offset {
     x: number,
@@ -23,7 +24,7 @@ export class Effect extends BodyObject {
     public particleContainer: PIXI.Container;
 
     constructor() {
-        super(null);
+        super();
 
         gameMain.world.addChild(this);
         this.width = gameMain.config.GameViewport.WIDTH;
@@ -39,7 +40,7 @@ export class Effect extends BodyObject {
     onBeforeUpdate(deltaMS: number): void {
         let x: number = 0, y: number = 0;
         if (this.follow) {
-            x = this.follow.body.position.x + this.followOffset.x;
+            x = this.follow.body.position.x + this.followOffset.x * (this.follow.face == Face.RIGHT ? 1 : -1);
             y = this.follow.body.position.y + this.followOffset.y;
 
             this.setBodyPosition({x, y});

@@ -1,34 +1,34 @@
-import * as PIXI from "pixi.js";
-import * as Matter from "matter-js";
+import { AnimatedSprite, Graphics } from "pixi.js";
+import { Bodies } from "matter-js";
 
 import { Movement, MovementManager, MovementHandlers, MovementHandler } from "./managers/MovementManager";
 import { BodyObject } from "./BodyObject";
 
 import { gameMain } from "..";
 
-export class Character extends BodyObject {
+export class Character extends BodyObject implements ICharacter {
     public onGround: boolean = true;
-
     public keyInput: CONFIG.KeyInput;
-
     public jumpCount: number = 0;
     public isRunning: boolean = false;
 
     public movementManager: MovementManager;
 
-    constructor(characterConfig: CONFIG.CharacterConfig, debug?: boolean) {
+    constructor(characterConfig: CONFIG.CharacterConfig) {
         super(characterConfig);
 
         this.width = this.characterConfig.width;
         this.height = this.characterConfig.height;
 
-        if (debug) {
-            this.debugBox = new PIXI.Graphics()
+        if (gameMain.debug) {
+            this.debugBox = new Graphics()
                 .lineStyle(2, 0xFF0000)
                 .drawRect(0, 0, this.characterConfig.width, this.characterConfig.height);
 
             this.debugBox.x = (this.characterConfig.width / 2) * -1;
             this.debugBox.y = (this.characterConfig.height / 2) * -1;
+
+            this.addChild(this.debugBox);
         }
 
         this.positionOffset = {
@@ -53,16 +53,15 @@ export class Character extends BodyObject {
         if(!initY) {
             initY = this.positionOffset.y - this.characterConfig.height / 2;
         }
-        this.body = Matter.Bodies.rectangle(initX, initY, this.characterConfig.width, this.characterConfig.height, {
+        this.body = Bodies.rectangle(initX, initY, this.characterConfig.width * 0.8, this.characterConfig.height * 0.8, {
             inertia: 0,
             inverseInertia: Infinity,
-            density: 0.01,
+            density: 0.015625, // 面積0.8平方倍
             frictionAir: 0.02
         });
 
         this.loadAnimations().then(() => {
-            this.setIdle();
-            if (gameMain.debug) this.addChild(this.debugBox);
+            this.setIdle(true);
         });
 
         return this;
@@ -72,7 +71,7 @@ export class Character extends BodyObject {
         const animationConfigs = this.characterConfig.animation;
         await Promise.all(
             Object.keys(animationConfigs)
-                .map((name: string) => this.animationManager.loadAnimation(animationConfigs[name], (animation: PIXI.AnimatedSprite) => {
+                .map((name: string) => this.animationManager.loadAnimation(animationConfigs[name], (animation: AnimatedSprite) => {
                     if (name != this.characterConfig.defaultAnimation) {
                         // 如果不是預設動畫，有終止條件，並且切換到預設動畫
                         animation.onLoop = () => {
@@ -82,7 +81,7 @@ export class Character extends BodyObject {
                                 if(name == "Jump") {
                                     this.movementManager.CDState[name].during = false;
                                 }
-                                this.setIdle();
+                                this.setIdle(true);
                             }
                         }
                     }
@@ -117,23 +116,18 @@ export class Character extends BodyObject {
         ) {
             // 如果沒有跳躍或者其他動畫，切入動畫
             // this意外指向setTimeout，因此改寫法
-            this.setIdle();
+            this.setIdle(true);
         } else {
-            this.unSetIdle();
+            this.setIdle(false);
         }
     }
 
     canIdle(): boolean {
         return !this.isJumping() && this.animationManager.isIdle;
     }
-
-    unSetIdle(): void {
-        this.animationManager.isIdle = false;
-    }
-
-    setIdle(): void {
-        this.animationManager.isIdle = true;
-        this.switchAnimation();
+    setIdle(bool: boolean): void {
+        this.animationManager.isIdle = bool;
+        if(bool) this.switchAnimation();
     }
    
 
@@ -152,40 +146,6 @@ export class Character extends BodyObject {
         return false;
     }
 
-    jump(): void {
-        this.jumpCount++;
-
-        this.movementManager.CDState.Jump.allow = false;
-        this.movementManager.CDState.Jump.during = true;
-
-        this.animationManager.setAnimationFrame("Jump", 2);
-        this.switchAnimation("Jump");
-
-        // 2段跳導致CD變長
-        if (this.jumpCount == 2) {
-            window.clearTimeout(this.movementManager.CDState.Jump.timer);
-            this.moveByForce({
-                x: 0,
-                y: -1
-            });
-        } else {
-            this.moveByForce({
-                x:0,
-                y: -1.3
-            });
-            // 避免連跳，會彈很高
-            this.waitMS(250, (() => {
-                this.movementManager.CDState.Jump.allow = true;
-            }));
-        }
-
-        this.movementManager.CDState.Jump.timer = this.waitMS(MovementHandlers.find(m => m.name == "Jump").cd * this.jumpCount, (() => {
-            this.movementManager.CDState.Jump.timer = null;
-            this.movementManager.CDState.Jump.allow = true;
-        }));
-
-    }
-
     onBeforeUpdate(): void {
         if(this.animationManager.animationConfigs["Jump"]) {
             if (this.animationManager.isReady() && this.animationManager.getAnimationFrame("Jump") == 6) {
@@ -196,6 +156,6 @@ export class Character extends BodyObject {
         }
         
         this.x = this.body.position.x;
-        this.y = this.body.position.y + this.height / 2;
+        this.y = this.body.position.y + this.height * 0.8 / 2;
     }
 }

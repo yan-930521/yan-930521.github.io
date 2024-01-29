@@ -6,10 +6,6 @@ import { BasicObject } from "./BasicObject";
 import { gameMain } from "..";
 
 export class BackGround extends BasicObject {
-    constructor() {
-        super();
-    }
-
     init(): BackGround {
         const backgroundColor = new Graphics()
             .beginFill(0x000000)
@@ -22,11 +18,11 @@ export class BackGround extends BasicObject {
             const objectConfig = gameMain.config.Object[i];
 
             if(objectConfig.frameCount == 1) {
-                Resource.loadResource(Resource.getUrl(gameMain.config.AssetPath, "background.png")).then((sprite: Sprite) => {
+                Resource.loadResource(Resource.getUrl(gameMain.config.AssetPath, objectConfig.path)).then((sprite: Sprite) => {
                     const scale = Math.min(gameMain.config.GameViewport.WIDTH / sprite.width, gameMain.config.GameViewport.HEIGHT / sprite.height);
         
-                    sprite.x = gameMain.config.GameViewport.WIDTH / 2;
-                    sprite.y = gameMain.config.GameViewport.HEIGHT / 2;
+                    sprite.x = objectConfig.position.x;
+                    sprite.y = objectConfig.position.y;
         
                     sprite.scale.set(scale);
         

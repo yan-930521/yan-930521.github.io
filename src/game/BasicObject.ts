@@ -5,9 +5,12 @@ import { AnimationManager } from "./managers/AnimationManager";
 
 export class BasicObject extends Container implements IBasicObject {
     debugBox: Graphics;
-    followed: IBasicObject;
-    face: Face;
-    positionOffset: CONFIG.Vector;
+    followed: IBasicObject | null;
+    face: Face = Face.RIGHT;
+    positionOffset: CONFIG.Vector = {
+        x: 0,
+        y: 0
+    };
     animationManager: any;
     characterConfig: CONFIG.CharacterConfig;
 

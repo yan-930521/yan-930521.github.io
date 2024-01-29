@@ -27,7 +27,6 @@ export class World extends Container implements IWorld  {
 
     constructor() {
         super();
-
         this.renderer = Render.create({
             canvas: document.getElementById("matter") as HTMLCanvasElement,
             engine: this.engine,
@@ -64,7 +63,7 @@ export class World extends Container implements IWorld  {
     }
 
     createCharacter() {
-        const character = new Character(gameMain.config.Character.Samurai, false).init();
+        const character = new Character(gameMain.config.Character.Samurai).init();
 
         this.addChild(character);
         this.addBody(character.body);
@@ -73,7 +72,7 @@ export class World extends Container implements IWorld  {
     }
 
     createTrainingDummy() {
-        const trainingDummy = new Character(gameMain.config.Character.TrainingDummy, false).init(
+        const trainingDummy = new Character(gameMain.config.Character.TrainingDummy).init(
             gameMain.config.GameViewport.WIDTH * 2 / 3
         );
         this.addChild(trainingDummy);

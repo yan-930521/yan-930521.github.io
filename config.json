@@ -74,7 +74,7 @@
                     "height": 32,
                     "offsetX": 0,
                     "offsetY": 12,
-                    "animationSpeed": 0.002,
+                    "animationSpeed": 0.006,
                     "animationScale": 2
                 }
             }
@@ -85,8 +85,8 @@
             "path": "background.png",
             "frameCount": 1,
             "position": {
-                "x": 0,
-                "y": 0
+                "x": 250,
+                "y": 125
             },
             "animationSpeed": 0
         },

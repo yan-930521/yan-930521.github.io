@@ -89,10 +89,10 @@ declare interface IGameMain {
  * 整個物理世界，可以管理所有物件
  */
 declare interface IWorld {
-    background: any //BackGround
-    ground: any //Ground
-    character: any //Character
-    trainingDummy: any //Character
+    background: IBasicObject
+    ground: IBodyObject
+    character: ICharacter
+    trainingDummy: ICharacter
 
     /**
      * 需要忽略重力的鋼體ID
@@ -237,7 +237,7 @@ declare interface IBasicObject {
     /**
      * 取的當前的面向
      */
-    getFace(): import("./game/Face").Face | null
+    getFace(): import("./game/Face").Face
 
     /**
      * 在更新前呼叫
@@ -289,7 +289,7 @@ declare interface IBodyObject extends IBasicObject {
     body: Matter.Body
 
     stop(): void
-    
+
     /**
      * 設置鋼體位置
      * @param vector 
@@ -315,4 +315,68 @@ declare interface IBodyObject extends IBasicObject {
     moveByVelocity(vector: CONFIG.Vector): void
 }
 
-// 待更新
+declare interface ICharacter extends IBodyObject {
+    /**
+     * 是否踩在地上
+     * @default true
+     */
+    onGround: boolean
+
+    /**
+     * 接收GameMain傳來的鍵盤輸入
+     */
+    keyInput: CONFIG.KeyInput
+
+    /**
+     * 連跳次數
+     * @default 0
+     */
+    jumpCount: number
+
+    /**
+     * 正在奔跑
+     * @default false
+     */
+    isRunning: boolean
+
+    movementManager: any
+
+    /**
+     * 角色的初始化邏輯
+     * @param initX 
+     * @param initY 
+     */
+    init(initX?: number, initY?: number): ICharacter
+
+    /**
+     * 從config讀取所有動畫，並且載入，存起來
+     */
+    loadAnimations(): Promise<void>
+
+    /**
+     * 每一帧更新時，玩家對角色的操作輸入
+     * @param movements 
+     * @param deltaTime 
+     */
+    move(movements: import("./game/managers/MovementManager").Movement[], deltaTime: number): void
+
+    /**
+     * 角色可以進入閒置狀態(default animaion)
+     */
+    canIdle(): boolean
+
+    /**
+     * 設置是否閒置
+     */
+    setIdle(bool: boolean): void
+
+    /**
+     * 是否正在跳躍中
+     */
+    isJumping(): boolean
+
+    /**
+     * 是否可以跳躍
+     */
+    canJump(): boolean
+}

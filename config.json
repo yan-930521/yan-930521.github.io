@@ -6,7 +6,7 @@
         "GroundHeight": 142
     },
     "GameSetting": {
-        "MoveSpeed": 5,
+        "MoveSpeed": 3,
         "MoveSpeedOnAir": 3,
         "Gravity": 1.2,
         "KeyBoardController": {

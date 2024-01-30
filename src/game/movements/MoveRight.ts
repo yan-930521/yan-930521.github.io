@@ -16,12 +16,12 @@ export default {
         if (!character.isJumping()) {
             character.isRunning = true;
             character.moveByPosition({
-                x: gameMain.config.GameSetting.moveSpeed,
+                x: gameMain.config.GameSetting.MoveSpeed,
                 y: 0
             });
             character.switchAnimation("Run");
         } else character.moveByPosition({
-            x: gameMain.config.GameSetting.moveSpeedOnAir,
+            x: gameMain.config.GameSetting.MoveSpeedOnAir,
             y: 0
         });
     }

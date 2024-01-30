@@ -3,7 +3,7 @@ import { AnimatedSprite, BaseTexture, Rectangle, Sprite, Texture } from "pixi.js
 export interface Animations {
     [key: string]: AnimatedSprite
 }
-export class Resource extends IResource {
+export class Resource implements IResource {
     static getUrl(...args: string[]): string {
         return args.map((part, i) => {
             if (i === 0) {

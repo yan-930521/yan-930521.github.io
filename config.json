@@ -6,8 +6,16 @@
         "GroundHeight": 142
     },
     "GameSetting": {
-        "moveSpeed": 5,
-        "moveSpeedOnAir": 3
+        "MoveSpeed": 5,
+        "MoveSpeedOnAir": 3,
+        "KeyBoardController": {
+            "Jump": "w",
+            "Left": "a",
+            "Right": "d",
+            "Sprint": "shift",
+            "LaunchBlueFireBall": "f",
+            "Attack1": "r"
+        } 
     },
     "Character": {
         "Samurai": {

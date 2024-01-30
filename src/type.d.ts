@@ -45,8 +45,9 @@ declare namespace CONFIG {
     }
 
     interface GameSetting {
-        moveSpeed: number
-        moveSpeedOnAir: number
+        MoveSpeed: number
+        MoveSpeedOnAir: number
+        KeyBoardController: KeyBoardController
     }
 
     interface KeyInput {
@@ -57,6 +58,10 @@ declare namespace CONFIG {
         x: number
         y: number
     }
+
+    type KeyBoardController = {
+        [name in keyof typeof import("./game/Face").Face]: string
+    } 
 }
 
 /**
@@ -194,6 +199,11 @@ declare interface IConfig {
      * 取得config.json的內容
      */
     fetch(): Promise<IConfig>
+
+    /**
+     * 檢查資料格式是否正確
+     */
+    checkConfig(subConfig: any, data: any): void
 }
 
 /**
@@ -523,7 +533,7 @@ declare interface IEffect extends IBodyObject {
 
 
 /**
- * 
+ * 資源載入器
  */
 declare abstract class IResource {
     /**

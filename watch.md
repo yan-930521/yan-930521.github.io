@@ -53,6 +53,7 @@
    - Class: Config
 
        - Method: fetch
+       - Method: checkConfig
 - File: ./src/game/Effect.ts
    - Class: Effect
 

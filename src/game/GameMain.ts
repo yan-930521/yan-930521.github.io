@@ -3,6 +3,7 @@ import * as PIXI from "pixi.js";
 import { World } from "./World";
 import { Config } from './Confjg';
 import { Movement } from "./managers/MovementManager";
+import { gameMain } from "..";
 
 PIXI.settings.RENDER_OPTIONS.eventMode = "none";
 PIXI.BaseTexture.defaultOptions.scaleMode = PIXI.SCALE_MODES.NEAREST;
@@ -78,12 +79,15 @@ export class GameMain implements IGameMain {
 
     getMoveData(): Movement[] {
         let movements: Movement[] = [];
-        if (this.keyInput["w"]) movements.push(Movement.Jump);
-        if (this.keyInput["a"]) movements.push(Movement.Left);
-        if (this.keyInput["d"]) movements.push(Movement.Right);
-        if (this.keyInput["shift"]) movements.push(Movement.Sprint);
-        if (this.keyInput["f"]) movements.push(Movement.LaunchBlueFireBall);
-        if (this.keyInput["r"]) movements.push(Movement.Attack1);
+        
+        const { KeyBoardController } = gameMain.config.GameSetting;
+
+        for(let name in KeyBoardController) {
+            const mov = Movement[name as keyof typeof Movement]
+            if(typeof mov !== "undefined") {
+                if (this.keyInput[KeyBoardController[name]]) movements.push(mov);
+            }
+        }
         return movements;
     }
 }

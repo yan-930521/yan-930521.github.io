@@ -20,6 +20,7 @@ export default {
         // 2段跳導致CD變長
         if (character.jumpCount == 2) {
             window.clearTimeout(character.movementManager.CDState.Jump.timer);
+            // 抵銷太晚跳躍的下墜
             character.moveByVelocity({x: 0, y: -3});
             character.moveByForce({
                 x: 0,

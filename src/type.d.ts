@@ -47,6 +47,7 @@ declare namespace CONFIG {
     interface GameSetting {
         MoveSpeed: number
         MoveSpeedOnAir: number
+        Gravity: number
         KeyBoardController: KeyBoardController
     }
 

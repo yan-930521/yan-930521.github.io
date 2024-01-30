@@ -17,16 +17,16 @@ export class World extends Container implements IWorld  {
     public ignoreGravityList: number[] = [];
 
     public laseUpdateTime: number = performance.now();
-
     public engine: Engine = Engine.create({
         gravity: {
-            y: 1.2 // 0.5
+            y: gameMain.config.GameSetting.Gravity//1.2 // 0.5
         }
     });
     public renderer: Render;
 
     constructor() {
         super();
+
         this.renderer = Render.create({
             canvas: document.getElementById("matter") as HTMLCanvasElement,
             engine: this.engine,

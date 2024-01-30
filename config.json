@@ -8,6 +8,7 @@
     "GameSetting": {
         "MoveSpeed": 5,
         "MoveSpeedOnAir": 3,
+        "Gravity": 1.2,
         "KeyBoardController": {
             "Jump": "w",
             "Left": "a",

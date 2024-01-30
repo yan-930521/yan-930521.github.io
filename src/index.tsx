@@ -9,7 +9,7 @@ export const gameMain = new GameMain();
 
 (async () => {
     const config = await new Config().fetch();
-
+    
     ReactDOM.render(
         <GameView id="main" config={config} />,
         document.getElementById("root")

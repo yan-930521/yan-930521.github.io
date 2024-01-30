@@ -35,7 +35,7 @@ export class GameMain implements IGameMain {
         this.world = new World();
         this.world.init();
         
-        console.log("World:", this.world);
+        console.log("gameMain:", this);
 
         this.pixi.stage.addChild(this.world);
 
@@ -79,7 +79,7 @@ export class GameMain implements IGameMain {
 
     getMoveData(): Movement[] {
         let movements: Movement[] = [];
-        
+
         const { KeyBoardController } = gameMain.config.GameSetting;
 
         for(let name in KeyBoardController) {

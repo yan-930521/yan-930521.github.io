@@ -158,4 +158,8 @@ export class World extends Container implements IWorld  {
         this.createCollisionHandler();
         return this;
     }
+
+    getCharacters(): Character[] {
+        return [this.character, this.trainingDummy];
+    }
 }

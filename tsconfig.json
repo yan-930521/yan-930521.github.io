@@ -12,6 +12,7 @@
 	},
 	"include": [
 		"src/index.tsx",
-		"src/type.d.ts"
+		"src/type.d.ts",
+		"src/"
 	],
 }

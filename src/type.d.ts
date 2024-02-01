@@ -89,6 +89,28 @@ declare interface IGameMain {
      */
     keyInput: CONFIG.KeyInput
 
+    /**
+     * 初始化遊戲邏輯
+     * @async
+     * @param pixi 
+     * @param config 
+     */
+    init(pixi: import("pixi.js").Application, config: IConfig): void
+
+    /**
+     * 取得上次更新到現在經過的時間
+     */
+    getDeltaTime(): number
+
+    /**
+     * 處理鍵盤輸入的事件
+     */
+    handleKeyInput(): void
+
+    /**
+     * 讀取現有的鍵盤輸入中，並且透過CONFIG.GameSetting.KeyBoardController轉換成合法的操作
+     */
+    getMoveData(): import("./game/managers/MovementManager").Movement[]
 }
 
 /**
@@ -158,6 +180,12 @@ declare interface IWorld {
      * 世界初始化邏輯
      */
     init(): IWorld
+
+    /**
+     * 取得所有可動對象
+     */
+    getCharacters(): ICharacter[]
+
 }
 
 /**
@@ -198,6 +226,7 @@ declare interface IConfig {
 
     /**
      * 取得config.json的內容
+     * @async
      */
     fetch(): Promise<IConfig>
 
@@ -573,4 +602,67 @@ declare abstract class IResource {
      * @param height 
      */
     static loadMutiAnimatedResource(path: string, frameCountX: number, frameCountY: number, width?: number, height?: number): Promise<import("pixi.js").AnimatedSprite[]>
+}
+
+declare type IEvent = string
+
+declare type IEventListener = (...args: any[]) => void
+
+declare interface IEventEmitter {
+    listeners: { [event: string]: IEventListener[] };
+    maxListener: number;
+
+    /**
+     * 為指定事件註冊一個監聽器，接受一個事件名和一個回調函數。
+     * @param event 事件名
+     * @param listener 回調函數
+     */
+    on(event: IEvent, listener: IEventListener): void;
+
+    /**
+     * 按照監聽器的順序執行每個監聽器。
+     * @param event 事件名
+     * @param args 附帶的參數
+     */
+    emit(event: IEvent, ...args: any[]): void;
+
+    /**
+     * `on` 的同名別名函數。
+     * @param event 事件名
+     * @param listener 回調函數
+     */
+    addListener(event: IEvent, listener: IEventListener): void;
+
+    /**
+     * 和 `on` 類似，但只觸發一次，隨後便解除事件監聽。
+     * @param event 事件名
+     * @param listener 回調函數
+     */
+    once(event: IEvent, listener: IEventListener): void;
+
+    /**
+     * 移除指定事件的某個監聽回調。
+     * @param event 事件名
+     * @param listener 要移除的回調函數
+     */
+    removeListener(event: IEvent, listener: IEventListener): void;
+
+    /**
+     * 移除指定事件的所有監聽回調。
+     * @param event 要移除監聽器的事件名，如果不提供則移除所有事件的監聽器。
+     */
+    removeAllListeners(event?: IEvent): void;
+
+    /**
+     * 用於提高監聽器的默認限制數量。（默認 10 個監聽回調會產生警告）
+     * @param n 監聽器的最大限制數量
+     */
+    setMaxListeners(n: number): void;
+
+    /**
+     * 返回指定事件的監聽器陣列。
+     * @param event 事件名
+     * @returns 監聽器陣列
+     */
+    getListeners(event: IEvent): IEventListener[];
 }

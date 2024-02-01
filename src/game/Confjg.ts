@@ -17,6 +17,9 @@ export class Config implements IConfig {
         return this;
     }
 
+    /**
+     * @deprecated
+     */
     checkConfig(subConfig: any, data: any): void {
         Object.keys(subConfig).forEach((key: string) => {
             const obj = data[key];

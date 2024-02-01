@@ -13,6 +13,7 @@
    - Interface: IBodyObject
    - Interface: ICharacter
    - Interface: IEffect
+   - Interface: IEventEmitter
    - Module: CONFIG
 - File: ./src/game/BackGround.ts
    - Class: BackGround
@@ -110,6 +111,17 @@
        - Method: removeBody
        - Method: setIgnoreGravity
        - Method: init
+       - Method: getCharacters
+- File: ./src/services/EventEmitter.ts
+   - Class: EventEmitter
+
+       - Method: on
+       - Method: emit
+       - Method: once
+       - Method: removeListener
+       - Method: removeAllListeners
+       - Method: setMaxListeners
+       - Method: getListeners
 - File: ./src/game/effects/BlueFireBall.ts
 - File: ./src/game/managers/AnimationManager.ts
    - Class: AnimationManager

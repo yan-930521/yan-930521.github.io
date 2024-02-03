@@ -1,4 +1,4 @@
-import { Character } from "../Character";
+import { Character } from "../objects/Character";
 import { Movement, MovementHandler } from "../managers/MovementManager";
 import BlueFireBall from "./../effects/BlueFireBall";
 

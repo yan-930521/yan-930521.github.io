@@ -8,25 +8,47 @@
 
 ### Properties
 
-- [moveSpeed](CONFIG.GameSetting.md#movespeed)
-- [moveSpeedOnAir](CONFIG.GameSetting.md#movespeedonair)
+- [Gravity](CONFIG.GameSetting.md#gravity)
+- [KeyBoardController](CONFIG.GameSetting.md#keyboardcontroller)
+- [MoveSpeed](CONFIG.GameSetting.md#movespeed)
+- [MoveSpeedOnAir](CONFIG.GameSetting.md#movespeedonair)
 
 ## Properties
 
-### moveSpeed
+### Gravity
 
-• **moveSpeed**: `number`
+• **Gravity**: `number`
 
 #### Defined in
 
-[type.d.ts:48](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L48)
+[type.d.ts:52](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L52)
 
 ___
 
-### moveSpeedOnAir
+### KeyBoardController
 
-• **moveSpeedOnAir**: `number`
+• **KeyBoardController**: [`KeyBoardController`](../modules/CONFIG.md#keyboardcontroller)
 
 #### Defined in
 
-[type.d.ts:49](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L49)
+[type.d.ts:53](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L53)
+
+___
+
+### MoveSpeed
+
+• **MoveSpeed**: `number`
+
+#### Defined in
+
+[type.d.ts:50](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L50)
+
+___
+
+### MoveSpeedOnAir
+
+• **MoveSpeedOnAir**: `number`
+
+#### Defined in
+
+[type.d.ts:51](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L51)

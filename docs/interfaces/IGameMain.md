@@ -15,6 +15,13 @@
 - [pixi](IGameMain.md#pixi)
 - [world](IGameMain.md#world)
 
+### Methods
+
+- [getDeltaTime](IGameMain.md#getdeltatime)
+- [getMoveData](IGameMain.md#getmovedata)
+- [handleKeyInput](IGameMain.md#handlekeyinput)
+- [init](IGameMain.md#init)
+
 ## Properties
 
 ### config
@@ -23,7 +30,7 @@
 
 #### Defined in
 
-[type.d.ts:73](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L73)
+[type.d.ts:81](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L81)
 
 ___
 
@@ -41,7 +48,7 @@ false
 
 #### Defined in
 
-[type.d.ts:70](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L70)
+[type.d.ts:78](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L78)
 
 ___
 
@@ -53,7 +60,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:84](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L84)
+[type.d.ts:92](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L92)
 
 ___
 
@@ -65,7 +72,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:79](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L79)
+[type.d.ts:87](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L87)
 
 ___
 
@@ -75,7 +82,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:72](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L72)
+[type.d.ts:80](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L80)
 
 ___
 
@@ -85,4 +92,77 @@ ___
 
 #### Defined in
 
-[type.d.ts:74](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L74)
+[type.d.ts:82](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L82)
+
+## Methods
+
+### getDeltaTime
+
+▸ **getDeltaTime**(): `number`
+
+取得上次更新到現在經過的時間
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[type.d.ts:105](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L105)
+
+___
+
+### getMoveData
+
+▸ **getMoveData**(): `Movement`[]
+
+讀取現有的鍵盤輸入中，並且透過CONFIG.GameSetting.KeyBoardController轉換成合法的操作
+
+#### Returns
+
+`Movement`[]
+
+#### Defined in
+
+[type.d.ts:115](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L115)
+
+___
+
+### handleKeyInput
+
+▸ **handleKeyInput**(): `void`
+
+處理鍵盤輸入的事件
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[type.d.ts:110](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L110)
+
+___
+
+### init
+
+▸ **init**(`pixi`, `config`): `void`
+
+初始化遊戲邏輯
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `pixi` | `Application`\<`ICanvas`\> |
+| `config` | [`IConfig`](IConfig.md) |
+
+#### Returns
+
+`void`
+
+**`Async`**
+
+#### Defined in
+
+[type.d.ts:100](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L100)

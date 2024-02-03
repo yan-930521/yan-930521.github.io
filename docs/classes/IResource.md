@@ -2,6 +2,8 @@
 
 # Class: IResource
 
+資源載入器
+
 ## Table of contents
 
 ### Constructors
@@ -47,7 +49,7 @@
 
 #### Defined in
 
-[type.d.ts:540](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L540)
+[type.d.ts:589](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L589)
 
 ___
 
@@ -69,7 +71,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:533](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L533)
+[type.d.ts:582](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L582)
 
 ___
 
@@ -94,7 +96,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:555](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L555)
+[type.d.ts:604](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L604)
 
 ___
 
@@ -120,7 +122,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:564](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L564)
+[type.d.ts:613](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L613)
 
 ___
 
@@ -142,4 +144,4 @@ ___
 
 #### Defined in
 
-[type.d.ts:546](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L546)
+[type.d.ts:595](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L595)

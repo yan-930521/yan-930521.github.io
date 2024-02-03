@@ -1,8 +1,8 @@
 import { Container, Graphics, Sprite, Texture } from "pixi.js";
 import { Body, Sleeping } from "matter-js";
 
-import { Face } from "../Face";
-import { Character } from "../Character";
+import { Face } from "../../utils/Face";
+import { Character } from "../objects/Character";
 import { Movement, MovementHandler } from "../managers/MovementManager";
 
 import { gameMain } from "../..";
@@ -32,7 +32,7 @@ export default {
 
         const face = character.getFace() == Face.RIGHT ? 1 : -1;
         const anotherCharacters = gameMain.world.getCharacters().filter((ch: Character) => character != ch);
-
+        console.log(anotherCharacters)
         const start: CONFIG.Vector = {
             x: 30 * face,
             y: -40
@@ -43,9 +43,11 @@ export default {
 
         for (let i in anotherCharacters) {
             const anotherCharacter = anotherCharacters[i];
+            console.log(anotherCharacter)
             // console.log(anotherCharacter.body.position as CONFIG.Vector,
             //     character.body.position as CONFIG.Vector,
             //     character.body.position.x + start.x, character.body.position.y + start.y, character.body.position.x + end.x, character.body.position.y + end.y)
+            
             // 檢查座標是否在長方形內
             if (isInRange([
                 {

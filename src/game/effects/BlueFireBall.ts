@@ -2,9 +2,9 @@ import { Texture } from "pixi.js";
 import { Bodies } from "matter-js";
 import { upgradeConfig, EmitterConfigV2 } from "@pixi/particle-emitter";
 
-import { Face } from "../Face";
-import { Effect } from "../Effect";
-import { Character } from "../Character";
+import { Face } from "../../utils/Face";
+import { Effect } from "../objects/Effect";
+import { Character } from "../objects/Character";
 import { continMover } from "../managers/MovementManager";
 
 import { gameMain } from "../..";
@@ -41,8 +41,6 @@ export default {
                 x: 0,
                 y: 40
             });
-
-        gameMain.world.setIgnoreGravity(effect.body);
 
         effect.onStart = (): void => {
             effect.waitMS(1000, () => {

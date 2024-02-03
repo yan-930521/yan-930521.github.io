@@ -3,16 +3,16 @@
     "GameViewport": {
         "WIDTH": 500,
         "HEIGHT": 250,
-        "GroundHeight": 142
+        "GroundHeight": 167
     },
     "GameSetting": {
-        "MoveSpeed": 2,
+        "MoveSpeed": 6,
         "MoveSpeedOnAir": 3,
         "Gravity": 1.2,
         "KeyBoardController": {
-            "Jump": "arrowup",
-            "Left": "arrowleft",
-            "Right": "arrowright",
+            "Jump": "w",
+            "Left": "a",
+            "Right": "d",
             "Sprint": "shift",
             "LaunchBlueFireBall": "f",
             "Attack1": "r"
@@ -22,6 +22,8 @@
         "Samurai": {
             "width": 50,
             "height": 86,
+            "offsetX": 0,
+            "offsetY": 0,
             "defaultAnimation": "Idle",
             "animation": {
                 "Idle": {
@@ -43,7 +45,7 @@
                     "height": 86,
                     "offsetX": 10,
                     "offsetY": 0,
-                    "animationSpeed": 0.011,
+                    "animationSpeed": 0.02,
                     "animationScale": 1
                 },
                 "Jump": {
@@ -73,6 +75,8 @@
         "TrainingDummy": {
             "width": 64,
             "height": 64,
+            "offsetX": 0,
+            "offsetY": 10,
             "defaultAnimation": "OnAttacked",
             "animation": {
                 "OnAttacked": {
@@ -80,7 +84,7 @@
                     "path": "TrainingDummy/tile000.png",
                     "frameCount": 4,
                     "width": 32,
-                    "height": 32,
+                    "height": 28,
                     "offsetX": 0,
                     "offsetY": 12,
                     "animationSpeed": 0.006,

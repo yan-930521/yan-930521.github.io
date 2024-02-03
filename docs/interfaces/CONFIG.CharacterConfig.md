@@ -11,6 +11,8 @@
 - [animation](CONFIG.CharacterConfig.md#animation)
 - [defaultAnimation](CONFIG.CharacterConfig.md#defaultanimation)
 - [height](CONFIG.CharacterConfig.md#height)
+- [offsetX](CONFIG.CharacterConfig.md#offsetx)
+- [offsetY](CONFIG.CharacterConfig.md#offsety)
 - [width](CONFIG.CharacterConfig.md#width)
 
 ## Properties
@@ -25,7 +27,7 @@
 
 #### Defined in
 
-[type.d.ts:6](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L6)
+[type.d.ts:8](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L8)
 
 ___
 
@@ -35,7 +37,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:5](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L5)
+[type.d.ts:7](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L7)
 
 ___
 
@@ -45,7 +47,27 @@ ___
 
 #### Defined in
 
-[type.d.ts:4](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L4)
+[type.d.ts:4](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L4)
+
+___
+
+### offsetX
+
+• **offsetX**: `number`
+
+#### Defined in
+
+[type.d.ts:5](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L5)
+
+___
+
+### offsetY
+
+• **offsetY**: `number`
+
+#### Defined in
+
+[type.d.ts:6](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L6)
 
 ___
 
@@ -55,4 +77,4 @@ ___
 
 #### Defined in
 
-[type.d.ts:3](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L3)
+[type.d.ts:3](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L3)

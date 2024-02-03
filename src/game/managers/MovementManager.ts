@@ -1,4 +1,4 @@
-import { Character } from "../Character";
+import { Character } from "../objects/Character";
 import MovementHandlers from "../movements";
 
 export { MovementHandlers };
@@ -11,7 +11,6 @@ export enum Movement {
     LaunchBlueFireBall,
     Attack1
 }
-
 export type MoveFunction = (character: Character, matchedMonementHandler: MovementHandler) => void;
 export interface MovementHandler {
     key: Movement[],
@@ -47,7 +46,6 @@ export class MovementManager {
     public excludeCDList: Movement[][] = [];
 
     constructor() {
-
         for (let i in MovementHandlers) {
             this.CDState[MovementHandlers[i].name] = {
                 timer: null,
@@ -77,13 +75,7 @@ export class MovementManager {
             if (!this.isExcludeCD(temp.key)) {
                 let cdName: string = temp.cdName || temp.name;
                 if (this.CDState[cdName].allow) {
-                    this.CDState[cdName].allow = false;
-                    this.CDState[cdName].during = true;
-                    this.CDState[cdName].timer = window.setTimeout(() => {
-                        this.CDState[cdName].allow = true;
-                        this.CDState[cdName].during = false;
-                        this.CDState[cdName].timer = null;
-                    }, temp.cd);
+                    this.setCD(cdName, temp.cd)
                     tempAry2.push(temp);
                 }
             } else {
@@ -108,6 +100,7 @@ export class MovementManager {
         let ms1 = new Set<Movement>(ma1), ms2 = new Set<Movement>(ma2);
         return ms1.size === ms2.size && ma1.every((x) => ms2.has(x));
     }
+
     isContainMovement(ma1: Movement[], ma2: Movement[]) {
         let ms2 = new Set<Movement>(ma2);
         return ma1.every((x) => ms2.has(x));

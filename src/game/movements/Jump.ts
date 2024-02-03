@@ -1,4 +1,4 @@
-import { Character } from "../Character";
+import { Character } from "../objects/Character";
 import { Movement, MovementHandler, MovementHandlers } from "../managers/MovementManager";
 
 export default {

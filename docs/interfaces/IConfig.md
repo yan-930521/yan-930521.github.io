@@ -17,6 +17,7 @@
 
 ### Methods
 
+- [checkConfig](IConfig.md#checkconfig)
 - [fetch](IConfig.md#fetch)
 
 ## Properties
@@ -29,7 +30,7 @@
 
 #### Defined in
 
-[type.d.ts:174](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L174)
+[type.d.ts:204](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L204)
 
 ___
 
@@ -41,7 +42,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:179](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L179)
+[type.d.ts:209](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L209)
 
 ___
 
@@ -53,7 +54,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:169](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L169)
+[type.d.ts:199](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L199)
 
 ___
 
@@ -65,7 +66,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:164](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L164)
+[type.d.ts:194](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L194)
 
 ___
 
@@ -77,7 +78,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:184](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L184)
+[type.d.ts:214](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L214)
 
 ___
 
@@ -93,9 +94,32 @@ ___
 
 #### Defined in
 
-[type.d.ts:189](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L189)
+[type.d.ts:219](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L219)
 
 ## Methods
+
+### checkConfig
+
+▸ **checkConfig**(`subConfig`, `data`): `void`
+
+檢查資料格式是否正確
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `subConfig` | `any` |
+| `data` | `any` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[type.d.ts:232](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L232)
+
+___
 
 ### fetch
 
@@ -107,6 +131,8 @@ ___
 
 `Promise`\<[`IConfig`](IConfig.md)\>
 
+**`Async`**
+
 #### Defined in
 
-[type.d.ts:196](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L196)
+[type.d.ts:227](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L227)

@@ -14,9 +14,8 @@
 
 ### Properties
 
-- [animationManager](IEffect.md#animationmanager)
 - [body](IEffect.md#body)
-- [characterConfig](IEffect.md#characterconfig)
+- [container](IEffect.md#container)
 - [debugBox](IEffect.md#debugbox)
 - [emitter](IEffect.md#emitter)
 - [face](IEffect.md#face)
@@ -24,6 +23,8 @@
 - [followOffset](IEffect.md#followoffset)
 - [followed](IEffect.md#followed)
 - [graphics](IEffect.md#graphics)
+- [listeners](IEffect.md#listeners)
+- [maxListener](IEffect.md#maxlistener)
 - [offset](IEffect.md#offset)
 - [particleContainer](IEffect.md#particlecontainer)
 - [positionOffset](IEffect.md#positionoffset)
@@ -31,22 +32,29 @@
 
 ### Methods
 
+- [addListener](IEffect.md#addlistener)
 - [clearBody](IEffect.md#clearbody)
 - [clearFollow](IEffect.md#clearfollow)
 - [clearFollowOffset](IEffect.md#clearfollowoffset)
 - [clearGraphics](IEffect.md#cleargraphics)
 - [clearOffset](IEffect.md#clearoffset)
 - [clearSprite](IEffect.md#clearsprite)
+- [emit](IEffect.md#emit)
 - [getEmit](IEffect.md#getemit)
 - [getFace](IEffect.md#getface)
+- [getListeners](IEffect.md#getlisteners)
 - [getPosition](IEffect.md#getposition)
 - [moveByForce](IEffect.md#movebyforce)
 - [moveByPosition](IEffect.md#movebyposition)
 - [moveByVelocity](IEffect.md#movebyvelocity)
+- [on](IEffect.md#on)
 - [onBeforeUpdate](IEffect.md#onbeforeupdate)
 - [onFinish](IEffect.md#onfinish)
 - [onStart](IEffect.md#onstart)
 - [onUpdate](IEffect.md#onupdate)
+- [once](IEffect.md#once)
+- [removeAllListeners](IEffect.md#removealllisteners)
+- [removeListener](IEffect.md#removelistener)
 - [setBody](IEffect.md#setbody)
 - [setBodyPosition](IEffect.md#setbodyposition)
 - [setEmit](IEffect.md#setemit)
@@ -55,34 +63,22 @@
 - [setFollow](IEffect.md#setfollow)
 - [setFollowOffset](IEffect.md#setfollowoffset)
 - [setGraphics](IEffect.md#setgraphics)
+- [setMaxListeners](IEffect.md#setmaxlisteners)
 - [setOffset](IEffect.md#setoffset)
 - [setPosition](IEffect.md#setposition)
 - [setSprite](IEffect.md#setsprite)
 - [start](IEffect.md#start)
 - [stop](IEffect.md#stop)
-- [switchAnimation](IEffect.md#switchanimation)
 - [update](IEffect.md#update)
 - [waitMS](IEffect.md#waitms)
 
 ## Properties
 
-### animationManager
-
-• **animationManager**: `any`
-
-#### Inherited from
-
-[IBodyObject](IBodyObject.md).[animationManager](IBodyObject.md#animationmanager)
-
-#### Defined in
-
-[type.d.ts:225](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L225)
-
-___
-
 ### body
 
 • **body**: `Body`
+
+鋼體
 
 #### Inherited from
 
@@ -90,23 +86,21 @@ ___
 
 #### Defined in
 
-[type.d.ts:289](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L289)
+[type.d.ts:317](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L317)
 
 ___
 
-### characterConfig
+### container
 
-• **characterConfig**: [`CharacterConfig`](CONFIG.CharacterConfig.md)
-
-角色的設定
+• **container**: `Container`\<`DisplayObject`\>
 
 #### Inherited from
 
-[IBodyObject](IBodyObject.md).[characterConfig](IBodyObject.md#characterconfig)
+[IBodyObject](IBodyObject.md).[container](IBodyObject.md#container)
 
 #### Defined in
 
-[type.d.ts:230](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L230)
+[type.d.ts:261](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L261)
 
 ___
 
@@ -122,7 +116,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:206](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L206)
+[type.d.ts:242](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L242)
 
 ___
 
@@ -134,7 +128,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:394](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L394)
+[type.d.ts:443](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L443)
 
 ___
 
@@ -156,7 +150,7 @@ Face.RIGHT
 
 #### Defined in
 
-[type.d.ts:217](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L217)
+[type.d.ts:253](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L253)
 
 ___
 
@@ -168,7 +162,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:399](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L399)
+[type.d.ts:448](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L448)
 
 ___
 
@@ -180,7 +174,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:418](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L418)
+[type.d.ts:467](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L467)
 
 ___
 
@@ -196,7 +190,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:211](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L211)
+[type.d.ts:247](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L247)
 
 ___
 
@@ -208,7 +202,39 @@ ___
 
 #### Defined in
 
-[type.d.ts:404](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L404)
+[type.d.ts:453](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L453)
+
+___
+
+### listeners
+
+• **listeners**: `Object`
+
+#### Index signature
+
+▪ [event: `string`]: [`IEventListener`](../modules.md#ieventlistener)[]
+
+#### Inherited from
+
+[IBodyObject](IBodyObject.md).[listeners](IBodyObject.md#listeners)
+
+#### Defined in
+
+[type.d.ts:621](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L621)
+
+___
+
+### maxListener
+
+• **maxListener**: `number`
+
+#### Inherited from
+
+[IBodyObject](IBodyObject.md).[maxListener](IBodyObject.md#maxlistener)
+
+#### Defined in
+
+[type.d.ts:622](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L622)
 
 ___
 
@@ -220,7 +246,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:413](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L413)
+[type.d.ts:462](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L462)
 
 ___
 
@@ -232,7 +258,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:423](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L423)
+[type.d.ts:472](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L472)
 
 ___
 
@@ -254,7 +280,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:223](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L223)
+[type.d.ts:259](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L259)
 
 ___
 
@@ -266,9 +292,36 @@ ___
 
 #### Defined in
 
-[type.d.ts:408](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L408)
+[type.d.ts:457](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L457)
 
 ## Methods
+
+### addListener
+
+▸ **addListener**(`event`, `listener`): `void`
+
+`on` 的同名別名函數。
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `event` | `string` | 事件名 |
+| `listener` | [`IEventListener`](../modules.md#ieventlistener) | 回調函數 |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[IBodyObject](IBodyObject.md).[addListener](IBodyObject.md#addlistener)
+
+#### Defined in
+
+[type.d.ts:643](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L643)
+
+___
 
 ### clearBody
 
@@ -282,7 +335,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:440](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L440)
+[type.d.ts:489](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L489)
 
 ___
 
@@ -298,7 +351,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:485](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L485)
+[type.d.ts:534](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L534)
 
 ___
 
@@ -314,7 +367,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:474](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L474)
+[type.d.ts:523](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L523)
 
 ___
 
@@ -330,7 +383,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:451](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L451)
+[type.d.ts:500](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L500)
 
 ___
 
@@ -346,7 +399,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:495](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L495)
+[type.d.ts:544](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L544)
 
 ___
 
@@ -362,7 +415,34 @@ ___
 
 #### Defined in
 
-[type.d.ts:462](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L462)
+[type.d.ts:511](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L511)
+
+___
+
+### emit
+
+▸ **emit**(`event`, `...args`): `void`
+
+按照監聽器的順序執行每個監聽器。
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `event` | `string` | 事件名 |
+| `...args` | `any`[] | 附帶的參數 |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[IBodyObject](IBodyObject.md).[emit](IBodyObject.md#emit)
+
+#### Defined in
+
+[type.d.ts:636](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L636)
 
 ___
 
@@ -378,7 +458,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:506](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L506)
+[type.d.ts:555](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L555)
 
 ___
 
@@ -398,7 +478,35 @@ ___
 
 #### Defined in
 
-[type.d.ts:240](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L240)
+[type.d.ts:271](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L271)
+
+___
+
+### getListeners
+
+▸ **getListeners**(`event`): [`IEventListener`](../modules.md#ieventlistener)[]
+
+返回指定事件的監聽器陣列。
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `event` | `string` | 事件名 |
+
+#### Returns
+
+[`IEventListener`](../modules.md#ieventlistener)[]
+
+監聽器陣列
+
+#### Inherited from
+
+[IBodyObject](IBodyObject.md).[getListeners](IBodyObject.md#getlisteners)
+
+#### Defined in
+
+[type.d.ts:676](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L676)
 
 ___
 
@@ -418,7 +526,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:263](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L263)
+[type.d.ts:293](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L293)
 
 ___
 
@@ -444,7 +552,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:303](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L303)
+[type.d.ts:331](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L331)
 
 ___
 
@@ -470,7 +578,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:309](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L309)
+[type.d.ts:337](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L337)
 
 ___
 
@@ -496,7 +604,34 @@ ___
 
 #### Defined in
 
-[type.d.ts:315](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L315)
+[type.d.ts:343](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L343)
+
+___
+
+### on
+
+▸ **on**(`event`, `listener`): `void`
+
+為指定事件註冊一個監聽器，接受一個事件名和一個回調函數。
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `event` | `string` | 事件名 |
+| `listener` | [`IEventListener`](../modules.md#ieventlistener) | 回調函數 |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[IBodyObject](IBodyObject.md).[on](IBodyObject.md#on)
+
+#### Defined in
+
+[type.d.ts:629](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L629)
 
 ___
 
@@ -505,7 +640,7 @@ ___
 ▸ **onBeforeUpdate**(`deltaMS`): `void`
 
 在更新前呼叫
-需要實作
+為預設的更新函式
 
 #### Parameters
 
@@ -523,7 +658,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:246](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L246)
+[type.d.ts:277](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L277)
 
 ___
 
@@ -539,7 +674,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:521](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L521)
+[type.d.ts:570](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L570)
 
 ___
 
@@ -555,7 +690,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:516](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L516)
+[type.d.ts:565](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L565)
 
 ___
 
@@ -564,7 +699,7 @@ ___
 ▸ **onUpdate**(`deltaMS`): `void`
 
 在更新時呼叫
-需要實作
+為預設的更新函式
 
 #### Parameters
 
@@ -582,7 +717,87 @@ ___
 
 #### Defined in
 
-[type.d.ts:252](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L252)
+[type.d.ts:283](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L283)
+
+___
+
+### once
+
+▸ **once**(`event`, `listener`): `void`
+
+和 `on` 類似，但只觸發一次，隨後便解除事件監聽。
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `event` | `string` | 事件名 |
+| `listener` | [`IEventListener`](../modules.md#ieventlistener) | 回調函數 |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[IBodyObject](IBodyObject.md).[once](IBodyObject.md#once)
+
+#### Defined in
+
+[type.d.ts:650](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L650)
+
+___
+
+### removeAllListeners
+
+▸ **removeAllListeners**(`event?`): `void`
+
+移除指定事件的所有監聽回調。
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `event?` | `string` | 要移除監聽器的事件名，如果不提供則移除所有事件的監聽器。 |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[IBodyObject](IBodyObject.md).[removeAllListeners](IBodyObject.md#removealllisteners)
+
+#### Defined in
+
+[type.d.ts:663](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L663)
+
+___
+
+### removeListener
+
+▸ **removeListener**(`event`, `listener`): `void`
+
+移除指定事件的某個監聽回調。
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `event` | `string` | 事件名 |
+| `listener` | [`IEventListener`](../modules.md#ieventlistener) | 要移除的回調函數 |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[IBodyObject](IBodyObject.md).[removeListener](IBodyObject.md#removelistener)
+
+#### Defined in
+
+[type.d.ts:657](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L657)
 
 ___
 
@@ -604,7 +819,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:435](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L435)
+[type.d.ts:484](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L484)
 
 ___
 
@@ -630,7 +845,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:297](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L297)
+[type.d.ts:325](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L325)
 
 ___
 
@@ -652,7 +867,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:501](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L501)
+[type.d.ts:550](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L550)
 
 ___
 
@@ -674,7 +889,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:429](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L429)
+[type.d.ts:478](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L478)
 
 ___
 
@@ -700,7 +915,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:235](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L235)
+[type.d.ts:266](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L266)
 
 ___
 
@@ -722,7 +937,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:480](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L480)
+[type.d.ts:529](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L529)
 
 ___
 
@@ -744,7 +959,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:468](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L468)
+[type.d.ts:517](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L517)
 
 ___
 
@@ -766,7 +981,33 @@ ___
 
 #### Defined in
 
-[type.d.ts:446](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L446)
+[type.d.ts:495](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L495)
+
+___
+
+### setMaxListeners
+
+▸ **setMaxListeners**(`n`): `void`
+
+用於提高監聽器的默認限制數量。（默認 10 個監聽回調會產生警告）
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `n` | `number` | 監聽器的最大限制數量 |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[IBodyObject](IBodyObject.md).[setMaxListeners](IBodyObject.md#setmaxlisteners)
+
+#### Defined in
+
+[type.d.ts:669](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L669)
 
 ___
 
@@ -788,7 +1029,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:490](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L490)
+[type.d.ts:539](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L539)
 
 ___
 
@@ -814,7 +1055,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:269](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L269)
+[type.d.ts:299](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L299)
 
 ___
 
@@ -836,7 +1077,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:457](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L457)
+[type.d.ts:506](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L506)
 
 ___
 
@@ -852,7 +1093,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:511](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L511)
+[type.d.ts:560](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L560)
 
 ___
 
@@ -870,33 +1111,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:291](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L291)
-
-___
-
-### switchAnimation
-
-▸ **switchAnimation**(`name?`): `void`
-
-切換動畫
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `name?` | `string` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[IBodyObject](IBodyObject.md).[switchAnimation](IBodyObject.md#switchanimation)
-
-#### Defined in
-
-[type.d.ts:275](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L275)
+[type.d.ts:319](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L319)
 
 ___
 
@@ -904,7 +1119,7 @@ ___
 
 ▸ **update**(`deltaMS`): `void`
 
-更新物體
+手動呼叫更新
 
 #### Parameters
 
@@ -922,7 +1137,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:258](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L258)
+[type.d.ts:288](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L288)
 
 ___
 
@@ -949,4 +1164,4 @@ ___
 
 #### Defined in
 
-[type.d.ts:282](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L282)
+[type.d.ts:306](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L306)

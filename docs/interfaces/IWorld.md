@@ -8,47 +8,35 @@
 
 ### Properties
 
-- [background](IWorld.md#background)
-- [character](IWorld.md#character)
+- [container](IWorld.md#container)
 - [engine](IWorld.md#engine)
-- [ground](IWorld.md#ground)
-- [ignoreGravityList](IWorld.md#ignoregravitylist)
-- [laseUpdateTime](IWorld.md#laseupdatetime)
+- [objects](IWorld.md#objects)
 - [renderer](IWorld.md#renderer)
-- [trainingDummy](IWorld.md#trainingdummy)
 
 ### Methods
 
 - [addBody](IWorld.md#addbody)
+- [addObjectToWorld](IWorld.md#addobjecttoworld)
 - [createBackGround](IWorld.md#createbackground)
 - [createCharacter](IWorld.md#createcharacter)
 - [createCollisionHandler](IWorld.md#createcollisionhandler)
 - [createGround](IWorld.md#createground)
 - [createTrainingDummy](IWorld.md#createtrainingdummy)
+- [getCharacters](IWorld.md#getcharacters)
 - [init](IWorld.md#init)
 - [removeBody](IWorld.md#removebody)
-- [setIgnoreGravity](IWorld.md#setignoregravity)
+- [removeObjectToWorld](IWorld.md#removeobjecttoworld)
 - [update](IWorld.md#update)
 
 ## Properties
 
-### background
+### container
 
-• **background**: [`IBasicObject`](IBasicObject.md)
-
-#### Defined in
-
-[type.d.ts:92](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L92)
-
-___
-
-### character
-
-• **character**: [`ICharacter`](ICharacter.md)
+• **container**: `Container`\<`DisplayObject`\>
 
 #### Defined in
 
-[type.d.ts:94](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L94)
+[type.d.ts:134](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L134)
 
 ___
 
@@ -60,41 +48,17 @@ Matter的引擎
 
 #### Defined in
 
-[type.d.ts:110](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L110)
+[type.d.ts:125](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L125)
 
 ___
 
-### ground
+### objects
 
-• **ground**: [`IBodyObject`](IBodyObject.md)
-
-#### Defined in
-
-[type.d.ts:93](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L93)
-
-___
-
-### ignoreGravityList
-
-• **ignoreGravityList**: `number`[]
-
-需要忽略重力的鋼體ID
+• **objects**: \{ `index`: `number` ; `object`: [`IBasicObject`](IBasicObject.md)  }[]
 
 #### Defined in
 
-[type.d.ts:100](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L100)
-
-___
-
-### laseUpdateTime
-
-• **laseUpdateTime**: `number`
-
-上次更新的時間
-
-#### Defined in
-
-[type.d.ts:105](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L105)
+[type.d.ts:132](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L132)
 
 ___
 
@@ -106,17 +70,7 @@ Matter的渲染器，用來顯示鋼體
 
 #### Defined in
 
-[type.d.ts:115](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L115)
-
-___
-
-### trainingDummy
-
-• **trainingDummy**: [`ICharacter`](ICharacter.md)
-
-#### Defined in
-
-[type.d.ts:95](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L95)
+[type.d.ts:130](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L130)
 
 ## Methods
 
@@ -138,7 +92,29 @@ ___
 
 #### Defined in
 
-[type.d.ts:137](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L137)
+[type.d.ts:167](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L167)
+
+___
+
+### addObjectToWorld
+
+▸ **addObjectToWorld**(`object`): `void`
+
+將物體加入世界
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `object` | [`IBasicObject`](IBasicObject.md) \| [`IBodyObject`](IBodyObject.md) |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[type.d.ts:145](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L145)
 
 ___
 
@@ -152,7 +128,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:117](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L117)
+[type.d.ts:136](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L136)
 
 ___
 
@@ -166,7 +142,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:119](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L119)
+[type.d.ts:138](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L138)
 
 ___
 
@@ -182,7 +158,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:125](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L125)
+[type.d.ts:156](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L156)
 
 ___
 
@@ -196,7 +172,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:118](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L118)
+[type.d.ts:137](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L137)
 
 ___
 
@@ -210,7 +186,23 @@ ___
 
 #### Defined in
 
-[type.d.ts:120](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L120)
+[type.d.ts:139](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L139)
+
+___
+
+### getCharacters
+
+▸ **getCharacters**(): [`ICharacter`](ICharacter.md)[]
+
+取得所有可動對象
+
+#### Returns
+
+[`ICharacter`](ICharacter.md)[]
+
+#### Defined in
+
+[type.d.ts:183](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L183)
 
 ___
 
@@ -226,7 +218,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:154](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L154)
+[type.d.ts:178](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L178)
 
 ___
 
@@ -248,21 +240,21 @@ ___
 
 #### Defined in
 
-[type.d.ts:143](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L143)
+[type.d.ts:173](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L173)
 
 ___
 
-### setIgnoreGravity
+### removeObjectToWorld
 
-▸ **setIgnoreGravity**(`body`): `void`
+▸ **removeObjectToWorld**(`object`): `void`
 
-將鋼體設置成忽略重力
+將物體移出世界
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `body` | `Body` |
+| `object` | [`IBasicObject`](IBasicObject.md) \| [`IBodyObject`](IBodyObject.md) |
 
 #### Returns
 
@@ -270,13 +262,13 @@ ___
 
 #### Defined in
 
-[type.d.ts:149](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L149)
+[type.d.ts:151](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L151)
 
 ___
 
 ### update
 
-▸ **update**(`deltaMS?`): `void`
+▸ **update**(`deltaMS`): `void`
 
 更新所有內部組件
 
@@ -284,7 +276,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `deltaMS?` | `number` |
+| `deltaMS` | `number` |
 
 #### Returns
 
@@ -292,4 +284,4 @@ ___
 
 #### Defined in
 
-[type.d.ts:131](https://github.com/yan-930521/yan-930521.github.io/blob/b69c0fa/src/type.d.ts#L131)
+[type.d.ts:161](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L161)

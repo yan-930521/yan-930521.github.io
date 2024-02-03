@@ -29,8 +29,6 @@ export class GameView extends React.Component<GameViewProps, {}> {
     }
 
     componentDidMount() {
-        document.body.appendChild(this.pixi.view);
-
         gameMain.init(this.pixi, this.props.config);
     }
 

@@ -1,9 +1,10 @@
 import { AnimatedSprite, Sprite } from "pixi.js";
 
-import { BasicObject } from "../BasicObject";
-import { Animations, Resource } from "../Resource";
+import { BasicObject } from "../objects/BasicObject";
+import { Animations, Resource } from "../../utils/Resource";
 
 import { gameMain } from "../..";
+import { Character } from "../objects/Character";
 
 export type AnimationCallBack = (animation: AnimatedSprite | Sprite) => void;
 export type AnimationsCallBack = (animations: (AnimatedSprite | Sprite)[]) => void;
@@ -13,7 +14,7 @@ export class AnimationManager {
     public animationConfigs: CONFIG.AnimationConfigs = {};
     public loaded: boolean = false;
     public isIdle: boolean = true;
-    public parent: BasicObject;
+    public parent: Character;
 
     // 用來控制現在正在播放的動畫
     public nowAnimation: string | null = null;
@@ -31,8 +32,8 @@ export class AnimationManager {
         [key: string]: boolean
     } = {};
 
-    constructor(parent: BasicObject) {
-        this.parent = parent;
+    constructor(parent?: Character) {
+        if(parent) this.parent = parent;
     }
 
     isReady(): boolean {
@@ -87,7 +88,7 @@ export class AnimationManager {
 
         for (let name in this.animations) {
             this.animations[name].stop();
-            this.parent.removeChild(this.animations[name]);
+            this.parent.container.removeChild(this.animations[name]);
         }
 
         if (animation) {
@@ -112,17 +113,27 @@ export class AnimationManager {
     }
 
     setAnimationFrame(name: string, frame: number): void {
+        if (!this.isReady()) return;
         this.animations[name].currentFrame = frame;
     }
     getAnimationFrame(name: string): number {
-        return this.animations[name].currentFrame;
+        return this.animations[name]?.currentFrame;
     }
 
-    // 設定動畫可以持續不需要停
+    /**
+     * 設定動畫可以持續不需要停
+     * @param name 
+     * @param bool 
+     */
     setHaveToStop(name: string, bool: boolean) {
         this.haveToStopAnimations[name] = bool ? true : false;
     }
-    getHaveToStop(name: string) {
+
+    /**
+     * 動畫是否需要在播放完畢的時候結束(預設會重播)
+     * @param name
+     */
+    getHaveToStop(name: string): boolean {
         if (this.haveToStopAnimations[name]) {
             return true;
         } else {
@@ -142,7 +153,7 @@ export class AnimationManager {
         return this.mustStopAnimations[name];
     }
 
-    update(deltaMS: number) {
+    onUpdate(deltaMS: number) {
         if (!this.isReady()) return;
 
         if (this.nowAnimation && this.animations[this.nowAnimation]) this.animations[this.nowAnimation].update(deltaMS);

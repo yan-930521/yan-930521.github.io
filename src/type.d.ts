@@ -2,6 +2,8 @@ declare namespace CONFIG {
     interface CharacterConfig {
         width: number,
         height: number,
+        offsetX: number,
+        offsetY: number,
         defaultAnimation: string,
         animation: {
             [key: string]: AnimationConfig
@@ -61,8 +63,8 @@ declare namespace CONFIG {
     }
 
     type KeyBoardController = {
-        [name in keyof typeof import("./game/Face").Face]: string
-    } 
+        [name in keyof typeof import("./game/managers/MovementManager").Movement]: string
+    }
 }
 
 /**
@@ -117,21 +119,6 @@ declare interface IGameMain {
  * 整個物理世界，可以管理所有物件
  */
 declare interface IWorld {
-    background: IBasicObject
-    ground: IBodyObject
-    character: ICharacter
-    trainingDummy: ICharacter
-
-    /**
-     * 需要忽略重力的鋼體ID
-     */
-    ignoreGravityList: number[]
-
-    /**
-     * 上次更新的時間
-     */
-    laseUpdateTime: number
-
     /**
      * Matter的引擎
      */
@@ -142,10 +129,26 @@ declare interface IWorld {
      */
     renderer: Matter.Render
 
+    objects: { index: number, object: IBasicObject }[]
+
+    container: import("pixi.js").Container
+
     createBackGround(): void
     createGround(): void
     createCharacter(): void
     createTrainingDummy(): void
+
+    /**
+     * 將物體加入世界
+     * @param object 
+     */
+    addObjectToWorld(object: IBasicObject | IBodyObject): void
+
+    /**
+     * 將物體移出世界
+     * @param object 
+     */
+    removeObjectToWorld(object: IBasicObject | IBodyObject): void
 
     /**
      * 處理碰撞邏輯
@@ -154,9 +157,8 @@ declare interface IWorld {
 
     /**
      * 更新所有內部組件
-     * @param deltaMS
      */
-    update(deltaMS?: number): void
+    update(deltaMS: number): void
 
     /**
      * 增加鋼體到物理引擎之中
@@ -169,12 +171,6 @@ declare interface IWorld {
      * @param body 
      */
     removeBody(body: Matter.Body): void
-
-    /**
-     * 將鋼體設置成忽略重力
-     * @param body 
-     */
-    setIgnoreGravity(body: Matter.Body): void
 
     /**
      * 世界初始化邏輯
@@ -239,7 +235,7 @@ declare interface IConfig {
 /**
  * 每個顯示出來的物件都要具備的屬性
  */
-declare interface IBasicObject {
+declare interface IBasicObject extends IEventEmitter {
     /**
      * 紅色外框，用來除錯
      */
@@ -254,7 +250,7 @@ declare interface IBasicObject {
      * 角色面對的方向
      * @default Face.RIGHT
      */
-    face: import("./game/Face").Face;
+    face: import("./utils/Face").Face;
 
     /**
      * 顯示容器和鋼體的位置偏差
@@ -262,38 +258,32 @@ declare interface IBasicObject {
      */
     positionOffset: CONFIG.Vector
 
-    animationManager: any //AnimationManager
-
-    /**
-     * 角色的設定
-     */
-    characterConfig: CONFIG.CharacterConfig;
+    container: import("pixi.js").Container
 
     /**
      * 改變面向
      */
-    setFace(face: import("./game/Face").Face): void
+    setFace(face: import("./utils/Face").Face): void
 
     /**
      * 取的當前的面向
      */
-    getFace(): import("./game/Face").Face
+    getFace(): import("./utils/Face").Face
 
     /**
      * 在更新前呼叫
-     * 需要實作
+     * 為預設的更新函式
      */
     onBeforeUpdate(deltaMS: number): void
 
     /**
      * 在更新時呼叫
-     * 需要實作
+     * 為預設的更新函式
      */
     onUpdate(deltaMS: number): void
 
     /**
-     * 更新物體
-     * @param deltaMS
+     * 手動呼叫更新
      */
     update(deltaMS: number): void
 
@@ -309,12 +299,6 @@ declare interface IBasicObject {
     setPosition(vector: CONFIG.Vector): void
 
     /**
-     * 切換動畫
-     * @param name
-     */
-    switchAnimation(name?: string): void
-
-    /**
      * 等待若干毫秒後執行
      * @param ms 
      * @param cb 
@@ -326,6 +310,10 @@ declare interface IBasicObject {
  * 添加鋼體的物件要具備的屬性
  */
 declare interface IBodyObject extends IBasicObject {
+
+    /**
+     * 鋼體
+     */
     body: Matter.Body
 
     stop(): void
@@ -382,7 +370,21 @@ declare interface ICharacter extends IBodyObject {
      */
     isRunning: boolean
 
-    movementManager: any
+    /**
+    * 角色的設定
+    */
+    characterConfig: CONFIG.CharacterConfig
+
+
+    /**
+    * 動畫系統
+    */
+    animationManager: import("./game/managers/AnimationManager").AnimationManager
+
+    /**
+     * 操作系統
+     */
+    movementManager: import("./game/managers/MovementManager").MovementManager
 
     /**
      * 角色的初始化邏輯
@@ -422,6 +424,13 @@ declare interface ICharacter extends IBodyObject {
      * 是否可以跳躍
      */
     canJump(): boolean
+
+    
+    /**
+     * 切換動畫
+     * @param name
+     */
+    switchAnimation(name?: string): void
 }
 
 /**
@@ -554,7 +563,7 @@ declare interface IEffect extends IBodyObject {
      * 當特效開始的時候呼叫
      */
     onStart(): void
-    
+
     /**
      * 當特效結束的時候呼叫
      */

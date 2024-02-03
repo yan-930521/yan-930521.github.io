@@ -1,15 +1,19 @@
 import * as PIXI from "pixi.js";
 
-import { World } from "./World";
-import { Config } from './Confjg';
+import { World } from "./objects/World";
+import { Config } from '../utils/Confjg';
 import { Movement } from "./managers/MovementManager";
+import { EventEmitter } from "../utils/EventEmitter";
+
 import { gameMain } from "..";
 
 PIXI.settings.RENDER_OPTIONS.eventMode = "none";
 PIXI.BaseTexture.defaultOptions.scaleMode = PIXI.SCALE_MODES.NEAREST;
 
 export class GameMain implements IGameMain {
-    constructor() {
+    constructor(debug: boolean = true) {
+        this.debug = debug;
+        this.laseUpdateTime = performance.now();
     }
 
     debug: boolean = false;
@@ -18,13 +22,9 @@ export class GameMain implements IGameMain {
     config: Config;
     world: World;
 
-    laseUpdateTime: number = performance.now();
-    keyInput: CONFIG.KeyInput = {
-        w: false,
-        a: false,
-        s: false,
-        d: false
-    };
+    laseUpdateTime: number;
+    
+    keyInput: CONFIG.KeyInput = {};
 
     async init(pixi: PIXI.Application, config: Config) {
         this.pixi = pixi;
@@ -37,24 +37,22 @@ export class GameMain implements IGameMain {
         
         console.log("gameMain:", this);
 
-        this.pixi.stage.addChild(this.world);
+        this.pixi.stage.addChild(this.world.container);
 
         this.pixi.ticker.add(() => {
             const movements = this.getMoveData();
-
+            
             this.world.character.move(movements, this.getDeltaTime());
 
-            // 更新動畫
-            this.world.update(this.pixi.ticker.deltaMS);
+            // 更新世界
+            this.world.update(this.getDeltaTime());
         });
         this.pixi.ticker.start();
     }
 
 
     getDeltaTime(): number {
-        const deltaTime = performance.now() - this.laseUpdateTime;
-        this.laseUpdateTime = performance.now();
-        return deltaTime;
+        return this.pixi.ticker.deltaMS;
     }
 
     handleKeyInput() {
@@ -83,7 +81,7 @@ export class GameMain implements IGameMain {
         const { KeyBoardController } = gameMain.config.GameSetting;
 
         for(let name in KeyBoardController) {
-            const mov = Movement[name as keyof typeof Movement]
+            const mov = Movement[name as keyof typeof Movement];
             if(typeof mov !== "undefined") {
                 if (this.keyInput[KeyBoardController[name]]) movements.push(mov);
             }

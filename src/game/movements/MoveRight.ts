@@ -1,5 +1,5 @@
-import { Face } from "../Face";
-import { Character } from "../Character";
+import { Face } from "../../utils/Face";
+import { Character } from "../objects/Character";
 import { Movement, MovementHandler } from "../managers/MovementManager";
 
 import { gameMain } from "../..";

@@ -15,11 +15,76 @@
    - Interface: IEffect
    - Interface: IEventEmitter
    - Module: CONFIG
-- File: ./src/game/BackGround.ts
+- File: ./src/game/GameMain.ts
+   - Class: GameMain
+
+       - Method: init
+       - Method: getDeltaTime
+       - Method: handleKeyInput
+       - Method: getMoveData
+- File: ./src/utils/Confjg.ts
+   - Class: Config
+
+       - Method: fetch
+       - Method: checkConfig
+- File: ./src/utils/EventEmitter.ts
+   - Class: EventEmitter
+
+       - Method: on
+       - Method: emit
+       - Method: once
+       - Method: removeListener
+       - Method: removeAllListeners
+       - Method: setMaxListeners
+       - Method: getListeners
+- File: ./src/utils/Face.ts
+- File: ./src/utils/Resource.ts
+   - Class: Resource
+
+       - Method: getUrl
+       - Method: createGradTexture
+       - Method: loadResource
+       - Method: loadAnimatedResource
+       - Method: loadMutiAnimatedResource
+   - Interface: Animations
+- File: ./src/game/effects/BlueFireBall.ts
+- File: ./src/game/managers/AnimationManager.ts
+   - Class: AnimationManager
+
+       - Method: isReady
+       - Method: loadAnimation
+       - Method: loadObject
+       - Method: onLoaded
+       - Method: switchAnimation
+       - Method: setAnimationFrame
+       - Method: getAnimationFrame
+       - Method: setHaveToStop
+       - Method: getHaveToStop
+       - Method: setMustStop
+       - Method: getMustStop
+       - Method: onUpdate
+- File: ./src/game/managers/MovementManager.ts
+   - Class: MovementManager
+
+       - Method: handleMovement
+       - Method: setCD
+       - Method: isEqualMovement
+       - Method: isContainMovement
+       - Method: isExcludeCD
+       - Method: setExclude
+   - Interface: MovementHandler
+- File: ./src/game/movements/Attack1.ts
+- File: ./src/game/movements/index.ts
+- File: ./src/game/movements/Jump.ts
+- File: ./src/game/movements/LaunchBlueFireBall.ts
+- File: ./src/game/movements/MoveLeft.ts
+- File: ./src/game/movements/MoveRight.ts
+- File: ./src/game/movements/Sprint.ts
+- File: ./src/game/objects/BackGround.ts
    - Class: BackGround
 
        - Method: init
-- File: ./src/game/BasicObject.ts
+- File: ./src/game/objects/BasicObject.ts
    - Class: BasicObject
 
        - Method: setFace
@@ -29,9 +94,8 @@
        - Method: update
        - Method: getPosition
        - Method: setPosition
-       - Method: switchAnimation
        - Method: waitMS
-- File: ./src/game/BodyObject.ts
+- File: ./src/game/objects/BodyObject.ts
    - Class: BodyObject
 
        - Method: stop
@@ -39,7 +103,7 @@
        - Method: moveByForce
        - Method: moveByPosition
        - Method: moveByVelocity
-- File: ./src/game/Character.ts
+- File: ./src/game/objects/Character.ts
    - Class: Character
 
        - Method: init
@@ -50,12 +114,9 @@
        - Method: isJumping
        - Method: canJump
        - Method: onBeforeUpdate
-- File: ./src/game/Confjg.ts
-   - Class: Config
-
-       - Method: fetch
-       - Method: checkConfig
-- File: ./src/game/Effect.ts
+       - Method: onUpdate
+       - Method: switchAnimation
+- File: ./src/game/objects/Effect.ts
    - Class: Effect
 
        - Method: onBeforeUpdate
@@ -77,28 +138,11 @@
        - Method: start
        - Method: onStart
        - Method: onFinish
-- File: ./src/game/Face.ts
-- File: ./src/game/GameMain.ts
-   - Class: GameMain
-
-       - Method: init
-       - Method: getDeltaTime
-       - Method: handleKeyInput
-       - Method: getMoveData
-- File: ./src/game/Ground.ts
+- File: ./src/game/objects/Ground.ts
    - Class: Ground
 
        - Method: init
-- File: ./src/game/Resource.ts
-   - Class: Resource
-
-       - Method: getUrl
-       - Method: createGradTexture
-       - Method: loadResource
-       - Method: loadAnimatedResource
-       - Method: loadMutiAnimatedResource
-   - Interface: Animations
-- File: ./src/game/World.ts
+- File: ./src/game/objects/World.ts
    - Class: World
 
        - Method: createBackGround
@@ -109,49 +153,7 @@
        - Method: update
        - Method: addBody
        - Method: removeBody
-       - Method: setIgnoreGravity
        - Method: init
        - Method: getCharacters
-- File: ./src/services/EventEmitter.ts
-   - Class: EventEmitter
-
-       - Method: on
-       - Method: emit
-       - Method: once
-       - Method: removeListener
-       - Method: removeAllListeners
-       - Method: setMaxListeners
-       - Method: getListeners
-- File: ./src/game/effects/BlueFireBall.ts
-- File: ./src/game/managers/AnimationManager.ts
-   - Class: AnimationManager
-
-       - Method: isReady
-       - Method: loadAnimation
-       - Method: loadObject
-       - Method: onLoaded
-       - Method: switchAnimation
-       - Method: setAnimationFrame
-       - Method: getAnimationFrame
-       - Method: setHaveToStop
-       - Method: getHaveToStop
-       - Method: setMustStop
-       - Method: getMustStop
-       - Method: update
-- File: ./src/game/managers/MovementManager.ts
-   - Class: MovementManager
-
-       - Method: handleMovement
-       - Method: setCD
-       - Method: isEqualMovement
-       - Method: isContainMovement
-       - Method: isExcludeCD
-       - Method: setExclude
-   - Interface: MovementHandler
-- File: ./src/game/movements/Attack1.ts
-- File: ./src/game/movements/index.ts
-- File: ./src/game/movements/Jump.ts
-- File: ./src/game/movements/LaunchBlueFireBall.ts
-- File: ./src/game/movements/MoveLeft.ts
-- File: ./src/game/movements/MoveRight.ts
-- File: ./src/game/movements/Sprint.ts
+       - Method: addObjectToWorld
+       - Method: removeObjectToWorld

@@ -50,14 +50,11 @@ export class GameMain implements IGameMain {
         this.laseUpdateTime = 0;
         const interval = 1e3 / FPS | 0; // Fix occasional drop-off frames
 
-        Engine.update(this.world.engine, interval, 1);
-
         const animate  = () => {
             requestAnimationFrame(animate);
             this.nowUpdateTime = performance.now() | 0;
             let elapsed = this.getDeltaTime();
 
-            console.log(elapsed, interval)
             if (elapsed < interval) return;
 
             const movements = this.getMoveData();
@@ -66,6 +63,8 @@ export class GameMain implements IGameMain {
 
             // 更新世界
             this.world.update(elapsed);
+
+            Engine.update(this.world.engine, interval, 1);
 
             count++;
             if (count%100 == 0) console.log("During:", elapsed);

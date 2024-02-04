@@ -6,7 +6,7 @@ export default {
     key: [Movement.Jump],
     name: "Jump",
     description: "跳躍",
-    cd: 200,
+    cd: 500,
     priority: 1,
     execute: (character: Character, matchedMonementHandler: MovementHandler) => {
         if (!character.canJump()) return;

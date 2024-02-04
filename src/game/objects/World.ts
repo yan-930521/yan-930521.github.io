@@ -90,8 +90,10 @@ export class World extends EventEmitter implements IWorld {
             for (let i in pairs) {
                 // 只要有施力點
                 if (this.character.body.id == pairs[i].bodyA.id || this.character.body.id == pairs[i].bodyB.id) {
-                    this.character.onGround = true;
-                    this.character.jumpCount = 0;
+                    setTimeout(() => {
+                        this.character.onGround = true;
+                        this.character.jumpCount = 0;
+                    }, gameMain.config.GameSetting.DelayAllowJump);
                 }
             }
 

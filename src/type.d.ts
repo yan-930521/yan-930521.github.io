@@ -52,6 +52,7 @@ declare namespace CONFIG {
         Gravity: number
         KeyBoardController: KeyBoardController
         DoubleJumpDelayMs: number
+        DelayAllowJump: number
         Friction: number
     }
 

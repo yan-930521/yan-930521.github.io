@@ -54,6 +54,7 @@ export class GameMain implements IGameMain {
             this.nowUpdateTime = performance.now() | 0;
             let elapsed = this.getDeltaTime();
 
+            console.log(elapsed, interval)
             if (elapsed < interval) return;
 
             const movements = this.getMoveData();

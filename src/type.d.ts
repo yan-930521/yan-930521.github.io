@@ -84,6 +84,10 @@ declare interface IGameMain {
     world: IWorld
 
     /**
+     * 更新當下的時間
+     */
+    nowUpdateTime: number;
+    /**
      * 上次更新的時間
      */
     laseUpdateTime: number

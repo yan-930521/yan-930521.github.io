@@ -5,7 +5,7 @@ import { Config } from "./utils/Confjg";
 import { GameView } from "./components/GameView";
 import { GameMain } from "./game/GameMain";
 
-export const gameMain = new GameMain();
+export const gameMain = new GameMain(false);
 
 (async () => {
     const config = await new Config().fetch();

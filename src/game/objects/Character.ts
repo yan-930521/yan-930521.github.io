@@ -183,7 +183,7 @@ export class Character extends BodyObject implements ICharacter {
         // 特別處理jump邏輯
         if (this.animationManager.animationConfigs["Jump"]) {
             if (this.animationManager.isReady() && this.animationManager.getAnimationFrame("Jump") == 6) {
-                if (this.body.velocity.y > 0 && (gameMain.config.GameViewport.GroundHeight - this.container.height / 2) - this.body.position.y < 150) {
+                if (this.body.velocity.y > 0 && (gameMain.config.GameViewport.GroundHeight - this.container.height / 2) - this.body.position.y < 70) {
                     this.animationManager.animations["Jump"].play();
                 }
             }

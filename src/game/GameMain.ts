@@ -67,7 +67,7 @@ export class GameMain implements IGameMain {
             Engine.update(this.world.engine, interval, 1);
 
             count++;
-            if (count%100 == 0) console.log("During:", elapsed);
+            if (gameMain.debug && count%100 == 0) console.log("During:", elapsed);
 
             // Excellent
             this.laseUpdateTime = this.nowUpdateTime - (elapsed % interval)

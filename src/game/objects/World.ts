@@ -49,7 +49,7 @@ export class World extends EventEmitter implements IWorld {
             Render.run(this.renderer);
         }
 
-        Runner.run(this.engine);
+        // Runner.run(this.engine);
     }
 
     createBackGround() {
@@ -109,6 +109,7 @@ export class World extends EventEmitter implements IWorld {
 
     update(deltaMS: number) {
         // if(gameMain.debug) console.log("on update: ", deltaMS, "(ms)");
+        Engine.update(this.engine, deltaMS, 1);
         for(let i in this.objects) {
             const obj = this.objects[i];
             obj.object.emit("beforeUpdate", deltaMS);

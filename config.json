@@ -7,6 +7,7 @@
     },
     "GameSetting": {
         "MoveSpeed": 65,
+        "Friction": 0.5,
         "MoveSpeedOnAir": 30,
         "DoubleJumpDelayMs": 500,
         "Gravity": 1.2,

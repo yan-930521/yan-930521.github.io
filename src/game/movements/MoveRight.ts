@@ -8,20 +8,20 @@ export default {
     key: [Movement.Right],
     name: "MoveRight",
     description: "向右移動",
-    cd: 0,
+    cd: 500,
     priority: 1,
     execute: (character: Character, matchedMonementHandler: MovementHandler) => {
         character.setFace(Face.RIGHT);
 
         if (!character.isJumping()) {
             character.isRunning = true;
-            character.moveByPosition({
-                x: gameMain.config.GameSetting.MoveSpeed,
+            character.moveByForce({
+                x: gameMain.config.GameSetting.MoveSpeed / 1000,
                 y: 0
             });
             character.switchAnimation("Run");
-        } else character.moveByPosition({
-            x: gameMain.config.GameSetting.MoveSpeedOnAir,
+        } else character.moveByForce({
+            x: gameMain.config.GameSetting.MoveSpeedOnAir / 1000,
             y: 0
         });
     }

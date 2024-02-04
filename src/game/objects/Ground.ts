@@ -11,6 +11,7 @@ export class Ground extends BodyObject {
             gameMain.config.GameViewport.GroundHeight + 50,
             gameMain.config.GameViewport.WIDTH * 1.5,
             100, {
+            friction: 0.85,
             isStatic: true
         });
         return this;

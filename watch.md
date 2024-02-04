@@ -73,6 +73,9 @@
        - Method: isExcludeCD
        - Method: setExclude
    - Interface: MovementHandler
+- File: ./src/game/managers/StateManager.ts
+   - Class: StateManager
+
 - File: ./src/game/movements/Attack1.ts
 - File: ./src/game/movements/index.ts
 - File: ./src/game/movements/Jump.ts

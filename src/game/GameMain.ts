@@ -39,7 +39,11 @@ export class GameMain implements IGameMain {
         this.pixi.stage.addChild(this.world.container);
 
         let up = performance.now(), p = 0;
-        console.log("Now time:", up)
+        console.log("Now time:", up);
+        this.pixi.ticker.maxFPS = 60;
+        this.pixi.ticker.minFPS = 60;
+
+
         this.pixi.ticker.add(() => {
             const movements = this.getMoveData();
             

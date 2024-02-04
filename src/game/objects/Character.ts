@@ -59,18 +59,27 @@ export class Character extends BodyObject implements ICharacter {
         if (!initY) {
             initY = gameMain.config.GameViewport.GroundHeight - this.characterConfig.height / 2 - 100;
         }
-        // this.body = Bodies.rectangle(initX, initY, this.characterConfig.width * 0.8, this.characterConfig.height * 0.8, {
-        //     inertia: 0,
-        //     inverseInertia: Infinity,
-        //     density: 0.015625, // 面積0.8平方倍
-        //     frictionAir: 0.02
-        // });
-        this.body = Bodies.rectangle(initX, initY, this.characterConfig.width, this.characterConfig.height, {
+
+        let ellipseWidth = this.characterConfig.width / 2;
+        let ellipseHeight = this.characterConfig.height / 2;
+        let vertices: CONFIG.Vector[] = [];
+        for (let i = 0; i < 2 * Math.PI; i += 0.1) {
+            let x = ellipseWidth * Math.cos(i);
+            let y = ellipseHeight * Math.sin(i);
+            vertices.push({x, y});
+        }
+        this.body = Bodies.fromVertices(initX, initY, [vertices], {
             inertia: 0,
             inverseInertia: Infinity,
-            density: 0.01, // 面積0.8平方倍
+            density: 0.01 * 4 / Math.PI, // 從長方形遷移到橢圓，維持重量不變
             frictionAir: 0.02
         });
+        // this.body = Bodies.rectangle(initX, initY, this.characterConfig.width, this.characterConfig.height, {
+        //     inertia: 0,
+        //     inverseInertia: Infinity,
+        //     density: 0.01,
+        //     frictionAir: 0.02
+        // });
 
         this.container.width =  this.characterConfig.width;
         this.container.height = this.characterConfig.height;

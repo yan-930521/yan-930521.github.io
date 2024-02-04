@@ -3,7 +3,6 @@ import * as PIXI from "pixi.js";
 import { World } from "./objects/World";
 import { Config } from '../utils/Confjg';
 import { Movement } from "./managers/MovementManager";
-import { EventEmitter } from "../utils/EventEmitter";
 
 import { gameMain } from "..";
 
@@ -39,6 +38,8 @@ export class GameMain implements IGameMain {
 
         this.pixi.stage.addChild(this.world.container);
 
+        let up = performance.now(), p = 0;
+        console.log("Now time:", up)
         this.pixi.ticker.add(() => {
             const movements = this.getMoveData();
             
@@ -46,6 +47,9 @@ export class GameMain implements IGameMain {
 
             // 更新世界
             this.world.update(this.getDeltaTime());
+
+            p++;
+            if(p == 100) console.log("During:", performance.now() - up)
         });
         this.pixi.ticker.start();
     }

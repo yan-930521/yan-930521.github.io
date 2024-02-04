@@ -5,6 +5,7 @@ import { Config } from '../utils/Confjg';
 import { Movement } from "./managers/MovementManager";
 
 import { gameMain } from "..";
+import { Engine } from "matter-js";
 
 PIXI.settings.RENDER_OPTIONS.eventMode = "none";
 PIXI.BaseTexture.defaultOptions.scaleMode = PIXI.SCALE_MODES.NEAREST;
@@ -48,6 +49,8 @@ export class GameMain implements IGameMain {
 
         this.laseUpdateTime = 0;
         const interval = 1e3 / FPS | 0; // Fix occasional drop-off frames
+
+        Engine.update(this.world.engine, interval, 1);
 
         const animate  = () => {
             requestAnimationFrame(animate);

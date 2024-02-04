@@ -51,6 +51,7 @@ declare namespace CONFIG {
         MoveSpeedOnAir: number
         Gravity: number
         KeyBoardController: KeyBoardController
+        DoubleJumpDelayMs: number
     }
 
     interface KeyInput {

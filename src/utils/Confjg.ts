@@ -1,5 +1,5 @@
 export class Config implements IConfig {
-    GameViewport: { WIDTH: number; HEIGHT: number; GroundHeight: number; };
+    GameViewport: CONFIG.GameViewport;
     AssetPath: string;
     Character: CONFIG.CharacterConfigs;
     Object: CONFIG.ObjectConfigs;

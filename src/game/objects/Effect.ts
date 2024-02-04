@@ -161,14 +161,15 @@ export class Effect extends BodyObject implements IEffect {
 
         let lastUpdateTime = performance.now();
 
-        const loop = () => {
-            this.update(performance.now() - lastUpdateTime);
-            lastUpdateTime = performance.now();
+        // const loop = () => {
+        //     this.update((performance.now() - lastUpdateTime) );
+        //     // this.update(gameMain.getDeltaTime());
+        //     lastUpdateTime = performance.now();
 
-            if (!this.container.destroyed) requestAnimationFrame(loop);
-        }
+        //     if (!this.container.destroyed) requestAnimationFrame(loop);
+        // }
 
-        loop();
+        // loop();
     }
 
     onStart(): void {

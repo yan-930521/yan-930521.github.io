@@ -6,8 +6,9 @@
         "GroundHeight": 167
     },
     "GameSetting": {
-        "MoveSpeed": 6,
+        "MoveSpeed": 4,
         "MoveSpeedOnAir": 3,
+        "DoubleJumpDelayMs": 500,
         "Gravity": 1.2,
         "KeyBoardController": {
             "Jump": "w",
@@ -45,7 +46,7 @@
                     "height": 86,
                     "offsetX": 10,
                     "offsetY": 0,
-                    "animationSpeed": 0.02,
+                    "animationSpeed": 0.015,
                     "animationScale": 1
                 },
                 "Jump": {
@@ -84,7 +85,7 @@
                     "path": "TrainingDummy/tile000.png",
                     "frameCount": 4,
                     "width": 32,
-                    "height": 28,
+                    "height": 30,
                     "offsetX": 0,
                     "offsetY": 12,
                     "animationSpeed": 0.006,

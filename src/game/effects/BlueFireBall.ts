@@ -17,7 +17,6 @@ export default {
         const startY = character.body.position.y;
 
         let preparing = true;
-        let lastUpdateTime = performance.now();
 
         const effect = new Effect()
             .setEmitter(upgradeConfig(
@@ -61,14 +60,12 @@ export default {
                         x: (character.getFace() == Face.RIGHT ? step : step * -1),
                         y: 0
                     });
-                    effect.update(performance.now() - lastUpdateTime);
-                    lastUpdateTime = performance.now();
                 }, () => {
                     effect.onFinish();
                 });
             });
         }
-
+        let x = 1;
         effect.onUpdate = () => {
             if (effect.body) {
                 if (preparing) {
@@ -80,7 +77,8 @@ export default {
                 effect.moveByVelocity({
                     x: effect.body.velocity.x,
                     y: 0
-                })
+                });
+                // effect.emitter.rotate((x+=10));
             }
         }
 

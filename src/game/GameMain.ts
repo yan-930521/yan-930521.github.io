@@ -64,7 +64,7 @@ export class GameMain implements IGameMain {
             this.world.update(elapsed);
 
             count++;
-            if (count == 100) console.log("During:", elapsed);
+            if (count%100 == 0) console.log("During:", elapsed);
 
             // Excellent
             this.laseUpdateTime = this.nowUpdateTime - (elapsed % interval)

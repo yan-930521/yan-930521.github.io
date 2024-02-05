@@ -1,12 +1,12 @@
 {
     "AssetPath": "./assets/",
     "GameViewport": {
-        "Debug": true,
         "WIDTH": 500,
         "HEIGHT": 250,
         "GroundHeight": 167
     },
     "GameSetting": {
+        "Debug": true,
         "MoveByForce": false,
         "Friction": 0.5,
         "DoubleJumpDelayMs": 500,

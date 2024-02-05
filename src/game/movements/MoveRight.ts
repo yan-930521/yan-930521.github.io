@@ -14,11 +14,6 @@ export default {
     priority: 1,
     execute: (character: Character, matchedMonementHandler: MovementHandler) => {
         character.setFace(Face.RIGHT);
-        Body.setVelocity(
-            character.body, {
-            x: 0,
-            y: character.body.velocity.y
-        });
 
         if (!character.isJumping()) {
             character.isRunning = true;
@@ -51,6 +46,13 @@ export default {
         character.moveByForce({
             x: 0.1,
             y: 0
+        });
+        character.waitMS(50, () => {
+            Body.setVelocity(
+                character.body, {
+                x: 0,
+                y: character.body.velocity.y
+            });
         });
     }
 } as MovementHandler;

@@ -23,8 +23,8 @@ export class Character extends BodyObject implements ICharacter {
 
         this.characterConfig = characterConfig;
         
-        this.container.width = this.characterConfig.width;
-        this.container.height = this.characterConfig.height;
+        this.container.width = this.characterConfig.width + this.characterConfig.offsetX;
+        this.container.height = this.characterConfig.height - this.characterConfig.offsetY;
 
         this.positionOffset = {
             x: characterConfig.offsetX,
@@ -40,12 +40,14 @@ export class Character extends BodyObject implements ICharacter {
             .setExclude([Movement.Jump]);
 
         if (gameMain.debug) {
+            let w = this.characterConfig.width;
+            let h = this.characterConfig.height;
             this.debugBox = new Graphics()
                 .lineStyle(2, 0xFF0000)
-                .drawRect(0, 0, this.characterConfig.width, this.characterConfig.height);
+                .drawRect(0, 0, w, h);
 
-            this.debugBox.x = (this.characterConfig.width / 2) * -1;
-            this.debugBox.y = (this.characterConfig.height / 2) * -1;
+            this.debugBox.x = (w / 2) * -1;
+            this.debugBox.y = (h / 2) * -1;
 
             this.container.addChild(this.debugBox);
         }

@@ -27,7 +27,7 @@
     "Character": {
         "Samurai": {
             "width": 50,
-            "height": 86,
+            "height": 100,
             "bodyScale": 1.2,
             "offsetX": 0,
             "offsetY": 0,
@@ -40,7 +40,7 @@
                     "width": 50,
                     "height": 86,
                     "offsetX": 0,
-                    "offsetY": -10,
+                    "offsetY": 0,
                     "animationSpeed": 0.006,
                     "animationScale": 1.2
                 },

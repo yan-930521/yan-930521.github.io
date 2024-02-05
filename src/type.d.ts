@@ -2,6 +2,7 @@ declare namespace CONFIG {
     interface CharacterConfig {
         width: number,
         height: number,
+        bodyScale: 1,
         offsetX: number,
         offsetY: number,
         defaultAnimation: string,
@@ -47,7 +48,9 @@ declare namespace CONFIG {
     }
 
     interface GameSetting {
+        Debug: boolean
         MoveSpeed: number
+        MoveByForce: boolean
         MoveSpeedOnAir: number
         Gravity: number
         KeyBoardController: KeyBoardController

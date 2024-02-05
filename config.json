@@ -1,12 +1,14 @@
 {
     "AssetPath": "./assets/",
     "GameViewport": {
+        "Debug": true,
         "WIDTH": 500,
         "HEIGHT": 250,
         "GroundHeight": 167
     },
     "GameSetting": {
         "MoveSpeed": 65,
+        "MoveByForce": false,
         "Friction": 0.5,
         "MoveSpeedOnAir": 30,
         "DoubleJumpDelayMs": 500,
@@ -26,6 +28,7 @@
         "Samurai": {
             "width": 50,
             "height": 86,
+            "bodyScale": 1.2,
             "offsetX": 0,
             "offsetY": 0,
             "defaultAnimation": "Idle",
@@ -37,9 +40,9 @@
                     "width": 50,
                     "height": 86,
                     "offsetX": 0,
-                    "offsetY": 0,
+                    "offsetY": -10,
                     "animationSpeed": 0.006,
-                    "animationScale": 1
+                    "animationScale": 1.2
                 },
                 "Run": {
                     "name": "Run",
@@ -79,6 +82,7 @@
         "TrainingDummy": {
             "width": 64,
             "height": 64,
+            "bodyScale": 1,
             "offsetX": 0,
             "offsetY": 10,
             "defaultAnimation": "OnAttacked",

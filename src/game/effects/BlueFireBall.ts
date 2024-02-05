@@ -60,6 +60,7 @@ export default {
                         x: (character.getFace() == Face.RIGHT ? step : step * -1),
                         y: 0
                     });
+                    effect.update(10);
                 }, () => {
                     effect.onFinish();
                 });

@@ -7,7 +7,7 @@
         "GroundHeight": 167
     },
     "GameSetting": {
-        "MoveSpeed": 65,
+        "MoveSpeed": 55,
         "MoveByForce": false,
         "Friction": 0.5,
         "MoveSpeedOnAir": 30,

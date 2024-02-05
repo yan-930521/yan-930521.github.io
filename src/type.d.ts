@@ -4,6 +4,7 @@ declare namespace CONFIG {
         MoveSpeedOnAir: number
         JumpForce: number
         DoubleJumpForce: number
+        MoveDiminishing: number
         width: number,
         height: number,
         bodyScale: 1,

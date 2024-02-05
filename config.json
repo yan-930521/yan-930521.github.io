@@ -24,8 +24,9 @@
     },
     "Character": {
         "Samurai": {
-            "MoveSpeed": 55,
+            "MoveSpeed": 30,
             "MoveSpeedOnAir": 30,
+            "MoveDiminishing": 1.7,
             "JumpForce": 1.1,
             "DoubleJumpForce": 1.5,
             "width": 50,
@@ -84,6 +85,7 @@
         "TrainingDummy": {
             "MoveSpeed": 0,
             "MoveSpeedOnAir": 0,
+            "MoveDiminishing": 0,
             "JumpForce": 0,
             "DoubleJumpForce": 0,
             "width": 64,

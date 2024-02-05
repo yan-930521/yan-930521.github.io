@@ -1,5 +1,9 @@
 declare namespace CONFIG {
     interface CharacterConfig {
+        MoveSpeed: number
+        MoveSpeedOnAir: number
+        JumpForce: number
+        DoubleJumpForce: number
         width: number,
         height: number,
         bodyScale: 1,
@@ -49,9 +53,7 @@ declare namespace CONFIG {
 
     interface GameSetting {
         Debug: boolean
-        MoveSpeed: number
         MoveByForce: boolean
-        MoveSpeedOnAir: number
         Gravity: number
         KeyBoardController: KeyBoardController
         DoubleJumpDelayMs: number

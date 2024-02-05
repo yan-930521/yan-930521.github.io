@@ -7,14 +7,12 @@
         "GroundHeight": 167
     },
     "GameSetting": {
-        "MoveSpeed": 55,
         "MoveByForce": false,
         "Friction": 0.5,
-        "MoveSpeedOnAir": 30,
         "DoubleJumpDelayMs": 500,
         "HeightToShowFall": 80,
         "DelayAllowJump": 300,
-        "Gravity": 1.2,
+        "Gravity": 1.1,
         "KeyBoardController": {
             "Jump": "w",
             "Left": "a",
@@ -26,6 +24,10 @@
     },
     "Character": {
         "Samurai": {
+            "MoveSpeed": 55,
+            "MoveSpeedOnAir": 30,
+            "JumpForce": 1.1,
+            "DoubleJumpForce": 1.5,
             "width": 50,
             "height": 100,
             "bodyScale": 1.2,
@@ -80,6 +82,10 @@
             }
         },
         "TrainingDummy": {
+            "MoveSpeed": 0,
+            "MoveSpeedOnAir": 0,
+            "JumpForce": 0,
+            "DoubleJumpForce": 0,
             "width": 64,
             "height": 64,
             "bodyScale": 1,

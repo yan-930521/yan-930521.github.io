@@ -24,12 +24,12 @@ export default {
             character.isRunning = true;
             if (gameMain.config.GameSetting.MoveByForce) {
                 character.moveByForce({
-                    x: gameMain.config.GameSetting.MoveSpeed / 1000,
+                    x: character.characterConfig.MoveSpeed / 1000,
                     y: 0
                 });
             } else {
                 character.moveByPosition({
-                    x: gameMain.config.GameSetting.MoveSpeed / 10,
+                    x: character.characterConfig.MoveSpeed / 10,
                     y: 0
                 });
             }
@@ -37,12 +37,12 @@ export default {
         } else {
             if (gameMain.config.GameSetting.MoveByForce) {
                 character.moveByForce({
-                    x: gameMain.config.GameSetting.MoveSpeedOnAir / 1000,
+                    x: character.characterConfig.MoveSpeedOnAir / 1000,
                     y: 0
                 });
             } else {
                 character.moveByPosition({
-                    x: gameMain.config.GameSetting.MoveSpeedOnAir / 10,
+                    x: character.characterConfig.MoveSpeedOnAir / 10,
                     y: 0
                 });
             }

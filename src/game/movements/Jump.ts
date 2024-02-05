@@ -25,7 +25,7 @@ export default {
             character.moveByVelocity({x: 0, y: -3});
             character.moveByForce({
                 x: 0,
-                y: -1
+                y: -1 * character.characterConfig.JumpForce
             });
             character.waitMS(MovementHandlers.find((mv) => mv.name == "Jump").cd, (() => {
                 character.movementManager.CDState.Jump.timer = null;
@@ -34,7 +34,7 @@ export default {
         } else {
             character.moveByForce({
                 x:0,
-                y: -1.3
+                y: -1 * character.characterConfig.DoubleJumpForce
             });
             // 避免連跳，會彈很高
             character.movementManager.CDState.Jump.timer = character.waitMS(gameMain.config.GameSetting.DoubleJumpDelayMs, (() => {

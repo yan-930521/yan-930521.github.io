@@ -6,7 +6,7 @@
         "GroundHeight": 167
     },
     "GameSetting": {
-        "Debug": true,
+        "Debug": false,
         "MoveByForce": false,
         "Friction": 0.5,
         "DoubleJumpDelayMs": 250,
@@ -88,23 +88,23 @@
             "MoveDiminishing": 0,
             "JumpForce": 0,
             "DoubleJumpForce": 0,
-            "width": 64,
-            "height": 64,
+            "width": 50,
+            "height": 60,
             "bodyScale": 1,
             "offsetX": 0,
             "offsetY": 10,
-            "defaultAnimation": "OnAttacked",
+            "defaultAnimation": "Idle",
             "animation": {
-                "OnAttacked": {
-                    "name": "OnAttacked",
-                    "path": "TrainingDummy/tile000.png",
-                    "frameCount": 4,
-                    "width": 32,
-                    "height": 30,
+                "Idle": {
+                    "name": "Idle",
+                    "path": "Karin/spritesheet.png",
+                    "frameCount": 10,
+                    "width": 190,
+                    "height": 240,
                     "offsetX": 0,
-                    "offsetY": 12,
+                    "offsetY": 0,
                     "animationSpeed": 0.005,
-                    "animationScale": 2
+                    "animationScale": 0.25
                 }
             }
         }

@@ -1,3 +1,5 @@
+import { Body } from "matter-js";
+
 import { Face } from "../../utils/Face";
 import { Character } from "../objects/Character";
 import { Movement, MovementHandler } from "../managers/MovementManager";
@@ -12,6 +14,11 @@ export default {
     priority: 1,
     execute: (character: Character, matchedMonementHandler: MovementHandler) => {
         character.setFace(Face.LEFT);
+        Body.setVelocity(
+            character.body, {
+            x: 0,
+            y: character.body.velocity.y
+        });
 
         if (!character.isJumping()) {
             character.isRunning = true;
@@ -42,7 +49,7 @@ export default {
         }
 
         character.moveByForce({
-            x: -0.01,
+            x: -0.1,
             y: 0
         });
     }

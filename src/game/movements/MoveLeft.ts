@@ -44,7 +44,7 @@ export default {
         }
 
         character.moveByForce({
-            x: -0.1,
+            x: 1,
             y: 0
         });
 

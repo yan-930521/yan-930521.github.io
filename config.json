@@ -33,7 +33,7 @@
             "height": 82,
             "bodyScale": 1,
             "offsetX": 0,
-            "offsetY": -20,
+            "offsetY": -18,
             "defaultAnimation": "Idle",
             "animation": {
                 "Idle": {

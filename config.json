@@ -10,6 +10,7 @@
         "Friction": 0.5,
         "MoveSpeedOnAir": 30,
         "DoubleJumpDelayMs": 500,
+        "HeightToShowFall": 80,
         "DelayAllowJump": 300,
         "Gravity": 1.2,
         "KeyBoardController": {
@@ -31,13 +32,13 @@
             "animation": {
                 "Idle": {
                     "name": "Idle",
-                    "path": "Samurai/Idle.png",
-                    "frameCount": 6,
+                    "path": "Void_Knight/Idle/VK_idle.png",
+                    "frameCount": 5,
                     "width": 50,
                     "height": 86,
                     "offsetX": 0,
                     "offsetY": 0,
-                    "animationSpeed": 0.01,
+                    "animationSpeed": 0.006,
                     "animationScale": 1
                 },
                 "Run": {

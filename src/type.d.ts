@@ -53,6 +53,7 @@ declare namespace CONFIG {
         KeyBoardController: KeyBoardController
         DoubleJumpDelayMs: number
         DelayAllowJump: number
+        HeightToShowFall: number
         Friction: number
     }
 

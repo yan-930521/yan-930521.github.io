@@ -31,9 +31,9 @@
             "DoubleJumpForce": 1.5,
             "width": 50,
             "height": 100,
-            "bodyScale": 1.2,
+            "bodyScale": 1,
             "offsetX": 0,
-            "offsetY": 0,
+            "offsetY": -10,
             "defaultAnimation": "Idle",
             "animation": {
                 "Idle": {

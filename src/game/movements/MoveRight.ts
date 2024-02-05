@@ -35,7 +35,7 @@ export default {
                         y: 0
                     });
                 }, () => {
-                    character.waitMS(50, () => {
+                    character.waitMS(20, () => {
                         Body.setVelocity(
                             character.body, {
                             x: character.body.velocity.x * 0.2,
@@ -64,7 +64,7 @@ export default {
                         y: 0
                     });
                 }, () => {
-                    character.waitMS(50, () => {
+                    character.waitMS(20, () => {
                         Body.setVelocity(
                             character.body, {
                             x: character.body.velocity.x * 0.2,

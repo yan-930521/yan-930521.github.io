@@ -1,5 +1,5 @@
 import { Container } from "pixi.js";
-import { Body, Engine, Events, IEventCollision, Render, Mouse, Runner, Composite, MouseConstraint, World as MatterWorld } from "matter-js";
+import { Body, Engine, Events, IEventCollision, Render, Mouse, Runner, Composite, MouseConstraint, World as MatterWorld, Sleeping } from "matter-js";
 
 import { Ground } from "./Ground";
 import { Character } from "./Character";
@@ -68,9 +68,12 @@ export class World extends EventEmitter implements IWorld {
 
     createCharacter() {
         const character = new Character(gameMain.config.Character.Samurai).init();
-
+        const character2 = new Character(gameMain.config.Character.Samurai).init();
         this.addObjectToWorld(character);
-
+        this.addObjectToWorld(character2);
+        character2.waitMS(5000, () => {
+            Sleeping.set(character2.body, true);
+        });
         this.character = character;
     }
 

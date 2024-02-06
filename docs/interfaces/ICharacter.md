@@ -2,7 +2,7 @@
 
 # Interface: ICharacter
 
-玩家操控的角色
+玩家操控的角色，不可直接調用
 
 ## Hierarchy
 
@@ -72,7 +72,7 @@
 
 #### Defined in
 
-[type.d.ts:382](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L382)
+[type.d.ts:396](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L396)
 
 ___
 
@@ -88,7 +88,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:317](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L317)
+[type.d.ts:331](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L331)
 
 ___
 
@@ -100,7 +100,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:376](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L376)
+[type.d.ts:390](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L390)
 
 ___
 
@@ -114,7 +114,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:261](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L261)
+[type.d.ts:275](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L275)
 
 ___
 
@@ -130,7 +130,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:242](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L242)
+[type.d.ts:256](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L256)
 
 ___
 
@@ -152,7 +152,7 @@ Face.RIGHT
 
 #### Defined in
 
-[type.d.ts:253](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L253)
+[type.d.ts:267](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L267)
 
 ___
 
@@ -168,7 +168,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:247](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L247)
+[type.d.ts:261](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L261)
 
 ___
 
@@ -186,7 +186,7 @@ false
 
 #### Defined in
 
-[type.d.ts:371](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L371)
+[type.d.ts:385](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L385)
 
 ___
 
@@ -204,7 +204,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:365](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L365)
+[type.d.ts:379](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L379)
 
 ___
 
@@ -216,7 +216,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:359](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L359)
+[type.d.ts:373](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L373)
 
 ___
 
@@ -234,7 +234,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:621](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L621)
+[type.d.ts:635](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L635)
 
 ___
 
@@ -248,7 +248,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:622](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L622)
+[type.d.ts:636](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L636)
 
 ___
 
@@ -260,7 +260,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:387](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L387)
+[type.d.ts:401](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L401)
 
 ___
 
@@ -278,7 +278,7 @@ true
 
 #### Defined in
 
-[type.d.ts:354](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L354)
+[type.d.ts:368](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L368)
 
 ___
 
@@ -300,7 +300,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:259](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L259)
+[type.d.ts:273](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L273)
 
 ## Methods
 
@@ -327,7 +327,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:643](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L643)
+[type.d.ts:657](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L657)
 
 ___
 
@@ -343,7 +343,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:411](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L411)
+[type.d.ts:425](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L425)
 
 ___
 
@@ -359,7 +359,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:426](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L426)
+[type.d.ts:440](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L440)
 
 ___
 
@@ -386,7 +386,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:636](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L636)
+[type.d.ts:650](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L650)
 
 ___
 
@@ -406,7 +406,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:271](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L271)
+[type.d.ts:285](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L285)
 
 ___
 
@@ -434,7 +434,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:676](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L676)
+[type.d.ts:690](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L690)
 
 ___
 
@@ -454,7 +454,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:293](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L293)
+[type.d.ts:307](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L307)
 
 ___
 
@@ -477,7 +477,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:394](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L394)
+[type.d.ts:408](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L408)
 
 ___
 
@@ -493,7 +493,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:421](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L421)
+[type.d.ts:435](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L435)
 
 ___
 
@@ -501,7 +501,7 @@ ___
 
 ▸ **loadAnimations**(): `Promise`\<`void`\>
 
-從config讀取所有動畫，並且載入，存起來
+從config讀取所有動畫，並且載入，存起來，需要實作
 
 #### Returns
 
@@ -509,7 +509,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:399](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L399)
+[type.d.ts:413](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L413)
 
 ___
 
@@ -532,7 +532,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:406](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L406)
+[type.d.ts:420](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L420)
 
 ___
 
@@ -558,7 +558,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:331](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L331)
+[type.d.ts:345](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L345)
 
 ___
 
@@ -584,7 +584,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:337](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L337)
+[type.d.ts:351](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L351)
 
 ___
 
@@ -610,7 +610,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:343](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L343)
+[type.d.ts:357](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L357)
 
 ___
 
@@ -637,7 +637,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:629](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L629)
+[type.d.ts:643](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L643)
 
 ___
 
@@ -664,7 +664,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:277](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L277)
+[type.d.ts:291](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L291)
 
 ___
 
@@ -691,7 +691,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:283](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L283)
+[type.d.ts:297](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L297)
 
 ___
 
@@ -718,7 +718,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:650](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L650)
+[type.d.ts:664](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L664)
 
 ___
 
@@ -744,7 +744,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:663](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L663)
+[type.d.ts:677](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L677)
 
 ___
 
@@ -771,7 +771,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:657](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L657)
+[type.d.ts:671](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L671)
 
 ___
 
@@ -797,7 +797,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:325](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L325)
+[type.d.ts:339](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L339)
 
 ___
 
@@ -823,7 +823,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:266](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L266)
+[type.d.ts:280](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L280)
 
 ___
 
@@ -845,7 +845,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:416](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L416)
+[type.d.ts:430](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L430)
 
 ___
 
@@ -871,7 +871,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:669](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L669)
+[type.d.ts:683](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L683)
 
 ___
 
@@ -897,7 +897,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:299](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L299)
+[type.d.ts:313](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L313)
 
 ___
 
@@ -915,7 +915,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:319](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L319)
+[type.d.ts:333](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L333)
 
 ___
 
@@ -937,7 +937,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:433](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L433)
+[type.d.ts:447](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L447)
 
 ___
 
@@ -963,7 +963,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:288](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L288)
+[type.d.ts:302](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L302)
 
 ___
 
@@ -990,4 +990,4 @@ ___
 
 #### Defined in
 
-[type.d.ts:306](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L306)
+[type.d.ts:320](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L320)

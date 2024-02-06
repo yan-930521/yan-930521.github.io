@@ -8,7 +8,13 @@
 
 ### Properties
 
+- [DoubleJumpForce](CONFIG.CharacterConfig.md#doublejumpforce)
+- [JumpForce](CONFIG.CharacterConfig.md#jumpforce)
+- [MoveDiminishing](CONFIG.CharacterConfig.md#movediminishing)
+- [MoveSpeed](CONFIG.CharacterConfig.md#movespeed)
+- [MoveSpeedOnAir](CONFIG.CharacterConfig.md#movespeedonair)
 - [animation](CONFIG.CharacterConfig.md#animation)
+- [bodyScale](CONFIG.CharacterConfig.md#bodyscale)
 - [defaultAnimation](CONFIG.CharacterConfig.md#defaultanimation)
 - [height](CONFIG.CharacterConfig.md#height)
 - [offsetX](CONFIG.CharacterConfig.md#offsetx)
@@ -16,6 +22,56 @@
 - [width](CONFIG.CharacterConfig.md#width)
 
 ## Properties
+
+### DoubleJumpForce
+
+• **DoubleJumpForce**: `number`
+
+#### Defined in
+
+[type.d.ts:6](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L6)
+
+___
+
+### JumpForce
+
+• **JumpForce**: `number`
+
+#### Defined in
+
+[type.d.ts:5](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L5)
+
+___
+
+### MoveDiminishing
+
+• **MoveDiminishing**: `number`
+
+#### Defined in
+
+[type.d.ts:7](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L7)
+
+___
+
+### MoveSpeed
+
+• **MoveSpeed**: `number`
+
+#### Defined in
+
+[type.d.ts:3](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L3)
+
+___
+
+### MoveSpeedOnAir
+
+• **MoveSpeedOnAir**: `number`
+
+#### Defined in
+
+[type.d.ts:4](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L4)
+
+___
 
 ### animation
 
@@ -27,7 +83,17 @@
 
 #### Defined in
 
-[type.d.ts:8](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L8)
+[type.d.ts:14](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L14)
+
+___
+
+### bodyScale
+
+• **bodyScale**: ``1``
+
+#### Defined in
+
+[type.d.ts:10](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L10)
 
 ___
 
@@ -37,7 +103,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:7](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L7)
+[type.d.ts:13](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L13)
 
 ___
 
@@ -47,7 +113,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:4](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L4)
+[type.d.ts:9](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L9)
 
 ___
 
@@ -57,7 +123,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:5](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L5)
+[type.d.ts:11](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L11)
 
 ___
 
@@ -67,7 +133,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:6](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L6)
+[type.d.ts:12](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L12)
 
 ___
 
@@ -77,4 +143,4 @@ ___
 
 #### Defined in
 
-[type.d.ts:3](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L3)
+[type.d.ts:8](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L8)

@@ -47,6 +47,14 @@
        - Method: loadAnimatedResource
        - Method: loadMutiAnimatedResource
    - Interface: Animations
+- File: ./src/game/characters/TrainingDummy.ts
+   - Class: TrainingDummy
+
+       - Method: loadAnimations
+- File: ./src/game/characters/VoidKnight.ts
+   - Class: VoidKnight
+
+       - Method: loadAnimations
 - File: ./src/game/effects/BlueFireBall.ts
 - File: ./src/game/managers/AnimationManager.ts
    - Class: AnimationManager

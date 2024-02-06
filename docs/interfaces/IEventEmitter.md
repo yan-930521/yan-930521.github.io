@@ -38,7 +38,7 @@
 
 #### Defined in
 
-[type.d.ts:621](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L621)
+[type.d.ts:635](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L635)
 
 ___
 
@@ -48,7 +48,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:622](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L622)
+[type.d.ts:636](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L636)
 
 ## Methods
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:643](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L643)
+[type.d.ts:657](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L657)
 
 ___
 
@@ -94,7 +94,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:636](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L636)
+[type.d.ts:650](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L650)
 
 ___
 
@@ -118,7 +118,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:676](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L676)
+[type.d.ts:690](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L690)
 
 ___
 
@@ -141,7 +141,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:629](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L629)
+[type.d.ts:643](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L643)
 
 ___
 
@@ -164,7 +164,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:650](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L650)
+[type.d.ts:664](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L664)
 
 ___
 
@@ -186,7 +186,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:663](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L663)
+[type.d.ts:677](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L677)
 
 ___
 
@@ -209,7 +209,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:657](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L657)
+[type.d.ts:671](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L671)
 
 ___
 
@@ -231,4 +231,4 @@ ___
 
 #### Defined in
 
-[type.d.ts:669](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L669)
+[type.d.ts:683](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L683)

@@ -358,7 +358,7 @@ declare interface IBodyObject extends IBasicObject {
 }
 
 /**
- * 玩家操控的角色
+ * 玩家操控的角色，不可直接調用
  */
 declare interface ICharacter extends IBodyObject {
     /**
@@ -408,7 +408,7 @@ declare interface ICharacter extends IBodyObject {
     init(initX?: number, initY?: number): ICharacter
 
     /**
-     * 從config讀取所有動畫，並且載入，存起來
+     * 從config讀取所有動畫，並且載入，存起來，需要實作
      */
     loadAnimations(): Promise<void>
 

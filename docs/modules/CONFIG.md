@@ -29,4 +29,4 @@
 
 #### Defined in
 
-[type.d.ts:65](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L65)
+[type.d.ts:75](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L75)

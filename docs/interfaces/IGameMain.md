@@ -12,6 +12,7 @@
 - [debug](IGameMain.md#debug)
 - [keyInput](IGameMain.md#keyinput)
 - [laseUpdateTime](IGameMain.md#laseupdatetime)
+- [nowUpdateTime](IGameMain.md#nowupdatetime)
 - [pixi](IGameMain.md#pixi)
 - [world](IGameMain.md#world)
 
@@ -30,7 +31,7 @@
 
 #### Defined in
 
-[type.d.ts:81](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L81)
+[type.d.ts:91](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L91)
 
 ___
 
@@ -48,7 +49,7 @@ false
 
 #### Defined in
 
-[type.d.ts:78](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L78)
+[type.d.ts:88](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L88)
 
 ___
 
@@ -60,7 +61,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:92](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L92)
+[type.d.ts:106](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L106)
 
 ___
 
@@ -72,7 +73,19 @@ ___
 
 #### Defined in
 
-[type.d.ts:87](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L87)
+[type.d.ts:101](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L101)
+
+___
+
+### nowUpdateTime
+
+• **nowUpdateTime**: `number`
+
+更新當下的時間
+
+#### Defined in
+
+[type.d.ts:97](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L97)
 
 ___
 
@@ -82,7 +95,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:80](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L80)
+[type.d.ts:90](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L90)
 
 ___
 
@@ -92,7 +105,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:82](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L82)
+[type.d.ts:92](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L92)
 
 ## Methods
 
@@ -108,7 +121,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:105](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L105)
+[type.d.ts:119](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L119)
 
 ___
 
@@ -124,7 +137,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:115](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L115)
+[type.d.ts:129](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L129)
 
 ___
 
@@ -140,7 +153,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:110](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L110)
+[type.d.ts:124](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L124)
 
 ___
 
@@ -165,4 +178,4 @@ ___
 
 #### Defined in
 
-[type.d.ts:100](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L100)
+[type.d.ts:114](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L114)

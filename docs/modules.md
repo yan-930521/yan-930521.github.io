@@ -36,7 +36,7 @@
 
 #### Defined in
 
-[type.d.ts:616](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L616)
+[type.d.ts:630](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L630)
 
 ___
 
@@ -60,4 +60,4 @@ ___
 
 #### Defined in
 
-[type.d.ts:618](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L618)
+[type.d.ts:632](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L632)

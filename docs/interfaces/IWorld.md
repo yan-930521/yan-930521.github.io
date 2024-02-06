@@ -36,7 +36,7 @@
 
 #### Defined in
 
-[type.d.ts:134](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L134)
+[type.d.ts:148](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L148)
 
 ___
 
@@ -48,7 +48,7 @@ Matter的引擎
 
 #### Defined in
 
-[type.d.ts:125](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L125)
+[type.d.ts:139](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L139)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:132](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L132)
+[type.d.ts:146](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L146)
 
 ___
 
@@ -70,7 +70,7 @@ Matter的渲染器，用來顯示鋼體
 
 #### Defined in
 
-[type.d.ts:130](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L130)
+[type.d.ts:144](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L144)
 
 ## Methods
 
@@ -92,7 +92,7 @@ Matter的渲染器，用來顯示鋼體
 
 #### Defined in
 
-[type.d.ts:167](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L167)
+[type.d.ts:181](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L181)
 
 ___
 
@@ -114,7 +114,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:145](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L145)
+[type.d.ts:159](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L159)
 
 ___
 
@@ -128,7 +128,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:136](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L136)
+[type.d.ts:150](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L150)
 
 ___
 
@@ -142,7 +142,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:138](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L138)
+[type.d.ts:152](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L152)
 
 ___
 
@@ -158,7 +158,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:156](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L156)
+[type.d.ts:170](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L170)
 
 ___
 
@@ -172,7 +172,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:137](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L137)
+[type.d.ts:151](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L151)
 
 ___
 
@@ -186,7 +186,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:139](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L139)
+[type.d.ts:153](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L153)
 
 ___
 
@@ -202,7 +202,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:183](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L183)
+[type.d.ts:197](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L197)
 
 ___
 
@@ -218,7 +218,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:178](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L178)
+[type.d.ts:192](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L192)
 
 ___
 
@@ -240,7 +240,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:173](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L173)
+[type.d.ts:187](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L187)
 
 ___
 
@@ -262,7 +262,7 @@ ___
 
 #### Defined in
 
-[type.d.ts:151](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L151)
+[type.d.ts:165](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L165)
 
 ___
 
@@ -284,4 +284,4 @@ ___
 
 #### Defined in
 
-[type.d.ts:161](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L161)
+[type.d.ts:175](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L175)

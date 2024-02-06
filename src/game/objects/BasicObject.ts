@@ -39,6 +39,7 @@ export class BasicObject extends EventEmitter implements IBasicObject {
         }
         this.face = face;
     }
+    
     getFace(): Face {
         return this.face;
     }

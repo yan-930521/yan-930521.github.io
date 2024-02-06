@@ -8,12 +8,56 @@
 
 ### Properties
 
+- [Debug](CONFIG.GameSetting.md#debug)
+- [DelayAllowJump](CONFIG.GameSetting.md#delayallowjump)
+- [DoubleJumpDelayMs](CONFIG.GameSetting.md#doublejumpdelayms)
+- [Friction](CONFIG.GameSetting.md#friction)
 - [Gravity](CONFIG.GameSetting.md#gravity)
+- [HeightToShowFall](CONFIG.GameSetting.md#heighttoshowfall)
 - [KeyBoardController](CONFIG.GameSetting.md#keyboardcontroller)
-- [MoveSpeed](CONFIG.GameSetting.md#movespeed)
-- [MoveSpeedOnAir](CONFIG.GameSetting.md#movespeedonair)
+- [MoveByForce](CONFIG.GameSetting.md#movebyforce)
 
 ## Properties
+
+### Debug
+
+• **Debug**: `boolean`
+
+#### Defined in
+
+[type.d.ts:56](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L56)
+
+___
+
+### DelayAllowJump
+
+• **DelayAllowJump**: `number`
+
+#### Defined in
+
+[type.d.ts:61](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L61)
+
+___
+
+### DoubleJumpDelayMs
+
+• **DoubleJumpDelayMs**: `number`
+
+#### Defined in
+
+[type.d.ts:60](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L60)
+
+___
+
+### Friction
+
+• **Friction**: `number`
+
+#### Defined in
+
+[type.d.ts:63](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L63)
+
+___
 
 ### Gravity
 
@@ -21,7 +65,17 @@
 
 #### Defined in
 
-[type.d.ts:52](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L52)
+[type.d.ts:58](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L58)
+
+___
+
+### HeightToShowFall
+
+• **HeightToShowFall**: `number`
+
+#### Defined in
+
+[type.d.ts:62](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L62)
 
 ___
 
@@ -31,24 +85,14 @@ ___
 
 #### Defined in
 
-[type.d.ts:53](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L53)
+[type.d.ts:59](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L59)
 
 ___
 
-### MoveSpeed
+### MoveByForce
 
-• **MoveSpeed**: `number`
-
-#### Defined in
-
-[type.d.ts:50](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L50)
-
-___
-
-### MoveSpeedOnAir
-
-• **MoveSpeedOnAir**: `number`
+• **MoveByForce**: `boolean`
 
 #### Defined in
 
-[type.d.ts:51](https://github.com/yan-930521/yan-930521.github.io/blob/b3ead09/src/type.d.ts#L51)
+[type.d.ts:57](https://github.com/yan-930521/yan-930521.github.io/blob/897f374/src/type.d.ts#L57)

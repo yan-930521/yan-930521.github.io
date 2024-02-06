@@ -5,10 +5,12 @@ import { Ground } from "./Ground";
 import { Character } from "./Character";
 import { BackGround } from "./BackGround";
 import { BasicObject } from "./BasicObject";
+import { BodyObject } from "./BodyObject";
+import { VoidKnight } from "../characters/VoidKnight";
 import { EventEmitter } from "../../utils/EventEmitter";
 
 import { gameMain } from "../..";
-import { BodyObject } from "./BodyObject";
+import { TrainingDummy } from "../characters/TrainingDummy";
 
 export class World extends EventEmitter implements IWorld {
     public ground: Ground;
@@ -67,8 +69,12 @@ export class World extends EventEmitter implements IWorld {
     }
 
     createCharacter() {
-        const character = new Character(gameMain.config.Character.Samurai).init();
-        const character2 = new Character(gameMain.config.Character.Samurai).init();
+        const character = new VoidKnight().init(
+            gameMain.config.GameViewport.WIDTH * 2 / 4
+        );
+        const character2 = new VoidKnight().init(
+            gameMain.config.GameViewport.WIDTH * 1 / 4
+        );
         this.addObjectToWorld(character);
         this.addObjectToWorld(character2);
         character2.waitMS(5000, () => {
@@ -78,8 +84,8 @@ export class World extends EventEmitter implements IWorld {
     }
 
     createTrainingDummy() {
-        const trainingDummy = new Character(gameMain.config.Character.TrainingDummy).init(
-            gameMain.config.GameViewport.WIDTH * 2 / 3
+        const trainingDummy = new TrainingDummy().init(
+            gameMain.config.GameViewport.WIDTH * 3 / 4
         );
         this.addObjectToWorld(trainingDummy);
 

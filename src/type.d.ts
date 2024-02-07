@@ -1,10 +1,6 @@
 declare namespace CONFIG {
     interface CharacterConfig {
-        MoveSpeed: number
-        MoveSpeedOnAir: number
-        JumpForce: number
-        DoubleJumpForce: number
-        MoveDiminishing: number
+        MovementSetting: MovementSetting, 
         width: number,
         height: number,
         bodyScale: 1,
@@ -65,6 +61,34 @@ declare namespace CONFIG {
 
     interface KeyInput {
         [key: string]: boolean
+    }
+
+    interface MovementSetting {
+
+        /**
+         * 移動速度
+         */
+        MoveSpeed: number,
+
+        /**
+         * 空中的滑翔速度
+         */
+        MoveSpeedOnAir: number,
+
+        /**
+         * 移動速度的遞減(每次移動，速度會由快到慢，直至0)
+         */
+        MoveDiminishing: number,
+        
+        /**
+         * 跳躍力
+         */
+        JumpForce: number,
+
+        /**
+         * 二段跳的力量
+         */
+        DoubleJumpForce: number
     }
 
     interface Vector {

@@ -23,12 +23,14 @@
         } 
     },
     "Character": {
-        "Samurai": {
-            "MoveSpeed": 30,
-            "MoveSpeedOnAir": 30,
-            "MoveDiminishing": 1.7,
-            "JumpForce": 1.1,
-            "DoubleJumpForce": 1.5,
+        "VoidKnight": {
+            "MovementSetting": {
+                "MoveSpeed": 30,
+                "MoveSpeedOnAir": 30,
+                "MoveDiminishing": 1.7,
+                "JumpForce": 1.1,
+                "DoubleJumpForce": 1.5
+            }, 
             "width": 50,
             "height": 82,
             "bodyScale": 1,
@@ -49,14 +51,14 @@
                 },
                 "Run": {
                     "name": "Run",
-                    "path": "Samurai/Run.png",
-                    "frameCount": 8,
-                    "width": 100,
+                    "path": "Void_Knight/Walk/VK_walk.png",
+                    "frameCount": 4,
+                    "width": 50,
                     "height": 86,
-                    "offsetX": 10,
+                    "offsetX": 0,
                     "offsetY": 0,
-                    "animationSpeed": 0.015,
-                    "animationScale": 1
+                    "animationSpeed": 0.005,
+                    "animationScale": 1.2
                 },
                 "Jump": {
                     "name": "Jump",
@@ -83,11 +85,14 @@
             }
         },
         "TrainingDummy": {
-            "MoveSpeed": 0,
-            "MoveSpeedOnAir": 0,
-            "MoveDiminishing": 0,
-            "JumpForce": 0,
-            "DoubleJumpForce": 0,
+            "MovementSetting": {
+                "MoveSpeed": 0,
+                "MoveSpeedOnAir": 0,
+                "MoveDiminishing": 0,
+                
+                "JumpForce": 0,
+                "DoubleJumpForce": 0
+            }, 
             "width": 50,
             "height": 60,
             "bodyScale": 1,

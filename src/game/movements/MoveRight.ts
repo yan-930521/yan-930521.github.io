@@ -1,8 +1,6 @@
-import { Body } from "matter-js";
-
 import { Face } from "../../utils/Face";
 import { Character } from "../objects/Character";
-import { Movement, MovementHandler, continMover } from "../managers/MovementManager";
+import { Movement, MovementHandler, moveByPositionFunction } from "../managers/MovementManager";
 
 import { gameMain } from "../..";
 
@@ -19,63 +17,24 @@ export default {
             character.isRunning = true;
             if (gameMain.config.GameSetting.MoveByForce) {
                 character.moveByForce({
-                    x: character.characterConfig.MoveSpeed / 1000,
+                    x: character.characterConfig.MovementSetting.MoveSpeed / 1000,
                     y: 0
                 });
             } else {
-                let base = character.characterConfig.MoveSpeed / 10;
-                character.moveByForce({
-                    x: 0.1,
-                    y: 0
-                });
-                continMover(10, 10, () => {
-                    base /= character.characterConfig.MoveDiminishing;
-                    character.moveByPosition({
-                        x: base,
-                        y: 0
-                    });
-                }, () => {
-                    character.waitMS(20, () => {
-                        Body.setVelocity(
-                            character.body, {
-                            x: character.body.velocity.x * 0.2,
-                            y: character.body.velocity.y
-                        });
-                        character.moveByForce({
-                            x: 0.05,
-                            y: 0
-                        });
-                    });
-                });
+                let base = character.characterConfig.MovementSetting.MoveSpeed / 10;
+                moveByPositionFunction(character, base);
+                
             }
             character.switchAnimation("Run");
         } else {
             if (gameMain.config.GameSetting.MoveByForce) {
                 character.moveByForce({
-                    x: character.characterConfig.MoveSpeedOnAir / 1000,
+                    x: character.characterConfig.MovementSetting.MoveSpeedOnAir / 1000,
                     y: 0
                 });
             } else {
-                let base = character.characterConfig.MoveSpeedOnAir / 10;
-                continMover(10, 10, () => {
-                    base /= character.characterConfig.MoveDiminishing;
-                    character.moveByPosition({
-                        x: base,
-                        y: 0
-                    });
-                }, () => {
-                    character.waitMS(20, () => {
-                        Body.setVelocity(
-                            character.body, {
-                            x: character.body.velocity.x * 0.2,
-                            y: character.body.velocity.y
-                        });
-                        character.moveByForce({
-                            x: 0.05,
-                            y: 0
-                        });
-                    });
-                });
+                let base = character.characterConfig.MovementSetting.MoveSpeedOnAir / 10;
+                moveByPositionFunction(character, base);
             }
         }
     }

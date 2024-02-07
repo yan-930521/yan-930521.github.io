@@ -6,7 +6,7 @@ import { gameMain } from "../..";
 
 export class VoidKnight extends Character {
     constructor() {
-        super(gameMain.config.Character.Samurai);
+        super(gameMain.config.Character.VoidKnight);
         this.on("update", (deltaMS: number) => {
             // 特別處理jump邏輯
             if (this.animationManager.animationConfigs["Jump"]) {

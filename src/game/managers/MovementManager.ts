@@ -1,5 +1,7 @@
-import { Character } from "../objects/Character";
+import { Body } from "matter-js";
+
 import MovementHandlers from "../movements";
+import { Character } from "../objects/Character";
 
 export { MovementHandlers };
 
@@ -11,7 +13,9 @@ export enum Movement {
     LaunchBlueFireBall,
     Attack1
 }
+
 export type MoveFunction = (character: Character, matchedMonementHandler: MovementHandler) => void;
+
 export interface MovementHandler {
     key: Movement[],
     name: string,
@@ -32,6 +36,33 @@ export const continMover = (count: number, ms: number, cb: () => void, end?: () 
     } else if(end) {
         end();
     }
+}
+
+/** 移動的function，實做了推力、慣性 */
+export const moveByPositionFunction = (character: Character, baseSpeed: number) => {
+    character.moveByForce({
+        x: (baseSpeed > 0 ? 1 : -1) * 0.1,
+        y: 0
+    });
+    continMover(10, 10, () => {
+        baseSpeed /= character.characterConfig.MovementSetting.MoveDiminishing;
+        character.moveByPosition({
+            x: baseSpeed,
+            y: 0
+        });
+    }, () => {
+        character.waitMS(20, () => {
+            Body.setVelocity(
+                character.body, {
+                x: character.body.velocity.x * 0.2,
+                y: character.body.velocity.y
+            });
+            character.moveByForce({
+                x:  (baseSpeed > 0 ? 1 : -1) * 0.05,
+                y: 0
+            });
+        });
+    });
 }
 
 export class MovementManager {

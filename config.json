@@ -10,7 +10,7 @@
         "MoveByForce": false,
         "Friction": 0.5,
         "DoubleJumpDelayMs": 250,
-        "HeightToShowFall": 80,
+        "HeightToShowFall": 50,
         "DelayAllowJump": 300,
         "Gravity": 1.1,
         "KeyBoardController": {
@@ -25,8 +25,8 @@
     "Character": {
         "VoidKnight": {
             "MovementSetting": {
-                "MoveSpeed": 30,
-                "MoveSpeedOnAir": 30,
+                "MoveSpeed": 15,
+                "MoveSpeedOnAir": 15,
                 "MoveDiminishing": 1.7,
                 "JumpForce": 1.1,
                 "DoubleJumpForce": 1.5
@@ -62,13 +62,13 @@
                 },
                 "Jump": {
                     "name": "Jump",
-                    "path": "Samurai/Jump.png",
-                    "frameCount": 12,
+                    "path": "Void_Knight/Jump/VK_jump.png",
+                    "frameCount": 7,
                     "width": 50,
                     "height": 86,
                     "offsetX": 0,
                     "offsetY": 0,
-                    "animationSpeed": 0.02,
+                    "animationSpeed": 0.01,
                     "animationScale": 1
                 },
                 "Attack1": {

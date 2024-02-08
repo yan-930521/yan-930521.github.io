@@ -5,12 +5,13 @@ import { Character } from "../objects/Character";
 import { gameMain } from "../..";
 
 export class VoidKnight extends Character {
+    private readonly JumpFrameToStop: number = 4;
     constructor() {
         super(gameMain.config.Character.VoidKnight);
         this.on("update", (deltaMS: number) => {
             // 特別處理jump邏輯
             if (this.animationManager.animationConfigs["Jump"]) {
-                if (this.animationManager.isReady() && this.animationManager.getAnimationFrame("Jump") == 6) {
+                if (this.animationManager.isReady() && this.animationManager.getAnimationFrame("Jump") == this.JumpFrameToStop) {
                     if (this.body.velocity.y > 0 && (gameMain.config.GameViewport.GroundHeight - this.container.height / 2) - this.body.position.y < gameMain.config.GameSetting.HeightToShowFall) {
                         this.animationManager.animations["Jump"].play();
                     }
@@ -43,7 +44,8 @@ export class VoidKnight extends Character {
 
                     if (name == "Jump") {
                         animation.onFrameChange = (currentFrame: number) => {
-                            if (currentFrame == 6) animation.stop();
+                            console.log("Jump", currentFrame);
+                            if (currentFrame == this.JumpFrameToStop) animation.stop();
                         }
                     }
                 }))

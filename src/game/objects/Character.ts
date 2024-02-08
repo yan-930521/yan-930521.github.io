@@ -71,12 +71,16 @@ export class Character extends BodyObject implements ICharacter {
             let y = ellipseHeight * Math.sin(i);
             vertices.push({x, y});
         }
+
+        // 遷移到橢圓鋼體
         this.body = Bodies.fromVertices(initX, initY, [vertices], {
             inertia: 0,
             inverseInertia: Infinity,
             density: 0.01 * 4 / (Math.PI * this.characterConfig.bodyScale * this.characterConfig.bodyScale), // 從長方形遷移到橢圓，維持重量不變
             frictionAir: 0.02
         });
+
+        // 舊版鋼體
         // this.body = Bodies.rectangle(initX, initY, this.characterConfig.width, this.characterConfig.height, {
         //     inertia: 0,
         //     inverseInertia: Infinity,

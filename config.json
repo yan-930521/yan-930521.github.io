@@ -69,7 +69,7 @@
                     "offsetX": 0,
                     "offsetY": 0,
                     "animationSpeed": 0.01,
-                    "animationScale": 1
+                    "animationScale": 1.2
                 },
                 "Attack1": {
                     "name": "Attack1",

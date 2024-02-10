@@ -1,5 +1,6 @@
 import { AnimatedSprite } from "pixi.js";
 
+import { Movement } from "../managers/MovementManager";
 import { Character } from "../objects/Character";
 
 import { gameMain } from "../..";
@@ -8,6 +9,14 @@ export class VoidKnight extends Character {
     private readonly JumpFrameToStop: number = 4;
     constructor() {
         super(gameMain.config.Character.VoidKnight);
+
+        this.animationManager.setMustStop("Jump", true);
+        this.animationManager.setMustReStart("Jump", true);
+        this.movementManager
+            .setExclude([Movement.Right])
+            .setExclude([Movement.Left])
+            .setExclude([Movement.Jump]);
+
         this.on("update", (deltaMS: number) => {
             // 特別處理jump邏輯
             if (this.animationManager.animationConfigs["Jump"]) {
@@ -44,7 +53,7 @@ export class VoidKnight extends Character {
 
                     if (name == "Jump") {
                         animation.onFrameChange = (currentFrame: number) => {
-                            console.log("Jump", currentFrame);
+                            // console.log("Jump", currentFrame);
                             if (currentFrame == this.JumpFrameToStop) animation.stop();
                         }
                     }

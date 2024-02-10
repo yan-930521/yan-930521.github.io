@@ -32,13 +32,9 @@ export class Character extends BodyObject implements ICharacter {
         }
 
         this.animationManager = new AnimationManager(this);
-        this.animationManager.setMustStop("Jump", true);
 
         this.movementManager = new MovementManager()
-            .setExclude([Movement.Right])
-            .setExclude([Movement.Left])
-            .setExclude([Movement.Jump]);
-
+        
         if (gameMain.debug) {
             let w = this.characterConfig.width;
             let h = this.characterConfig.height;

@@ -32,6 +32,10 @@ export class AnimationManager {
         [key: string]: boolean
     } = {};
 
+    private mustReStartAnimations: {
+        [key: string]: boolean
+    } = {};
+
     constructor(parent?: Character) {
         if(parent) this.parent = parent;
     }
@@ -99,6 +103,9 @@ export class AnimationManager {
             } else {
                 this.nowAnimation = animation;
                 this.setHaveToStop(animation, true);
+
+                // 但如果需要重播 設置動畫幀為0
+                this.animations[this.nowAnimation].currentFrame = 1;
             }
         } else {
             // 切換到預設動畫
@@ -151,6 +158,18 @@ export class AnimationManager {
             return false;
         }
         return this.mustStopAnimations[name];
+    }
+
+    setMustReStart(name: string, bool: boolean) {
+        this.mustReStartAnimations[name] = bool ? true : false;
+    }
+    getMustReStart(name: string) {
+        // 預設為不一定要停下
+        if (typeof this.mustReStartAnimations[name] == "undefined") {
+            this.setMustReStart(name, false);
+            return false;
+        }
+        return this.mustReStartAnimations[name];
     }
 
     onUpdate(deltaMS: number) {

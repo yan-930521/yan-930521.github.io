@@ -70,6 +70,8 @@
        - Method: getHaveToStop
        - Method: setMustStop
        - Method: getMustStop
+       - Method: setMustReStart
+       - Method: getMustReStart
        - Method: onUpdate
 - File: ./src/game/managers/MovementManager.ts
    - Class: MovementManager

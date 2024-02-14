@@ -11,6 +11,7 @@ export class VoidKnight extends Character {
         super(gameMain.config.Character.VoidKnight);
 
         this.animationManager.setMustStop("Jump", true);
+        this.animationManager.setMustStop("Crouch", true);
         this.animationManager.setMustReStart("Jump", true);
         this.movementManager
             .setExclude([Movement.Right])
@@ -26,7 +27,6 @@ export class VoidKnight extends Character {
                     }
                 }
             }
-
             // 更新動畫
             this.animationManager.onUpdate(deltaMS);
         });

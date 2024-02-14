@@ -86,6 +86,7 @@
 - File: ./src/game/managers/StateManager.ts
    - Class: StateManager
 
+   - Interface: Attributes
 - File: ./src/game/movements/Attack1.ts
 - File: ./src/game/movements/index.ts
 - File: ./src/game/movements/Jump.ts
@@ -93,6 +94,7 @@
 - File: ./src/game/movements/MoveLeft.ts
 - File: ./src/game/movements/MoveRight.ts
 - File: ./src/game/movements/Sprint.ts
+- File: ./src/game/movements/SquatDown.ts
 - File: ./src/game/objects/BackGround.ts
    - Class: BackGround
 
@@ -116,10 +118,15 @@
        - Method: moveByForce
        - Method: moveByPosition
        - Method: moveByVelocity
+       - Method: createBody
+       - Method: cloneBody
+       - Method: backupBody
+       - Method: getBodyData
 - File: ./src/game/objects/Character.ts
    - Class: Character
 
        - Method: init
+       - Method: createBody
        - Method: loadAnimations
        - Method: move
        - Method: canIdle

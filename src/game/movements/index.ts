@@ -20,5 +20,8 @@ import("./LaunchBlueFireBall").then((module) => {
 import("./Attack1").then((module) => {
     MovementHandlers.push(module.default);
 });
+import("./SquatDown").then((module) => {
+    MovementHandlers.push(module.default);
+});
 
 export default MovementHandlers;

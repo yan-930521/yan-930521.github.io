@@ -9,6 +9,7 @@ export enum Movement {
     Left,
     Right,
     Jump,
+    SquatDown,
     Sprint,
     LaunchBlueFireBall,
     Attack1

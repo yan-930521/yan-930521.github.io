@@ -15,12 +15,13 @@
         "Gravity": 1.1,
         "KeyBoardController": {
             "Jump": "w",
+            "SquatDown": "s",
             "Left": "a",
             "Right": "d",
             "Sprint": "shift",
             "LaunchBlueFireBall": "f",
             "Attack1": "r"
-        } 
+        }
     },
     "Character": {
         "VoidKnight": {
@@ -30,7 +31,7 @@
                 "MoveDiminishing": 1.7,
                 "JumpForce": 1.1,
                 "DoubleJumpForce": 1.5
-            }, 
+            },
             "width": 50,
             "height": 82,
             "bodyScale": 1,
@@ -80,7 +81,18 @@
                     "offsetX": 20,
                     "offsetY": 0,
                     "animationSpeed": 0.02,
-                    "animationScale": 1
+                    "animationScale": 1.2
+                },
+                "Crouch": {
+                    "name": "Crouch",
+                    "path": "Void_Knight/Crouch/VK_crouch.png",
+                    "frameCount": 7,
+                    "width": 50,
+                    "height": 86,
+                    "offsetX": 0,
+                    "offsetY": 0,
+                    "animationSpeed": 0.02,
+                    "animationScale": 1.2
                 }
             }
         },
@@ -89,10 +101,9 @@
                 "MoveSpeed": 0,
                 "MoveSpeedOnAir": 0,
                 "MoveDiminishing": 0,
-                
                 "JumpForce": 0,
                 "DoubleJumpForce": 0
-            }, 
+            },
             "width": 50,
             "height": 60,
             "bodyScale": 1,

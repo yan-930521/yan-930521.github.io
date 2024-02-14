@@ -59,23 +59,6 @@ export class Character extends BodyObject implements ICharacter {
             initY = gameMain.config.GameViewport.GroundHeight - this.characterConfig.height / 2 - 100;
         }
 
-        let ellipseWidth = this.characterConfig.bodyScale * this.characterConfig.width / 2;
-        let ellipseHeight = this.characterConfig.bodyScale * this.characterConfig.height / 2;
-        let vertices: CONFIG.Vector[] = [];
-        for (let i = 0; i < 2 * Math.PI; i += 0.1) {
-            let x = ellipseWidth * Math.cos(i);
-            let y = ellipseHeight * Math.sin(i);
-            vertices.push({x, y});
-        }
-
-        // 遷移到橢圓鋼體
-        this.body = Bodies.fromVertices(initX, initY, [vertices], {
-            inertia: 0,
-            inverseInertia: Infinity,
-            density: 0.01 * 4 / (Math.PI * this.characterConfig.bodyScale * this.characterConfig.bodyScale), // 從長方形遷移到橢圓，維持重量不變
-            frictionAir: 0.02
-        });
-
         // 舊版鋼體
         // this.body = Bodies.rectangle(initX, initY, this.characterConfig.width, this.characterConfig.height, {
         //     inertia: 0,
@@ -83,6 +66,8 @@ export class Character extends BodyObject implements ICharacter {
         //     density: 0.01,
         //     frictionAir: 0.02
         // });
+        
+        this.body = this.createBody(initX, initY, this.characterConfig.width, this.characterConfig.height);
 
         this.container.width =  this.characterConfig.width;
         this.container.height = this.characterConfig.height;
@@ -92,6 +77,27 @@ export class Character extends BodyObject implements ICharacter {
         });
 
         return this;
+    }
+
+    createBody(initX: number, initY: number, width: number, height: number): Body {
+        let ellipseWidth = this.characterConfig.bodyScale * width / 2;
+        let ellipseHeight = this.characterConfig.bodyScale * height / 2;
+        let vertices: CONFIG.Vector[] = [];
+        for (let i = 0; i < 2 * Math.PI; i += 0.1) {
+            let x = ellipseWidth * Math.cos(i);
+            let y = ellipseHeight * Math.sin(i);
+            vertices.push({x, y});
+        }
+
+        // 遷移到橢圓鋼體
+        const body = Bodies.fromVertices(initX, initY, [vertices], {
+            inertia: 0,
+            inverseInertia: Infinity,
+            density: 0.01 * 4 / (Math.PI * this.characterConfig.bodyScale * this.characterConfig.bodyScale), // 從長方形遷移到橢圓，維持重量不變
+            frictionAir: 0.02
+        });
+
+        return body;
     }
 
     async loadAnimations(): Promise<void> {

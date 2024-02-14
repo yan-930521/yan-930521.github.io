@@ -354,6 +354,11 @@ declare interface IBodyObject extends IBasicObject {
      */
     body: Matter.Body
 
+    /**
+     * 鋼體備份
+     */
+    bodyBackup: Matter.Body;
+
     stop(): void
 
     /**
@@ -379,6 +384,27 @@ declare interface IBodyObject extends IBasicObject {
      * @param vector
      */
     moveByVelocity(vector: CONFIG.Vector): void
+
+    /**
+     * @abstract 創造鋼體
+     */
+    createBody(initX: number, initY: number, width: number, height: number): Matter.Body
+
+    /**
+     * 複製鋼體
+     */
+    cloneBody(body: Matter.Body, width: number, height: number): Matter.Body
+
+    /**
+     * 取得乾淨(沒有id等無關訊息)的鋼體
+     */
+    getBodyData(body: Matter.Body): Matter.Body
+
+    /**
+     * 備份鋼體
+     * @param body 
+     */
+    backupBody(body: Matter.Body): Matter.Body
 }
 
 /**

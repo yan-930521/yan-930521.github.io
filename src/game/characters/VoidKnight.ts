@@ -62,7 +62,7 @@ export class VoidKnight extends Character {
                                 }
 
                                 if (name == "Attack1") {
-                                    this.waitMS(10, () => {
+                                    this.waitMS(500, () => {
                                         this.setIdle(true);
                                     });
                                 } else {

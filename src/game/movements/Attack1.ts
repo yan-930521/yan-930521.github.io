@@ -28,6 +28,7 @@ export default {
     cd: 500,
     priority: 1,
     execute: (character: Character, matchedMonementHandler: MovementHandler) => {
+        if(character.movementManager.getLastMovement().includes(matchedMonementHandler.name)) return;
         character.switchAnimation("Attack1");
 
         const face = character.getFace() == Face.RIGHT ? 1 : -1;

@@ -74,13 +74,13 @@
                 },
                 "Attack1": {
                     "name": "Attack1",
-                    "path": "Samurai/Attack_1.png",
-                    "frameCount": 6,
-                    "width": 128,
-                    "height": 86,
-                    "offsetX": 20,
-                    "offsetY": 0,
-                    "animationSpeed": 0.02,
+                    "path": "Void_Knight/Attack1/VK_attack1.png",
+                    "frameCount": 4,
+                    "width": 100,
+                    "height": 172,
+                    "offsetX": 0,
+                    "offsetY": -43,
+                    "animationSpeed": 0.001,
                     "animationScale": 1.2
                 },
                 "Crouch": {

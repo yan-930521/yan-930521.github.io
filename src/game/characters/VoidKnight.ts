@@ -13,6 +13,8 @@ export class VoidKnight extends Character {
 
         this.animationManager.setMustStop("Jump", true);
         this.animationManager.setMustStop("Crouch", true);
+        this.animationManager.setMustStop("Attack1", true);
+
         this.animationManager.setMustReStart("Jump", true);
         this.movementManager
             .setExclude([Movement.Right])
@@ -51,12 +53,21 @@ export class VoidKnight extends Character {
                         // 如果不是預設動畫，有終止條件，並且切換到預設動畫
                         animation.onLoop = () => {
                             if (this.animationManager.getHaveToStop(name)) {
+
                                 animation.stop();
                                 this.container.removeChild(animation);
+                                
                                 if (name == "Jump") {
                                     this.movementManager.CDState[name].during = false;
                                 }
-                                this.setIdle(true);
+
+                                if (name == "Attack1") {
+                                    this.waitMS(10, () => {
+                                        this.setIdle(true);
+                                    });
+                                } else {
+                                    this.setIdle(true);
+                                }
                             }
                         }
                     }

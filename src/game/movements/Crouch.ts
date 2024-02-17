@@ -10,7 +10,7 @@ export default {
     name: "Crouch",
     description: "蹲下",
     cd: 0,
-    priority: 1,
+    priority: 2,
     execute: (character: Character, matchedMonementHandler: MovementHandler) => {
         if(character.movementManager.getLastMovement().includes(matchedMonementHandler.name)) return;
         // const newBody = character.cloneBody(character.body, character.characterConfig.width, character.characterConfig.height / 2);

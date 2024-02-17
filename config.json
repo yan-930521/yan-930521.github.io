@@ -15,7 +15,7 @@
         "Gravity": 1.1,
         "KeyBoardController": {
             "Jump": "w",
-            "SquatDown": "s",
+            "Crouch": "s",
             "Left": "a",
             "Right": "d",
             "Sprint": "shift",

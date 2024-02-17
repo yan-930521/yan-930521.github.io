@@ -82,19 +82,21 @@
        - Method: isContainMovement
        - Method: isExcludeCD
        - Method: setExclude
+       - Method: recordMovement
+       - Method: getLastMovement
    - Interface: MovementHandler
 - File: ./src/game/managers/StateManager.ts
    - Class: StateManager
 
    - Interface: Attributes
 - File: ./src/game/movements/Attack1.ts
+- File: ./src/game/movements/Crouch.ts
 - File: ./src/game/movements/index.ts
 - File: ./src/game/movements/Jump.ts
 - File: ./src/game/movements/LaunchBlueFireBall.ts
 - File: ./src/game/movements/MoveLeft.ts
 - File: ./src/game/movements/MoveRight.ts
 - File: ./src/game/movements/Sprint.ts
-- File: ./src/game/movements/SquatDown.ts
 - File: ./src/game/objects/BackGround.ts
    - Class: BackGround
 

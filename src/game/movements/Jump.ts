@@ -9,6 +9,7 @@ export default {
     cd: 500,
     priority: 1,
     execute: (character: Character, matchedMonementHandler: MovementHandler) => {
+        if(character.movementManager.getLastMovement() == matchedMonementHandler.name) return;
         if (!character.canJump()) return;
         character.jumpCount++;
 

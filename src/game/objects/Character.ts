@@ -112,6 +112,11 @@ export class Character extends BodyObject implements ICharacter {
 
         for (let i in matchedMonementHandlers) {
             matchedMonementHandlers[i].execute(this, matchedMonementHandlers[i]);
+            this.movementManager.recordMovement(matchedMonementHandlers[i].name);
+        }
+        
+        if(matchedMonementHandlers.length == 0) {
+            this.movementManager.recordMovement(this.movementManager.NULLMovement);
         }
 
         // 跳躍 -> 就算下一個按鍵為空，還是要等待動畫結束，才可以idle

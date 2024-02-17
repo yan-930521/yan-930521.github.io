@@ -7,6 +7,7 @@ import { gameMain } from "../..";
 
 export class VoidKnight extends Character {
     private readonly JumpFrameToStop: number = 4;
+    private readonly CrouchFrameToStop: number = 4;
     constructor() {
         super(gameMain.config.Character.VoidKnight);
 
@@ -16,7 +17,8 @@ export class VoidKnight extends Character {
         this.movementManager
             .setExclude([Movement.Right])
             .setExclude([Movement.Left])
-            .setExclude([Movement.Jump]);
+            .setExclude([Movement.Jump])
+            .setExclude([Movement.Crouch]);
 
         this.on("update", (deltaMS: number) => {
             // 特別處理jump邏輯
@@ -24,6 +26,14 @@ export class VoidKnight extends Character {
                 if (this.animationManager.isReady() && this.animationManager.getAnimationFrame("Jump") == this.JumpFrameToStop) {
                     if (this.body.velocity.y > 0 && (gameMain.config.GameViewport.GroundHeight - this.container.height / 2) - this.body.position.y < gameMain.config.GameSetting.HeightToShowFall) {
                         this.animationManager.animations["Jump"].play();
+                    }
+                }
+            }
+            // 特別處理crouch邏輯
+            if (this.animationManager.animationConfigs["Crouch"]) {
+                if (this.animationManager.isReady() && this.animationManager.getAnimationFrame("Crouch") == this.JumpFrameToStop) {
+                    if (this.movementManager.getLastMovement() == this.movementManager.NULLMovement) {
+                        this.animationManager.animations["Crouch"].play();
                     }
                 }
             }
@@ -55,6 +65,12 @@ export class VoidKnight extends Character {
                         animation.onFrameChange = (currentFrame: number) => {
                             // console.log("Jump", currentFrame);
                             if (currentFrame == this.JumpFrameToStop) animation.stop();
+                        }
+                    }
+                    if (name == "Crouch") {
+                        animation.onFrameChange = (currentFrame: number) => {
+                            // console.log("Jump", currentFrame);
+                            if (currentFrame == this.CrouchFrameToStop) animation.stop();
                         }
                     }
                 }))

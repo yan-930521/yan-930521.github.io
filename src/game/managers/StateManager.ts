@@ -26,8 +26,9 @@ interface Attributes {
 }
 
 export class StateManager {
-    movementSetting: CONFIG.MovementSetting
-    attributes: Attributes
+    movementSetting: CONFIG.MovementSetting;
+
+    attributes: Attributes;
    
     constructor(movementSetting: CONFIG.MovementSetting) {
         this.movementSetting = movementSetting;

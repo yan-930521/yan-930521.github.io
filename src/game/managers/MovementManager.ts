@@ -9,7 +9,7 @@ export enum Movement {
     Left,
     Right,
     Jump,
-    SquatDown,
+    Crouch,
     Sprint,
     LaunchBlueFireBall,
     Attack1
@@ -74,8 +74,11 @@ export class MovementManager {
             during: boolean
         }
     } = {};
+    private lastMovement: string;
 
     public excludeCDList: Movement[][] = [];
+
+    public readonly NULLMovement: "NULL";
 
     constructor() {
         for (let i in MovementHandlers) {
@@ -150,5 +153,15 @@ export class MovementManager {
     setExclude(movements: Movement[]): MovementManager {
         this.excludeCDList.push(movements);
         return this;
+    }
+
+    recordMovement(movement: string): void {
+        this.lastMovement = movement;
+    }
+    /**
+     * 用於按鍵切割
+     */
+    getLastMovement(): string {
+        return this.lastMovement;
     }
 }

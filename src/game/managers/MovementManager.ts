@@ -74,7 +74,7 @@ export class MovementManager {
             during: boolean
         }
     } = {};
-    private lastMovement: string;
+    private lastMovements: string[];
 
     public excludeCDList: Movement[][] = [];
 
@@ -155,13 +155,13 @@ export class MovementManager {
         return this;
     }
 
-    recordMovement(movement: string): void {
-        this.lastMovement = movement;
+    recordMovements(movements: string[]): void {
+        this.lastMovements = movements;
     }
     /**
      * 用於按鍵切割
      */
-    getLastMovement(): string {
-        return this.lastMovement;
+    getLastMovement(): string[] {
+        return this.lastMovements;
     }
 }

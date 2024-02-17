@@ -82,7 +82,7 @@
        - Method: isContainMovement
        - Method: isExcludeCD
        - Method: setExclude
-       - Method: recordMovement
+       - Method: recordMovements
        - Method: getLastMovement
    - Interface: MovementHandler
 - File: ./src/game/managers/StateManager.ts

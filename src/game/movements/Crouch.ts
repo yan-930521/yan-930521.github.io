@@ -12,7 +12,7 @@ export default {
     cd: 0,
     priority: 1,
     execute: (character: Character, matchedMonementHandler: MovementHandler) => {
-        if(character.movementManager.getLastMovement() == matchedMonementHandler.name) return;
+        if(character.movementManager.getLastMovement().includes(matchedMonementHandler.name)) return;
         // const newBody = character.cloneBody(character.body, character.characterConfig.width, character.characterConfig.height / 2);
 
         // gameMain.world.removeBody(character.body);

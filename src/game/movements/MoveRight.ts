@@ -25,7 +25,6 @@ export default {
                 moveByPositionFunction(character, base);
                 
             }
-            character.switchAnimation("Run");
         } else {
             if (gameMain.config.GameSetting.MoveByForce) {
                 character.moveByForce({
@@ -37,5 +36,6 @@ export default {
                 moveByPositionFunction(character, base);
             }
         }
+        if(character.onGround) character.switchAnimation("Run");
     }
 } as MovementHandler;

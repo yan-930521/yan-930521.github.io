@@ -78,7 +78,7 @@
                     "height": 211,
                     "offsetX": 0,
                     "offsetY": 2,
-                    "animationSpeed": 0.01
+                    "animationSpeed": 0.015
                 },
                 "Crouch": {
                     "name": "Crouch",
@@ -88,6 +88,16 @@
                     "height": 86,
                     "offsetX": 0,
                     "offsetY": 0,
+                    "animationSpeed": 0.015
+                },
+                "JumpAttack1": {
+                    "name": "JumpAttack1",
+                    "path": "Void_Knight/JumpAttack1/VK_jump_atk1.png",
+                    "frameCount": 4,
+                    "width": 200,
+                    "height": 211,
+                    "offsetX": 0,
+                    "offsetY": 2,
                     "animationSpeed": 0.02
                 }
             }

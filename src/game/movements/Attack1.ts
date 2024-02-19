@@ -29,7 +29,10 @@ export default {
     priority: 1,
     execute: (character: Character, matchedMonementHandler: MovementHandler) => {
         if(character.movementManager.getLastMovement().includes(matchedMonementHandler.name)) return;
-        character.switchAnimation("Attack1");
+
+        if(character.onGround) character.switchAnimation("Attack1");
+        else character.switchAnimation("JumpAttack1");
+       
 
         const face = character.getFace() == Face.RIGHT ? 1 : -1;
         const anotherCharacters = gameMain.world.getCharacters().filter((ch: Character) => character != ch);

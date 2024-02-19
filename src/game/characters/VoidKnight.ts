@@ -62,9 +62,9 @@ export class VoidKnight extends Character {
                                 }
 
                                 if (name == "Attack1") {
-                                    this.waitMS(500, () => {
+                                    // this.waitMS(500, () => {
                                         this.setIdle(true);
-                                    });
+                                    // });
                                 } else {
                                     this.setIdle(true);
                                 }
@@ -74,13 +74,11 @@ export class VoidKnight extends Character {
 
                     if (name == "Jump") {
                         animation.onFrameChange = (currentFrame: number) => {
-                            // console.log("Jump", currentFrame);
                             if (currentFrame == this.JumpFrameToStop) animation.stop();
                         }
                     }
                     if (name == "Crouch") {
                         animation.onFrameChange = (currentFrame: number) => {
-                            // console.log("Jump", currentFrame);
                             if (currentFrame == this.CrouchFrameToStop) animation.stop();
                         }
                     }

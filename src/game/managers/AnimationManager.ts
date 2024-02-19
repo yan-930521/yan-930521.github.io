@@ -55,7 +55,7 @@ export class AnimationManager {
         animation.x = animationConfig.offsetX;
         animation.y = animationConfig.offsetY;
         animation.animationSpeed = animationConfig.animationSpeed;
-        animation.scale.set(animationConfig.animationScale);
+        animation.scale.set(this.parent.characterConfig.animationScale);
 
         this.animations[animationConfig.name] = animation;
         this.animationConfigs[animationConfig.name] = animationConfig;

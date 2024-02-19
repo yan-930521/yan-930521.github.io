@@ -33,7 +33,6 @@ export default {
 
         const face = character.getFace() == Face.RIGHT ? 1 : -1;
         const anotherCharacters = gameMain.world.getCharacters().filter((ch: Character) => character != ch);
-        console.log(anotherCharacters)
         const start: CONFIG.Vector = {
             x: 30 * face,
             y: -40
@@ -44,7 +43,6 @@ export default {
 
         for (let i in anotherCharacters) {
             const anotherCharacter = anotherCharacters[i];
-            console.log(anotherCharacter)
             // console.log(anotherCharacter.body.position as CONFIG.Vector,
             //     character.body.position as CONFIG.Vector,
             //     character.body.position.x + start.x, character.body.position.y + start.y, character.body.position.x + end.x, character.body.position.y + end.y)
@@ -60,7 +58,9 @@ export default {
                     y: character.body.position.y + end.y
                 }
             ], anotherCharacter.body.position as CONFIG.Vector)) {
-                console.log("hit!")
+                console.log("hit!", anotherCharacter);
+                // 擊退效果
+                anotherCharacter.moveByForce({x: face * 1, y: 0});
             }
         }
     }

@@ -38,6 +38,7 @@
             "offsetX": 0,
             "offsetY": -18,
             "defaultAnimation": "Idle",
+            "animationScale": 1.2,
             "animation": {
                 "Idle": {
                     "name": "Idle",
@@ -47,8 +48,7 @@
                     "height": 86,
                     "offsetX": 0,
                     "offsetY": 0,
-                    "animationSpeed": 0.006,
-                    "animationScale": 1.2
+                    "animationSpeed": 0.006
                 },
                 "Run": {
                     "name": "Run",
@@ -58,8 +58,7 @@
                     "height": 86,
                     "offsetX": 0,
                     "offsetY": 0,
-                    "animationSpeed": 0.005,
-                    "animationScale": 1.2
+                    "animationSpeed": 0.005
                 },
                 "Jump": {
                     "name": "Jump",
@@ -69,19 +68,17 @@
                     "height": 86,
                     "offsetX": 0,
                     "offsetY": 0,
-                    "animationSpeed": 0.01,
-                    "animationScale": 1.2
+                    "animationSpeed": 0.01
                 },
                 "Attack1": {
                     "name": "Attack1",
                     "path": "Void_Knight/Attack1/VK_attack1.png",
                     "frameCount": 4,
-                    "width": 100,
-                    "height": 172,
+                    "width": 200,
+                    "height": 211,
                     "offsetX": 0,
-                    "offsetY": -43,
-                    "animationSpeed": 0.001,
-                    "animationScale": 1.2
+                    "offsetY": 0,
+                    "animationSpeed": 0.01
                 },
                 "Crouch": {
                     "name": "Crouch",
@@ -91,8 +88,7 @@
                     "height": 86,
                     "offsetX": 0,
                     "offsetY": 0,
-                    "animationSpeed": 0.02,
-                    "animationScale": 1.2
+                    "animationSpeed": 0.02
                 }
             }
         },
@@ -110,6 +106,7 @@
             "offsetX": 0,
             "offsetY": 10,
             "defaultAnimation": "Idle",
+            "animationScale": 0.25,
             "animation": {
                 "Idle": {
                     "name": "Idle",
@@ -119,8 +116,7 @@
                     "height": 240,
                     "offsetX": 0,
                     "offsetY": 0,
-                    "animationSpeed": 0.005,
-                    "animationScale": 0.25
+                    "animationSpeed": 0.005
                 }
             }
         }

@@ -7,6 +7,7 @@ declare namespace CONFIG {
         offsetX: number,
         offsetY: number,
         defaultAnimation: string,
+        animationScale: number,
         animation: {
             [key: string]: AnimationConfig
         }
@@ -23,8 +24,7 @@ declare namespace CONFIG {
         height: number,
         offsetX: number,
         offsetY: number,
-        animationSpeed: number,
-        animationScale: number,
+        animationSpeed: number
     }
     interface AnimationConfigs {
         [key: string]: AnimationConfig

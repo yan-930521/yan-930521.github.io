@@ -167,7 +167,7 @@ export class Character extends BodyObject implements ICharacter {
 
     onUpdate(deltaMS: number): void {
         // 更新顯示位置
-        this.setPosition({ x: this.body.position.x, y: this.body.position.y + this.container.height / 2 });
+        this.setPosition({ x: this.body.position.x, y: this.body.position.y + (this.characterConfig.height * 1.2) / 2});
     }
 
     switchAnimation(name?: string): void {

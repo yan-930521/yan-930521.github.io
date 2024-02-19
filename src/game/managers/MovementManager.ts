@@ -93,6 +93,9 @@ export class MovementManager {
     handleMovement(movements: Movement[]): MovementHandler[] {
         let tempAry: MovementHandler[] = [];
         let tempAry2: MovementHandler[] = [];
+        if(movements.includes(Movement.Left) && movements.includes(Movement.Right)) {
+            movements = movements.filter(m => m != Movement.Left && m != Movement.Right);
+        }
         for (let i in MovementHandlers) {
             if (this.isContainMovement(MovementHandlers[i].key, movements)) {
                 if(tempAry.length == 0) tempAry.push(MovementHandlers[i]);

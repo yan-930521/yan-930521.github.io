@@ -34,7 +34,7 @@ export class VoidKnight extends Character {
             // 特別處理crouch邏輯
             if (this.animationManager.animationConfigs["Crouch"]) {
                 if (this.animationManager.isReady() && this.animationManager.getAnimationFrame("Crouch") == this.JumpFrameToStop) {
-                    if (this.movementManager.getLastMovement().includes(this.movementManager.NULLMovement)) {
+                    if (!this.movementManager.getLastMovement().includes("Crouch")) {
                         this.animationManager.animations["Crouch"].play();
                     }
                 }

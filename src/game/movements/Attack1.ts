@@ -63,7 +63,7 @@ export default {
             ], anotherCharacter.body.position as CONFIG.Vector)) {
                 console.log("hit!", anotherCharacter);
                 // 擊退效果
-                anotherCharacter.moveByForce({x: face * 1, y: 0});
+                anotherCharacter.moveByForce({x: face * 1, y: 1});
             }
         }
     }

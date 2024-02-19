@@ -9,7 +9,7 @@ export default {
     name: "Sprint",
     description: "朝目前方向衝刺",
     cd: 1500,
-    priority: 1,
+    priority: 3,
     execute: (character: Character, matchedMonementHandler: MovementHandler) => {
         character.container.alpha = 0.6;
         const step = 10 * (character.getFace() == Face.RIGHT ? 1 : -1);

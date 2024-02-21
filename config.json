@@ -80,6 +80,16 @@
                     "offsetY": 2,
                     "animationSpeed": 0.013
                 },
+                "Attack2": {
+                    "name": "Attack2",
+                    "path": "Void_Knight/Attack1/VK_attack2.png",
+                    "frameCount": 4,
+                    "width": 200,
+                    "height": 211,
+                    "offsetX": 0,
+                    "offsetY": 2,
+                    "animationSpeed": 0.013
+                },
                 "Crouch": {
                     "name": "Crouch",
                     "path": "Void_Knight/Crouch/VK_crouch.png",
@@ -93,6 +103,16 @@
                 "JumpAttack1": {
                     "name": "JumpAttack1",
                     "path": "Void_Knight/JumpAttack1/VK_jump_atk1.png",
+                    "frameCount": 4,
+                    "width": 200,
+                    "height": 211,
+                    "offsetX": 0,
+                    "offsetY": 1,
+                    "animationSpeed": 0.014
+                },
+                "JumpAttack2": {
+                    "name": "JumpAttack2",
+                    "path": "Void_Knight/JumpAttack1/VK_jump_atk2.png",
                     "frameCount": 4,
                     "width": 200,
                     "height": 211,

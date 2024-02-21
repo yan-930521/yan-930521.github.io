@@ -12,7 +12,6 @@ export default {
     priority: 1,
     execute: (character: Character, matchedMonementHandler: MovementHandler) => {
         character.setFace(Face.RIGHT);
-
         if (!character.isJumping()) {
             character.isRunning = true;
             if (gameMain.config.GameSetting.MoveByForce) {
@@ -25,6 +24,7 @@ export default {
                 moveByPositionFunction(character, base);
                 
             }
+            character.switchAnimation("Run");
         } else {
             if (gameMain.config.GameSetting.MoveByForce) {
                 character.moveByForce({
@@ -36,6 +36,5 @@ export default {
                 moveByPositionFunction(character, base);
             }
         }
-        if(character.onGround) character.switchAnimation("Run");
     }
 } as MovementHandler;

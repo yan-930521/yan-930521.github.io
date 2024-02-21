@@ -30,7 +30,7 @@ export default {
     execute: (character: Character, matchedMonementHandler: MovementHandler) => {
         if(character.movementManager.getLastMovement().includes(matchedMonementHandler.name)) return;
 
-        if(character.onGround) character.switchAnimation("Attack1");
+        if(!character.isJumping()) character.switchAnimation("Attack1");
         else character.switchAnimation("JumpAttack1");
        
 

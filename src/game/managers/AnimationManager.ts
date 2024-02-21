@@ -60,8 +60,7 @@ export class AnimationManager {
         this.animations[animationConfig.name] = animation;
         this.animationConfigs[animationConfig.name] = animationConfig;
 
-        if (animationConfig.name == this.parent.characterConfig.defaultAnimation) this.setHaveToStop(animationConfig.name, false);
-        else this.setHaveToStop(animationConfig.name, true);
+        this.setHaveToStop(animationConfig.name, this.getMustStop(animationConfig.name));
 
         if (loadAnimationCallBack) loadAnimationCallBack(animation);
         return animation;
@@ -89,7 +88,6 @@ export class AnimationManager {
 
     switchAnimation(animation?: string, switchAnimationCallBack?: AnimationCallBack): void {
         if (!this.isReady()) return;
-
         for (let name in this.animations) {
             this.animations[name].stop();
             this.parent.container.removeChild(this.animations[name]);
@@ -118,6 +116,7 @@ export class AnimationManager {
             switchAnimationCallBack(this.animations[this.nowAnimation]);
         }
     }
+
 
     setAnimationFrame(name: string, frame: number): void {
         if (!this.isReady()) return;

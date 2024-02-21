@@ -12,6 +12,8 @@ export class Character extends BodyObject implements ICharacter {
     public onGround: boolean = true;
     public jumpCount: number = 0;
     public isRunning: boolean = false;
+    public finishFall: boolean = true;
+    public finishCrouch: boolean = true;
 
     public keyInput: CONFIG.KeyInput;
     public characterConfig: CONFIG.CharacterConfig;

@@ -78,7 +78,7 @@
                     "height": 211,
                     "offsetX": 0,
                     "offsetY": 2,
-                    "animationSpeed": 0.015
+                    "animationSpeed": 0.013
                 },
                 "Crouch": {
                     "name": "Crouch",
@@ -98,7 +98,7 @@
                     "height": 211,
                     "offsetX": 0,
                     "offsetY": 1,
-                    "animationSpeed": 0.02
+                    "animationSpeed": 0.014
                 }
             }
         },

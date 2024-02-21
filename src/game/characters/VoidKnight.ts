@@ -12,8 +12,11 @@ export class VoidKnight extends Character {
         super(gameMain.config.Character.VoidKnight);
 
         this.animationManager.setMustStop("Jump", true);
+        this.animationManager.setMustStop("Fall", true);
+        this.animationManager.setMustStop("Idle", true);
         this.animationManager.setMustStop("Crouch", true);
         this.animationManager.setMustStop("Attack1", true);
+        this.animationManager.setMustStop("JumpAttack1", true);
 
         this.animationManager.setMustReStart("Jump", true);
         this.movementManager
@@ -25,8 +28,9 @@ export class VoidKnight extends Character {
         this.on("update", (deltaMS: number) => {
             // 特別處理jump邏輯
             if (this.animationManager.animationConfigs["Jump"]) {
-                if (this.animationManager.isReady() && this.animationManager.getAnimationFrame("Jump") == this.JumpFrameToStop) {
-                    if (this.body.velocity.y > 0 && (gameMain.config.GameViewport.GroundHeight - this.container.height / 2) - this.body.position.y < gameMain.config.GameSetting.HeightToShowFall) {
+                if (this.animationManager.isReady() && (this.animationManager.getAnimationFrame("Jump") == this.JumpFrameToStop || !this.finishFall)) {
+                    if (this.body.velocity.y > 1 && (gameMain.config.GameViewport.GroundHeight - this.container.height / 2) - this.body.position.y < gameMain.config.GameSetting.HeightToShowFall) {
+                        this.finishFall = true;
                         this.animationManager.animations["Jump"].play();
                     }
                 }
@@ -55,19 +59,21 @@ export class VoidKnight extends Character {
                             if (this.animationManager.getHaveToStop(name)) {
 
                                 animation.stop();
-                                this.container.removeChild(animation);
                                 
                                 if (name == "Jump") {
                                     this.movementManager.CDState[name].during = false;
                                 }
 
-                                if (name == "Attack1") {
-                                    // this.waitMS(500, () => {
+                                if(name == "JumpAttack1") {
+                                    this.waitMS(400, () => {
+                                        this.container.removeChild(animation);
                                         this.setIdle(true);
-                                    // });
+                                    });
                                 } else {
+                                    this.container.removeChild(animation);
                                     this.setIdle(true);
                                 }
+                                
                             }
                         }
                     }

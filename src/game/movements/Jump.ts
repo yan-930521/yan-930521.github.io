@@ -11,7 +11,9 @@ export default {
     execute: (character: Character, matchedMonementHandler: MovementHandler) => {
         if(character.movementManager.getLastMovement().includes(matchedMonementHandler.name)) return;
         if (!character.canJump()) return;
+        
         character.jumpCount++;
+        character.finishFall = false;
 
         character.movementManager.CDState.Jump.allow = false;
         character.movementManager.CDState.Jump.during = true;

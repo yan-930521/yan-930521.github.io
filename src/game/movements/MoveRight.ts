@@ -12,7 +12,7 @@ export default {
     priority: 1,
     execute: (character: Character, matchedMonementHandler: MovementHandler) => {
         character.setFace(Face.RIGHT);
-        if (!character.isJumping()) {
+        if (character.body.position.y > gameMain.config.GameSetting.HeightToShowFall) {
             character.isRunning = true;
             if (gameMain.config.GameSetting.MoveByForce) {
                 character.moveByForce({

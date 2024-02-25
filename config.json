@@ -42,6 +42,7 @@
             "animation": {
                 "Idle": {
                     "name": "Idle",
+                    "priority": 1,
                     "path": "Void_Knight/Idle/VK_idle.png",
                     "frameCount": 5,
                     "width": 50,
@@ -52,6 +53,7 @@
                 },
                 "Run": {
                     "name": "Run",
+                    "priority": 2,
                     "path": "Void_Knight/Walk/VK_walk.png",
                     "frameCount": 4,
                     "width": 50,
@@ -62,6 +64,7 @@
                 },
                 "Jump": {
                     "name": "Jump",
+                    "priority": 3,
                     "path": "Void_Knight/Jump/VK_jump.png",
                     "frameCount": 7,
                     "width": 50,
@@ -72,6 +75,7 @@
                 },
                 "Attack1": {
                     "name": "Attack1",
+                    "priority": 4,
                     "path": "Void_Knight/Attack1/VK_attack1.png",
                     "frameCount": 4,
                     "width": 200,
@@ -82,6 +86,7 @@
                 },
                 "Attack2": {
                     "name": "Attack2",
+                    "priority": 4,
                     "path": "Void_Knight/Attack2/VK_attack2.png",
                     "frameCount": 4,
                     "width": 200,
@@ -92,6 +97,7 @@
                 },
                 "Crouch": {
                     "name": "Crouch",
+                    "priority": 3,
                     "path": "Void_Knight/Crouch/VK_crouch.png",
                     "frameCount": 7,
                     "width": 50,
@@ -102,6 +108,7 @@
                 },
                 "JumpAttack1": {
                     "name": "JumpAttack1",
+                    "priority": 4,
                     "path": "Void_Knight/JumpAttack1/VK_jump_atk1.png",
                     "frameCount": 4,
                     "width": 200,
@@ -112,6 +119,7 @@
                 },
                 "JumpAttack2": {
                     "name": "JumpAttack2",
+                    "priority": 4,
                     "path": "Void_Knight/JumpAttack2/VK_jump_atk2.png",
                     "frameCount": 4,
                     "width": 200,

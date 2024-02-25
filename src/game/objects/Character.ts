@@ -173,6 +173,7 @@ export class Character extends BodyObject implements ICharacter {
     }
 
     switchAnimation(name?: string): void {
+        // console.log("switchAnimation", name)
         this.animationManager.switchAnimation(name, (animation: AnimatedSprite) => {
             this.container.addChild(animation);
         });

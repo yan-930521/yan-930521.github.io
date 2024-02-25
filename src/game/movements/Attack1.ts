@@ -31,7 +31,9 @@ export default {
         if(character.movementManager.getLastMovement().includes(matchedMonementHandler.name)) return;
 
         if(character.body.position.y > gameMain.config.GameSetting.HeightToShowFall) character.switchAnimation("Attack2");
-        else character.switchAnimation("JumpAttack2");
+        else {
+            character.switchAnimation("JumpAttack2");
+        }
        
 
         const face = character.getFace() == Face.RIGHT ? 1 : -1;

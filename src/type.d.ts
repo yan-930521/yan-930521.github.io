@@ -18,6 +18,7 @@ declare namespace CONFIG {
 
     interface AnimationConfig {
         name: string,
+        priority: number,
         path: string,
         frameCount: number,
         width: number,

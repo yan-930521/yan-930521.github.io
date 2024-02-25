@@ -16,7 +16,9 @@ export class VoidKnight extends Character {
         this.animationManager.setMustStop("Idle", true);
         this.animationManager.setMustStop("Crouch", true);
         this.animationManager.setMustStop("Attack1", true);
+        this.animationManager.setMustStop("Attack2", true);
         this.animationManager.setMustStop("JumpAttack1", true);
+        this.animationManager.setMustStop("JumpAttack2", true);
 
         this.animationManager.setMustReStart("Jump", true);
         this.movementManager
@@ -64,7 +66,7 @@ export class VoidKnight extends Character {
                                     this.movementManager.CDState[name].during = false;
                                 }
 
-                                if(name == "JumpAttack1") {
+                                if(name == "JumpAttack1" || name == "JumpAttack2") {
                                     this.waitMS(400, () => {
                                         this.container.removeChild(animation);
                                         this.setIdle(true);

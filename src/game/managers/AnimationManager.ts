@@ -89,7 +89,6 @@ export class AnimationManager {
     switchAnimation(animation?: string, switchAnimationCallBack?: AnimationCallBack): void {
         if (!this.isReady()) return;
         
-        console.log(animation, this.nowAnimation);
         if(animation && this.nowAnimation && this.animationConfigs[animation].priority < this.animationConfigs[this.nowAnimation].priority) return;
 
         for (let name in this.animations) {

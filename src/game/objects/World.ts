@@ -89,6 +89,8 @@ export class World extends EventEmitter implements IWorld {
         );
         this.addObjectToWorld(trainingDummy);
 
+        Sleeping.set(trainingDummy.body, true);
+        
         this.trainingDummy = trainingDummy;
     }
 

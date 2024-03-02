@@ -82,7 +82,7 @@
                     "height": 211,
                     "offsetX": 0,
                     "offsetY": 2,
-                    "animationSpeed": 0.013
+                    "animationSpeed": 0.01
                 },
                 "Attack2": {
                     "name": "Attack2",
@@ -93,7 +93,7 @@
                     "height": 211,
                     "offsetX": 0,
                     "offsetY": 2,
-                    "animationSpeed": 0.013
+                    "animationSpeed": 0.01
                 },
                 "Crouch": {
                     "name": "Crouch",
@@ -115,7 +115,7 @@
                     "height": 211,
                     "offsetX": 0,
                     "offsetY": 1,
-                    "animationSpeed": 0.014
+                    "animationSpeed": 0.01
                 },
                 "JumpAttack2": {
                     "name": "JumpAttack2",
@@ -126,7 +126,7 @@
                     "height": 211,
                     "offsetX": 0,
                     "offsetY": 1,
-                    "animationSpeed": 0.014
+                    "animationSpeed": 0.01
                 }
             }
         },
